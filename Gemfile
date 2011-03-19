@@ -11,6 +11,8 @@ gem 'devise', '1.1.7'
 gem 'haml', '3.0.25'
 gem "haml-rails"
 
+gem "cancan"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -35,4 +37,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'webrat'
   gem 'nifty-generators'
+  gem 'hpricot'
+  gem 'ruby_parser'
 end

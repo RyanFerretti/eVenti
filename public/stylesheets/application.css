@@ -4,6 +4,10 @@ body {
   font-size: 14px;
 }
 
+body.admin {
+  background-color: #ff6666;
+}
+
 a img {
   border: none;
 }
