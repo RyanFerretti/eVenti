@@ -1,0 +1,20 @@
+%h2
+  Edit Profile
+= form_for(@member, :url => update_profile_path, :html => { :method => :put, :multipart => true }) do |f|
+  %p
+    = f.label :email
+    %br/
+    = f.text_field :email
+  = f.fields_for :pictures do |ff|
+    %p
+    = ff.label "Picture"
+    %br
+    = ff.file_field :image
+
+  %p
+    = f.submit "Update"
+
+%h3 Cancel my account
+%p
+  Unhappy? #{link_to "Cancel my account", registration_path(:member), :confirm => "Are you sure?", :method => :delete}.
+= link_to "Back", :back

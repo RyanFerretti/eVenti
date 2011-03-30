@@ -1,0 +1,12 @@
+%p
+  %b Email:
+  = @member.email
+
+- @member.pictures.each do |p|
+  %p
+    = image_tag p.image.url(:small)
+
+%br
+%br
+
+= link_to 'Edit', edit_profile_path
