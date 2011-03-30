@@ -18,4 +18,11 @@ class User < ActiveRecord::Base
   def setup_roles
     roles << Role.find_by_name(self.type.underscore) if roles.empty?
   end
+
+  protected
+
+  def password_required?
+    !persisted? || password.present? || password_confirmation.present?
+  end
+  
 end

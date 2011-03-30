@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/patshaughnessy/paperclip.git
+  revision: 942a2b43383fd04c0434ca4b27379a114cb28a50
+  specs:
+    paperclip (2.3.6)
+      activerecord
+      activesupport
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -115,6 +123,7 @@ DEPENDENCIES
   hpricot
   nifty-generators
   nokogiri
+  paperclip!
   rails (= 3.0.5)
   rspec
   rspec-rails

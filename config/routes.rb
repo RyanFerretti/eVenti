@@ -2,7 +2,13 @@ EVenti::Application.routes.draw do
 
   root :to => "home#index"
 
-  devise_for :members,:clients,:admins
+  match 'profile' => 'profile#show', :as => :show_profile, :via => :get
+  match 'profile/edit' => 'profile#edit', :as => :edit_profile, :via => :get
+  match 'profile' => 'profile#update', :as => :update_profile, :via => :put
+
+  devise_for :members
+  devise_for :clients
+  devise_for :admins
 
   resources :events
 
