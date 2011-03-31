@@ -8,6 +8,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.trackable
       t.lockable
       t.string :username
+      t.string :first_name
+      t.string :last_name
+      t.string :profile_name
       t.string :type # for single table inheritance
       t.timestamps
     end

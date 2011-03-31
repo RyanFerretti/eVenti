@@ -6,6 +6,8 @@ EVenti::Application.routes.draw do
   match 'profile/edit' => 'profile#edit', :as => :edit_profile, :via => :get
   match 'profile' => 'profile#update', :as => :update_profile, :via => :put
 
+  match 'profiles/:profile_name' => 'profile#show_user', :profile_name => /[^\/]+/, :as => :show_user_profile, :via => :get
+
   devise_for :members
   devise_for :clients
   devise_for :admins

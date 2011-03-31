@@ -5,12 +5,26 @@
     = f.label :email
     %br/
     = f.text_field :email
+  %p
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  %p
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+  %p
+    = f.label :profile_name
+    %br/
+    = f.text_field :profile_name
+  - @index = 0
   = f.fields_for :pictures do |ff|
-    %p
-    = ff.label "Picture"
-    %br
+    - unless @member.pictures[@index].new_record?
+      %p
+        = image_tag @member.pictures[@index].image.url(:small)
+      %br
     = ff.file_field :image
-
+    - @index += 1
   %p
     = f.submit "Update"
 

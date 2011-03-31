@@ -1,0 +1,16 @@
+- if @member
+  %p
+    %b Email:
+    = @member.email
+  %p
+    %b First Name:
+    = @member.first_name
+  %p
+    %b Last Name:
+    = @member.last_name
+  - @member.pictures.each do |p|
+    %p
+      = image_tag p.image.url(:small)
+- else
+  %p
+    %b No User Found
