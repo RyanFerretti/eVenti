@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Member:
+  = @rating.member_id
+%p
+  %b Value:
+  = @rating.value
+
+= link_to 'Edit', edit_rating_path(@rating)
+\|
+= link_to 'Back', ratings_path

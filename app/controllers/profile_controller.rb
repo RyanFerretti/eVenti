@@ -14,6 +14,10 @@ class ProfileController < ApplicationController
     end
   end
 
+  def paged_profiles
+    next_profile_pictures
+  end
+
   def edit
     @member = current_member
     @host = request.host

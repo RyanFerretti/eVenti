@@ -8,6 +8,7 @@ gem 'haml', '3.0.25'
 gem "haml-rails"
 gem "paperclip", :git => "git://github.com/patshaughnessy/paperclip.git"
 gem "cancan"
+gem 'kaminari'
 
 # Use unicorn as the web server
 # gem 'unicorn'
