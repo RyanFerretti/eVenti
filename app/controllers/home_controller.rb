@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    next_profile_pictures
+    setup_next_profile_pictures
   end
 end

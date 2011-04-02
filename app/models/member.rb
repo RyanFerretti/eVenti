@@ -10,4 +10,8 @@ class Member < User
 
   validates_uniqueness_of :profile_name
 
+  def average_rating
+    ratings.average(:value)
+  end
+
 end

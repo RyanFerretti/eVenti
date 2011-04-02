@@ -82,3 +82,12 @@ a {
   float: right;
   font-size: 12px;
 }
+
+.home_picture {
+  float:left;
+  margin-right:20px;
+}
+
+.hidden {
+    display:none;
+}

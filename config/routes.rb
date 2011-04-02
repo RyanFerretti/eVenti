@@ -1,7 +1,5 @@
 EVenti::Application.routes.draw do
 
-  resources :ratings
-
   root :to => "home#index"
 
   match 'profile' => 'profile#show', :as => :show_profile, :via => :get
@@ -13,6 +11,8 @@ EVenti::Application.routes.draw do
   devise_for :members
   devise_for :clients
   devise_for :admins
+
+  match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
 
   resources :events
 

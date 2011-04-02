@@ -1,2 +1,33 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function(){
+  $('.vote_link').bind('ajax:success', function() {
+    ;
+  });
+});
+
+function update_voting_links(old_profile) {
+  var new_profile = $("#next_profile").val();
+  $(".vote_link").each(function(){
+    var a = $(this);
+    var href = a.attr("href");
+    var new_href = href.replace("/profile/" + old_profile,"/profile/" + new_profile);
+    a.attr("href",new_href);
+  });
+}
+
+function setup_next_input_container(upcoming_id) {
+  $("#next_profile").val(upcoming_id);
+}
+
+function move_pictures(upcoming_src) {
+  var next_src = $("#next_profile_image").attr("src");
+  next_src = next_src.replace("/small","/watermarked");
+  var current_src = $("#current_profile_image").attr("src");
+  current_src = current_src.replace("/watermarked","/small");
+  $("#last_profile_image").show().attr("src",current_src);
+  $("#current_profile_image").attr("src",next_src);
+  $("#next_profile_image").attr("src",upcoming_src);
+}
+
+function show_new_rating_for_last_member(rating) {
+  $("#rating_display").html("Average Rating: "+ rating);
+}

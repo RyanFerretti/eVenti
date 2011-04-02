@@ -1,0 +1,4 @@
+= "update_voting_links('#{@member.id}');"
+= "setup_next_input_container('#{@upcoming_member.id}');"
+= "move_pictures('#{@upcoming_member.pictures.first.image.url(:small)}');"
+= "show_new_rating_for_last_member('#{number_with_precision(@member.average_rating,:precision => 1)}');"
