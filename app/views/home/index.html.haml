@@ -4,12 +4,13 @@
   = image_tag "", :id => "last_profile_image", :class => "hidden"
   %p#rating_display Vote for your favorite model!
 .home_picture
-  %div
-    = link_to "1", vote_for_path(:member_id => @members.first.id, :vote_value => 1), :remote => true, :method => :post, :class => "vote_link"
-    = link_to "2", vote_for_path(:member_id => @members.first.id, :vote_value => 2), :remote => true, :method => :post, :class => "vote_link"
-    = link_to "3", vote_for_path(:member_id => @members.first.id, :vote_value => 3), :remote => true, :method => :post, :class => "vote_link"
-    = link_to "4", vote_for_path(:member_id => @members.first.id, :vote_value => 4), :remote => true, :method => :post, :class => "vote_link"
-    = link_to "5", vote_for_path(:member_id => @members.first.id, :vote_value => 5), :remote => true, :method => :post, :class => "vote_link"
+  - if @allow_voting
+    #voting_links
+      = link_to "1", vote_for_path(:member_id => @members.first.id, :vote_value => 1), :remote => true, :method => :post, :class => "vote_link"
+      = link_to "2", vote_for_path(:member_id => @members.first.id, :vote_value => 2), :remote => true, :method => :post, :class => "vote_link"
+      = link_to "3", vote_for_path(:member_id => @members.first.id, :vote_value => 3), :remote => true, :method => :post, :class => "vote_link"
+      = link_to "4", vote_for_path(:member_id => @members.first.id, :vote_value => 4), :remote => true, :method => :post, :class => "vote_link"
+      = link_to "5", vote_for_path(:member_id => @members.first.id, :vote_value => 5), :remote => true, :method => :post, :class => "vote_link"
   = image_tag @pictures.first.image.url(:watermarked), :id => "current_profile_image"
 #next
   = hidden_field_tag "next_profile", @members.second.id

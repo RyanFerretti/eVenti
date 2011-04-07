@@ -15,6 +15,7 @@ class RatingsController < ApplicationController
       end
     end
     update_last_rated_user(@member)
+    @allow_voting = allow_voting?
     respond_to do |format|
       format.js { render :action => 'success' }
     end

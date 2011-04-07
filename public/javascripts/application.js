@@ -31,3 +31,7 @@ function move_pictures(upcoming_src) {
 function show_new_rating_for_last_member(rating) {
   $("#rating_display").html("Average Rating: "+ rating);
 }
+
+function disable_voting() {
+  $("#voting_links").remove();
+}

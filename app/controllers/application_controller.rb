@@ -14,4 +14,7 @@ class ApplicationController < ActionController::Base
     session[:last_rating] = member.id
   end
 
+  def allow_voting?
+    true
+  end
 end
