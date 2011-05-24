@@ -2,21 +2,21 @@ EVenti::Application.routes.draw do
 
   resources :locations
 
-  root :to => "home#index"
+  #root :to => "home#index"
 
-  match 'profile' => 'profile#show', :as => :show_profile, :via => :get
-  match 'profile/edit' => 'profile#edit', :as => :edit_profile, :via => :get
-  match 'profile' => 'profile#update', :as => :update_profile, :via => :put
+#  match 'profile' => 'profile#show', :as => :show_profile, :via => :get
+#  match 'profile/edit' => 'profile#edit', :as => :edit_profile, :via => :get
+#  match 'profile' => 'profile#update', :as => :update_profile, :via => :put
 
-  match 'profiles/:profile_name' => 'profile#show_user', :profile_name => /[^\/]+/, :as => :show_user_profile, :via => :get
+#  match 'profiles/:profile_name' => 'profile#show_user', :profile_name => /[^\/]+/, :as => :show_user_profile, :via => :get
 
   devise_for :members
   devise_for :clients
   devise_for :admins
 
-  match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
+#  match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
 
-  resources :events
+#  resources :events
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -74,4 +74,6 @@ EVenti::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+
+  root :to => "home#index"
 end
