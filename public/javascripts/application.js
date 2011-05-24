@@ -1,4 +1,10 @@
 $(document).ready(function(){
+  $(".date_picker").datepicker({
+    changeMonth : true,
+    changeYear  : true,
+    showOtherMonths : true
+  });
+
   $('.vote_link').bind('ajax:success', function() {
     ;
   });

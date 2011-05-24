@@ -1,0 +1,10 @@
+class MemberSummary < ActiveRecord::Base
+  belongs_to :member
+
+  attr_accessible :profile_name, :date_of_birth, :address, :city, :state, :zip_code, :tour_market, :facebook_url,
+                  :telephone, :bust, :waist, :hips, :piercings, :tattoos, :first_concert, :last_concert, :top_bands,
+                  :favorite_song, :relationship_status, :favorite_sport, :talent, :height, :weight, :hair_color
+
+
+  
+end

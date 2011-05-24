@@ -1,33 +1,140 @@
-%h2 Sign up
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %p
-    = f.label :email
-    %br/
-    = f.text_field :email
-  %p
-    = f.label :username
-    %br/
-    = f.text_field :username
-  %p
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
-  %p
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-  %p
-    = f.label :profile_name
-    %br/
-    = f.text_field :profile_name
-  %p
-    = f.label :password
-    %br/
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %p= f.submit "Sign up"
-= render :partial => "devise/shared/links"
+= devise_error_messages!
+#steps
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    %fieldset.step
+      %legend
+        Account
+      %p
+        = f.label :username
+        = f.text_field :username
+      %p
+        = f.label :email
+        = f.text_field :email
+      %p
+        = f.label :password
+        = f.password_field :password
+      %p
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      = f.fields_for :member_summary do |ff|
+        %p
+          = ff.label :profile_name
+          = ff.text_field :profile_name
+        %p
+          = ff.label :tour_market
+          = ff.text_field :tour_market
+    %fieldset.step
+      %legend
+        Details
+      %p
+        = f.label :first_name
+        = f.text_field :first_name
+      %p
+        = f.label :last_name
+        = f.text_field :last_name
+      = f.fields_for :member_summary do |ff|
+        %p
+          = ff.label :relationship_status
+          = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"%p
+        %p
+          = ff.label :address
+          = ff.text_field :address
+        %p
+          = ff.label :city
+          = ff.text_field :city
+        %p
+          = ff.label :state
+          = ff.select :state, Carmen::states, :prompt => "Please Select"
+        %p
+          = ff.label :zip_code
+          = ff.text_field :zip_code
+        %p
+          = ff.label :telephone
+          = ff.text_field :telephone
+    %fieldset.step
+      %legend
+        Attributes
+      = f.fields_for :member_summary do |ff|
+        %p
+          = ff.label :height
+          = ff.text_field :height
+        %p
+          = ff.label :weight
+          = ff.text_field :weight
+        %p
+          = ff.label :hair_color
+          = ff.text_field :hair_color
+        %p
+          = ff.label "Measurements: Bust"
+          = ff.label :bust
+          = ff.select :bust, build_bust_options, :prompt => "Please Select"
+          = ff.label :waist
+          = ff.select :waist, build_waist_options, :prompt => "Please Select"
+          = ff.label :hips
+          = ff.select :hips, build_hips_options, :prompt => "Please Select"
+        %p
+          = ff.label :piercings
+          = ff.text_field :piercings
+        %p
+          = ff.label :tattoos
+          = ff.text_field :tattoos
+    %fieldset.step
+      %legend
+        Interests
+      = f.fields_for :member_summary do |ff|
+        %p
+          = ff.label :first_concert
+          = ff.text_field :first_concert
+        %p
+          = ff.label :last_concert
+          = ff.text_field :last_concert
+        %p
+          = ff.label :top_bands
+          = ff.text_field :top_bands
+        %p
+          = ff.label :favorite_song
+          = ff.text_field :favorite_song
+        %p
+          = ff.label :favorite_sport
+          = ff.text_field :favorite_sport
+        %p
+          = ff.label :talent
+          = ff.text_field :talent
+    %fieldset.step
+      %legend
+        Photos
+      = f.fields_for :pictures do |ff|
+        = ff.file_field :image
+    %fieldset.step
+      %legend
+        Confirm
+      %p.left
+        If everything in the form has been correctly filled in, the steps below will all have a green checkmark. A red checkmark indicates that something has been left blank.
+      %p.left
+        = check_box_tag :accept_ror
+        I agree to the
+        = link_to("Miss UPROAR Rules and Regulations", "", {:target => "_blank"})
+        %br/
+        %br/
+        = check_box_tag :accept_tc
+        I agree to the
+        = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
+      %p.submit
+        = f.submit "Register", :id => "register-button"
+      %p
+        = render :partial => "devise/shared/links"
+#navigation
+  %ul
+    %li.selected
+      = link_to "Account", "#"
+    %li
+      = link_to "Details", "#"
+    %li
+      = link_to "Attributes", "#"
+    %li
+      = link_to "Interests", "#"
+    %li
+      = link_to "Photos", "#"
+    %li
+      = link_to "Confirm", "#"
+= content_for(:footer,javascript_include_tag("sliding.form"))

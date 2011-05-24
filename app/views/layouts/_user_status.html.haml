@@ -1,7 +1,7 @@
-#user_nav
+.user_nav.right
   = #controller.resource_name
   - if member_signed_in?
-    "Signed in as #{current_member.email}. Not you?"
+    ="Signed in as #{current_member.email}. Not you?"
     = link_to "Sign out", destroy_member_session_path
   - else
     = link_to "Sign up", new_member_registration_path

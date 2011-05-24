@@ -10,13 +10,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110331135937) do
+ActiveRecord::Schema.define(:version => 20110414235649) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "start"
     t.datetime "end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "member_summaries", :force => true do |t|
+    t.integer  "member_id"
+    t.string   "profile_name"
+    t.date     "date_of_birth"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "tour_market"
+    t.string   "facebook_url"
+    t.string   "telephone"
+    t.string   "height"
+    t.string   "weight"
+    t.string   "hair_color"
+    t.string   "bust"
+    t.string   "waist"
+    t.string   "hips"
+    t.string   "piercings"
+    t.string   "tattoos"
+    t.string   "first_concert"
+    t.string   "last_concert"
+    t.string   "top_bands"
+    t.string   "favorite_song"
+    t.string   "relationship_status"
+    t.string   "favorite_sport"
+    t.string   "talent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

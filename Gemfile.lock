@@ -40,6 +40,7 @@ GEM
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     cancan (1.6.2)
+    carmen (0.2.7)
     devise (1.1.7)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -119,6 +120,7 @@ PLATFORMS
 
 DEPENDENCIES
   cancan
+  carmen
   devise (= 1.1.7)
   haml (= 3.0.25)
   haml-rails

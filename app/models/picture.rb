@@ -6,6 +6,9 @@ class Picture < ActiveRecord::Base
                     :styles => { :thumb => "50x50>", :small => "100x100>", :original => "800x600>",
                                  :watermarked => { :geometry => '640x480>', :watermark_path => "#{Rails.root}/public/images/watermark.png"}
                     }
+
+  validates_attachment_presence :image
   attr_accessible :image, :approved, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
+
 
 end

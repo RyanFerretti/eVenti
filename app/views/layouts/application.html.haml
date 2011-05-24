@@ -1,14 +1,29 @@
+<!DOCTYPE html>
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : "Untitled"
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "jquery-1.5.2.min", "rails", "application"
+    = stylesheet_link_tag "redmond-theme/jquery-ui-1.8.11.custom", "application"
+    <!-- stylesheet_link_tag "blueprint/print.css", :media => "print", look into blueprint ie8 hack -->
+    = javascript_include_tag "jquery-1.5.2.min", "jquery-ui-1.8.11.custom.min", "rails", "application"
     = csrf_meta_tag
     = yield(:head)
   %body{:class => body_class}
     #container
-      =  render "layouts/user_status"
+      .header.block
+        .column.span-16
+          %h1
+            = image_tag "/images/uproar-2011.png"
+        .column.span-8.last
+          = render "layouts/user_status"
       - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
-      = content_tag :h1, yield(:title) if show_title?
-      = yield
+        .block
+          .column.span-24
+            = content_tag :div, msg, :class => name
+      -#= content_tag :h1, yield(:title) if show_title?
+      .block
+        #wrapper
+          = yield
+      .footer.block
+        %h2
+          This is the Footer :(
+  = yield(:footer)

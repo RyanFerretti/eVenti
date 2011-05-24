@@ -18,10 +18,91 @@
     = f.label :last_name
     %br/
     = f.text_field :last_name
-  %p
-    = f.label :profile_name
-    %br/
-    = f.text_field :profile_name
+  - f.fields_for :member_summary do |ff|
+    %p
+      = ff.label :profile_name
+      %br/
+      = ff.text_field :profile_name
+    %p
+      = ff.label :date_of_birth
+      %br/
+      = ff.text_field :date_of_birth
+    %p
+      = ff.label :address
+      %br/
+      = ff.text_field :address
+    %p
+      = ff.label :city
+      %br/
+      = ff.text_field :city
+    %p
+      = ff.label :state
+      %br/
+      = ff.text_field :state
+    %p
+      = ff.label :zip_code
+      %br/
+      = ff.text_field :zip_code
+    %p
+      = ff.label :tour_market
+      %br/
+      = ff.text_field :tour_market
+    %p
+      = ff.label :facebook_url
+      %br/
+      = ff.text_field :facebook_url
+    %p
+      = ff.label :telephone
+      %br/
+      = ff.text_field :telephone
+    %p
+      = ff.label :height
+      %br/
+      = ff.text_field :weight
+    %p
+      = ff.label :tour_market
+      %br/
+      = ff.text_field :tour_market
+    %p
+      = ff.label :measurements
+      %br/
+      = ff.text_field :measurements
+    %p
+      = ff.label :piercings
+      %br/
+      = ff.text_field :piercings
+    %p
+      = ff.label :tattoos
+      %br/
+      = ff.text_field :tattoos
+    %p
+      = ff.label :first_concert
+      %br/
+      = ff.text_field :first_concert
+    %p
+      = ff.label :last_concert
+      %br/
+      = ff.text_field :last_concert
+    %p
+      = ff.label :top_bands
+      %br/
+      = ff.text_field :top_bands
+    %p
+      = ff.label :favorite_song
+      %br/
+      = ff.text_field :favorite_song
+    %p
+      = ff.label :relationship_status
+      %br/
+      = ff.text_field :relationship_status
+    %p
+      = ff.label :favorite_sport
+      %br/
+      = ff.text_field :favorite_sport
+    %p
+      = ff.label :talent
+      %br/
+      = ff.text_field :talent
   %p
     = f.label :password
     %i (leave blank if you don't want to change it)

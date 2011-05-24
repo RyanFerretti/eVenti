@@ -6,11 +6,7 @@
 .home_picture
   - if @allow_voting
     #voting_links
-      = link_to "1", vote_for_path(:member_id => @members.first.id, :vote_value => 1), :remote => true, :method => :post, :class => "vote_link"
-      = link_to "2", vote_for_path(:member_id => @members.first.id, :vote_value => 2), :remote => true, :method => :post, :class => "vote_link"
-      = link_to "3", vote_for_path(:member_id => @members.first.id, :vote_value => 3), :remote => true, :method => :post, :class => "vote_link"
-      = link_to "4", vote_for_path(:member_id => @members.first.id, :vote_value => 4), :remote => true, :method => :post, :class => "vote_link"
-      = link_to "5", vote_for_path(:member_id => @members.first.id, :vote_value => 5), :remote => true, :method => :post, :class => "vote_link"
+      = build_vote_links @member
   = image_tag @pictures.first.image.url(:watermarked), :id => "current_profile_image"
 #next
   = hidden_field_tag "next_profile", @members.second.id
