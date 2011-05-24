@@ -1,5 +1,6 @@
 class MemberSummary < ActiveRecord::Base
   belongs_to :member
+  belongs_to :location
 
   attr_accessible :profile_name, :date_of_birth, :address, :city, :state, :zip_code, :tour_market, :facebook_url,
                   :telephone, :bust, :waist, :hips, :piercings, :tattoos, :first_concert, :last_concert, :top_bands,

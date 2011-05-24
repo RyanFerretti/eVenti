@@ -1,3 +1,7 @@
+Location.create! :city => "Chicago", :state => "IL"
+Location.create! :city => "New York", :state => "NY"
+Location.create! :city => "Los Angeles", :state => "CA"
+
 Role.create! :name => "admin"
 Role.create! :name => "client"
 Role.create! :name => "member"
@@ -10,7 +14,7 @@ c.save!
 
 def add_pictures(member,dir)
   1.upto 3 do |j|
-    p = member.pictures.create!
+    p = member.pictures[j-1]
     p.image = File.open(File.join("#{Rails.root}","test","pictures","#{dir}","#{j}.jpg"))
     p.save!
   end

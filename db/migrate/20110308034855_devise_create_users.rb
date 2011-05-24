@@ -12,6 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :last_name
       t.string :profile_name
       t.string :type # for single table inheritance
+      t.integer :status, :default => 0
       t.timestamps
     end
     add_index :users, :username, :unique => true

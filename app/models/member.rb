@@ -1,5 +1,9 @@
 class Member < User
 
+  REGISTERED = 0
+  CONTESTANT = 1
+  FULL = 2
+
   after_initialize :build_dependent
 
   devise :registerable, :recoverable, :confirmable
@@ -23,6 +27,10 @@ class Member < User
 
   def average_rating
     ratings.average(:value)
+  end
+
+  def self.statuses
+    [REGISTERED,CONTESTANT,FULL]
   end
 
 end

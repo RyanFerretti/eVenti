@@ -1,5 +1,7 @@
 EVenti::Application.routes.draw do
 
+  resources :locations
+
   root :to => "home#index"
 
   match 'profile' => 'profile#show', :as => :show_profile, :via => :get

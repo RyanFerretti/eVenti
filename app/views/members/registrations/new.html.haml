@@ -21,8 +21,8 @@
           = ff.label :profile_name
           = ff.text_field :profile_name
         %p
-          = ff.label :tour_market
-          = ff.text_field :tour_market
+          = ff.label :location
+          = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
     %fieldset.step
       %legend
         Details

@@ -2,13 +2,13 @@ class CreateMemberSummaries < ActiveRecord::Migration
   def self.up
     create_table :member_summaries do |t|
       t.references :member
+      t.references :location
       t.string :profile_name
       t.date :date_of_birth
       t.string :address
       t.string :city
       t.string :state
       t.string :zip_code
-      t.string :tour_market
       t.string :facebook_url
       t.string :telephone
       t.string :height
