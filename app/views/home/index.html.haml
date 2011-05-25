@@ -1,43 +1,43 @@
-%h1 Rate some Peeps!
-%br
-.home_picture
-  = image_tag "", :id => "last_profile_image", :class => "hidden"
-  %p#rating_display Vote for your favorite model!
-.home_picture
-  - if @allow_voting
-    #voting_links
-      = build_vote_links @member
-  = image_tag @pictures.first.image.url(:watermarked), :id => "current_profile_image"
-#next
-  = hidden_field_tag "next_profile", @members.second.id
-  = image_tag @pictures.second.image.url(:small), :id => "next_profile_image"
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
+/%h1 Rate some Peeps!
+/%br
+/.home_picture
+/  = image_tag "", :id => "last_profile_image", :class => "hidden"
+/  %p#rating_display Vote for your favorite model!
+/.home_picture
+/  - if @allow_voting
+/    #voting_links
+/      = build_vote_links @member
+/  = image_tag @pictures.first.image.url(:watermarked), :id => "current_profile_image"
+/#next
+/  = hidden_field_tag "next_profile", @members.second.id
+/  = image_tag @pictures.second.image.url(:small), :id => "next_profile_image"
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
+/%br
