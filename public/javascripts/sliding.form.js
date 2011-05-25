@@ -103,7 +103,7 @@ $(function() {
 	and returns -1 if errors found, or 1 if not
 	*/
 	function validateStep(step){
-        //step++;
+        step++;
 		if(step == fieldsetCount) return;
 		var error = 1;
 		var hasError = false;
@@ -114,14 +114,14 @@ $(function() {
 			if(valueLength == ''){
 				hasError = true;
 				$this.css('background-color','#FFEDEF');
-				$this.css('border-color','#CC0000');
+				$this.css('border-color','#cc0000');
 			}
-			else
+			else {
 				$this.css('background-color','#FFFFFF');
-				$this.css('border-color','#66FF00');
+				$this.css('border-color','');
+            }
 		});
-		//var $link = $('#navigation li:nth-child(' + parseInt(step-1) + ') a');
-        var $link = $('#navigation li:nth-child(' + parseInt(step) + ') a');
+		var $link = $('#navigation li:nth-child(' + parseInt(step-1) + ') a');
 		$link.parent().find('.error,.checked').remove();
 		
 		var valclass = 'checked';
@@ -137,9 +137,10 @@ $(function() {
 	/*
 	if there are errors don't allow the user to submit
 	*/
-	$('#register-button').bind('click',function(){
-		if($('form').data('errors')){
+	$('form').live('submit',function(e){
+		if($('#navigation .errors')){
 			alert('Please correct the errors in the Form');
+            e.preventDefault();
 			return false;
 		}	
 	});
