@@ -9,7 +9,7 @@
         = f.text_field :username
       %p
         = f.label :email
-        = f.text_field :email
+        = f.text_field :email, :placeholder => "username@email.com"
       %p
         = f.label :password
         = f.password_field :password
@@ -20,9 +20,9 @@
         %p
           = ff.label :profile_name
           = ff.text_field :profile_name
-        %p
-          = ff.label :location
-          = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
+        /%p
+        /  = ff.label :location
+        /  = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
     %fieldset.step
       %legend
         Details
