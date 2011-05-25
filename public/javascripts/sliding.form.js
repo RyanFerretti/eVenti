@@ -142,7 +142,12 @@ $(function() {
 			alert('Please correct the errors in the Form');
             e.preventDefault();
 			return false;
-		}	
+		}
+        if(!checkRequiredCheckBoxes()){
+			alert('Please accept the Rules and Terms of Conditions');
+            e.preventDefault();
+			return false;
+		}
 	});
 	$("fieldset:not(:last-child)").append('<a href="#" class="next-button">Next</a>');
 
@@ -162,4 +167,22 @@ $(function() {
             $(this).parent().siblings().last().attr("disabled","disabled");
         }
     });
+
+    $(".required-for-submit").live("click",function(){
+        checkRequiredCheckBoxes();
+    });
+
+    function checkRequiredCheckBoxes(){
+        var total = $(".required-for-submit").length;
+            totalChecked = $(".required-for-submit:checked").length;
+
+        if(total == totalChecked){
+            $("#register-button").removeClass("hidden");
+            return true;
+        }
+        else {
+            $("#register-button").addClass("hidden");
+            return false;
+        }
+    }
 });

@@ -371,3 +371,7 @@ span.error{
 .radios input[type="radio"]{
     margin-right:10px;
 }
+
+.hidden {
+    display:none !important;
+}

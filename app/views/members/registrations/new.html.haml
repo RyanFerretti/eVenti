@@ -34,6 +34,9 @@
         = f.text_field :last_name
       = f.fields_for :member_summary do |ff|
         %p
+          = ff.label :date_of_birth
+          = ff.text_field :date_of_birth
+        %p
           = ff.label :relationship_status
           = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"%p
         %p
@@ -51,6 +54,9 @@
         %p
           = ff.label :telephone
           = ff.text_field :telephone
+        %p
+          = ff.label :facebook_url
+          = ff.text_field :facebook_url
     %fieldset.step
       %legend
         Attributes
@@ -128,16 +134,16 @@
       %p.left
         If everything in the form has been correctly filled in, the steps below will all have a green checkmark. A red checkmark indicates that something has been left blank.
       %p.left
-        = check_box_tag :accept_ror
+        = check_box_tag :accept_ror, 'yes', false, :class => 'required-for-submit'
         I agree to the
         = link_to("Miss UPROAR Rules and Regulations", "", {:target => "_blank"})
         %br/
         %br/
-        = check_box_tag :accept_tc
+        = check_box_tag :accept_tc, 'yes', false, :class => 'required-for-submit'
         I agree to the
         = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
       %p.submit
-        = f.submit "Register", :id => "register-button"
+        = f.submit "Register", :id => "register-button", :class => "hidden"
       %p
         = render :partial => "devise/shared/links"
 #navigation
