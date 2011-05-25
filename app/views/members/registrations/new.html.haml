@@ -19,10 +19,10 @@
       %p
         = f.label :profile_name
         = f.text_field :profile_name
-/      = f.fields_for :member_summary do |ff|
-        /%p
-        /  = ff.label :location
-        /  = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
+      /= f.fields_for :member_summary do |ff|
+      /%p
+      /  = ff.label :location
+      /  = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
     %fieldset.step
       %legend
         Details
