@@ -3,7 +3,6 @@ class CreateMemberSummaries < ActiveRecord::Migration
     create_table :member_summaries do |t|
       t.references :member
       t.references :location
-      t.string :profile_name
       t.date :date_of_birth
       t.string :address
       t.string :city
