@@ -121,13 +121,22 @@
           = ff.label :favorite_sport
           = ff.text_field :favorite_sport
         %p
-          = ff.label :talent
-          = ff.text_field :talent
+          = ff.label :talent, "Unique talent that separates you from the other contestants", :class => "smaller-line"
+          = ff.text_field :talent, :class => "top-margin"
     %fieldset.step
       %legend
         Photos
-      = f.fields_for :pictures do |ff|
-        = ff.file_field :image
+      %p.left
+        Please upload 3 photos that will be displayed and rated on your profile.
+        br/
+        br/
+        Images must be less than 10MB. JPEG and PNG files accepted.
+      - i = 1
+      = f.fields_for :pictures, :index => 1 do |ff|
+        %p
+          = ff.label :image, "Photo #{i}"
+          = ff.file_field :image
+          - i += 1
     %fieldset.step
       %legend
         Confirm

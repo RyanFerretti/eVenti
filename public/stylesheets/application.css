@@ -215,7 +215,6 @@ span.error{
 }
 #steps form fieldset{
     border:none;
-    padding-bottom:20px;
 }
 #steps form legend{
     text-align:left;
@@ -374,4 +373,17 @@ span.error{
 
 .hidden {
     display:none !important;
+}
+
+.user_nav a{
+    color:#F0F0F0;
+    text-decoration:none;
+}
+
+.header {
+    margin-bottom:5px;
+}
+
+.top-margin {
+    margin-top: 15px;
 }
