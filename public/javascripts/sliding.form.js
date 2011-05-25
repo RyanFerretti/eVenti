@@ -138,10 +138,10 @@ $(function() {
 	if there are errors don't allow the user to submit
 	*/
 	$('form').live('submit',function(e){
-		if($('#navigation .errors')){
+		if($('#navigation .errors').length){
 			alert('Please correct the errors in the Form');
-            e.preventDefault();
-			return false;
+            //e.preventDefault();
+			return true;
 		}
         if(!checkRequiredCheckBoxes()){
 			alert('Please accept the Rules and Terms of Conditions');
