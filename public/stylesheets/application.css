@@ -315,6 +315,11 @@ span.error{
     width: auto;
     margin: 3px 6px 0px 0px;
 }
+
+#steps form select {
+    margin-top:5px;
+}
+
 .left {
     text-align:left;
 }
@@ -352,4 +357,17 @@ span.error{
 .radios {
 	float:left;
 	margin-top:6px;
+}
+
+.radios ~ input{
+    margin-top:6px;
+}
+
+
+#steps .smaller-line {
+    line-height:18px;
+}
+
+.radios input[type="radio"]{
+    margin-right:10px;
 }

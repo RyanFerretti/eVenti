@@ -153,4 +153,13 @@ $(function() {
         e.preventDefault();
         return false;
     });
+
+    $(".radios input[type=radio]").live("click",function(){
+        if($(this).val()=="yes"){
+            $(this).parent().siblings().last().attr("disabled","");
+        }
+        else {
+            $(this).parent().siblings().last().attr("disabled","disabled");
+        }
+    });
 });

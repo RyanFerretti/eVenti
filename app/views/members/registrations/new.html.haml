@@ -65,19 +65,36 @@
           = ff.label :hair_color
           = ff.text_field :hair_color
         %p
-          = ff.label "Measurements: Bust"
           = ff.label :bust
           = ff.select :bust, build_bust_options, :prompt => "Please Select"
+        %p
           = ff.label :waist
           = ff.select :waist, build_waist_options, :prompt => "Please Select"
+        %p
           = ff.label :hips
           = ff.select :hips, build_hips_options, :prompt => "Please Select"
         %p
           = ff.label :piercings
-          = ff.text_field :piercings
+          %span.radios
+            Yes
+            = ff.radio_button :piercings, :yes
+            No
+            = ff.radio_button :piercings, :no
+          %br/
+          %br/
+          = ff.label :piercing_description, "If yes, please describe what and where:", :class => "smaller-line"
+          = ff.text_field :piercing_description
         %p
           = ff.label :tattoos
-          = ff.text_field :tattoos
+          %span.radios
+            Yes
+            = ff.radio_button :tattoos, :yes
+            No
+            = ff.radio_button :tattoos, :no
+          %br/
+          %br/
+          = ff.label :tattoo_description, "If yes, please describe what and where:", :class => "smaller-line"
+          = ff.text_field :tattoo_description
     %fieldset.step
       %legend
         Interests
