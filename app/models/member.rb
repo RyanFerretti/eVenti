@@ -16,7 +16,7 @@ class Member < User
   accepts_nested_attributes_for :member_summary, :allow_destroy => true
   accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |a| a[:image].blank? }
 
-  attr_accessible :pictures_attributes, :profile_name
+  attr_accessible :member_summary_attributes, :pictures_attributes, :profile_name
 
   validates_uniqueness_of :profile_name
 
