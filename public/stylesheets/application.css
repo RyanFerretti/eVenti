@@ -386,3 +386,11 @@ span.error{
 .top-margin {
     margin-top: 15px;
 }
+
+label {
+    text-transform: capitalize;
+}
+
+p input + span {
+    padding-left: 5px;
+}

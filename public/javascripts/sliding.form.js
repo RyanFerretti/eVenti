@@ -172,6 +172,9 @@ $(function() {
         checkRequiredCheckBoxes();
     });
 
+    appendMessages();
+    mirrorTyping();
+
     function checkRequiredCheckBoxes(){
         var total = $(".required-for-submit").length;
             totalChecked = $(".required-for-submit:checked").length;
@@ -183,6 +186,46 @@ $(function() {
         else {
             $("#register-button").addClass("hidden");
             return false;
+        }
+    }
+
+    function mirrorTyping(){
+        $(".mirror-typing").live("keyup",function(e) {
+            var obj = $(this),
+                message = obj.attr("data-message") || "",
+                span = obj.next();
+            if(!span.length){
+                obj.after("<span></span>");
+                span = obj.next();
+            }
+
+            span.html(message + obj.val());
+            return true;
+        });
+        
+    }
+
+    function appendMessages(){
+        $("[data-message]").each(function() {
+            var obj = $(this);
+            obj.after("<span>" + obj.attr("data-message") + "</span>");
+        });
+
+    }
+
+    $(".confirmable").live("blur",function(e){
+        confirmConfirmable($(this));
+    });
+
+    function confirmConfirmable(obj){
+        var other = obj.parent().prev().children("input").first();
+        if(obj.val() != other.val()){
+            obj.css('background-color','#FFEDEF');
+            obj.css('border-color','#cc0000');
+        }
+        else {
+            obj.css('background-color','#FFFFFF');
+            obj.css('border-color','');
         }
     }
 });
