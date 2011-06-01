@@ -1,4 +1,3 @@
-= render :partial => "members/registrations/form", :locals => { :resource => resource, :resource_name => resource_name }
 #navigation
   %ul
     %li.selected
@@ -13,4 +12,5 @@
       = link_to "Photos", "#"
     %li
       = link_to "Save", "#"
+= render :partial => "members/registrations/form", :locals => { :resource => resource, :resource_name => resource_name }
 = content_for(:footer,javascript_include_tag("sliding.form"))
