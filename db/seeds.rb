@@ -6,8 +6,8 @@ Role.create! :name => "admin"
 Role.create! :name => "client"
 Role.create! :name => "member"
 
-Admin.create! :email => "admin@gmail.com", :username => "admin", :password => "admin123", :password_confirmation => "admin123"
-c = Client.create!:email => "client@gmail.com", :username => "client", :password => "client123", :password_confirmation => "client123", :confirmation_sent_at => "2011-01-01 11:00:00"
+Admin.create! :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123"
+c = Client.create!:email => "client@gmail.com", :password => "client123", :password_confirmation => "client123", :confirmation_sent_at => "2011-01-01 11:00:00"
 c.confirmed_at = DateTime.now
 c.save!
 
@@ -21,12 +21,15 @@ def add_pictures(member,dir)
 end
 
 1.upto 18 do |i|
-  m = Member.create!:email => "member#{i}@gmail.com", :username => "member#{i}", :profile_name => "member#{i}", :password => "member123", :password_confirmation => "member123", :confirmation_sent_at => "2011-01-01 11:00:00"
+  m = Member.create!:email => "member#{i}@gmail.com", :first_name => "member#{i}", :profile_name => "member#{i}", :password => "member123", :password_confirmation => "member123", :confirmation_sent_at => "2011-01-01 11:00:00"
   m.confirmed_at = DateTime.now
+  m.member_summary.location = Location.find((i%3)+1)
+  m.ratings.create(:value => (i%10)+1)
+  m.ratings.create(:value => (i+1%10)+1)
   m.save!
   add_pictures(m,i)
   m.save!
-  puts "Member #{m.username} created with #{m.pictures.count} pictures"
+  puts "Member #{m.email} created with #{m.pictures.count} pictures"
 end
 
 puts "Admin has #{Admin.first.roles.count} role called #{Admin.first.roles.first.name}"

@@ -5,11 +5,11 @@
       %legend
         Account
       %p
-        = f.label :username
-        = f.text_field :username
-      %p
         = f.label :email
         = f.text_field :email, :placeholder => "username@email.com"
+      %p
+        = f.label :email_confirmation
+        = text_field_tag :email_confirmation, :class => "confirmable"
       %p
         = f.label :password
         = f.password_field :password

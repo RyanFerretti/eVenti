@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   
   devise :database_authenticatable, :rememberable, :trackable, :validatable
-  attr_accessible :username, :email, :first_name, :last_name, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me
 
   def is_admin?
     has_role? :admin

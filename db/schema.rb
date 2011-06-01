@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525015556) do
+ActiveRecord::Schema.define(:version => 20110601202439) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -26,12 +26,13 @@ ActiveRecord::Schema.define(:version => 20110525015556) do
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "promos"
+    t.text     "advertisements"
   end
 
   create_table "member_summaries", :force => true do |t|
     t.integer  "member_id"
     t.integer  "location_id"
-    t.string   "profile_name"
     t.date     "date_of_birth"
     t.string   "address"
     t.string   "city"
@@ -105,7 +106,6 @@ ActiveRecord::Schema.define(:version => 20110525015556) do
     t.integer  "failed_attempts",                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "profile_name"
@@ -116,6 +116,5 @@ ActiveRecord::Schema.define(:version => 20110525015556) do
   end
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

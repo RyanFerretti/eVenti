@@ -1,45 +1,13 @@
-- if member_signed_in?
-  = link_to "Edit your Profile", edit_member_registration_path
-/%h1 Rate some Peeps!
-/%br
-/.home_picture
-/  = image_tag "", :id => "last_profile_image", :class => "hidden"
-/  %p#rating_display Vote for your favorite model!
-/.home_picture
-/  - if @allow_voting
-/    #voting_links
-/      = build_vote_links @member
-/  = image_tag @pictures.first.image.url(:watermarked), :id => "current_profile_image"
-/#next
-/  = hidden_field_tag "next_profile", @members.second.id
-/  = image_tag @pictures.second.image.url(:small), :id => "next_profile_image"
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
-/%br
+=form_tag(filter_home_path) do
+  %div
+    %span Sort By:
+    = select_tag(:city, options_for_select(build_city_filter_options(@locations),@city), :include_blank => 'City')
+    = select_tag(:rating, options_for_select(build_rating_filter_options,@rating), :include_blank => 'Rating')
+    = select_tag(:level, options_for_select(build_level_filter_options,@level), :include_blank => 'Level')
+    = submit_tag("Go")
+
+%div
+  - @members.each do |m|
+    %div
+      = "#{m.first_name} - #{m.average_rating}"
+

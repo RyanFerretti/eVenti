@@ -33,4 +33,24 @@ module ApplicationHelper
     range.step(2) {|i| options << i }
     options
   end
+
+  def build_rating_filter_options
+    options = [["Descending","descending"],["Ascending","ascending"]]
+    10.downto(1) do |i|
+      options << [i,i]
+    end
+    options
+  end
+
+  def build_level_filter_options
+    [["Semi Finalist",1],["Local Finalist",2],["National Finalist",3],["Miss Uproar 2011",4]]
+  end
+
+  def build_city_filter_options(locations)
+    options = []
+    locations.each do |location|
+      options << [location.name,location.id]
+    end
+    options
+  end
 end
