@@ -6,19 +6,19 @@
         Account
       %p
         = f.label :email, "My e-mail address is"
-        = f.text_field :email, :placeholder => "username@email.com"
+        = f.text_field :email, :placeholder => "username@email.com", :class => "required"
       %p
         = f.label :email_confirmation, "Please re enter e-mail"
-        = text_field_tag :email_confirmation, nil, :class => "confirmable", :"data-message" => "You will use your email address to log in to your account"
+        = text_field_tag :email_confirmation, nil, :class => "required confirmable", :"data-message" => "You will use your email address to log in to your account"
       %p
         = f.label :password
-        = f.password_field :password
+        = f.password_field :password, :class => "required"
       %p
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation, :class => "confirmable"
+        = f.label :password_confirmation, "Re Enter Password"
+        = f.password_field :password_confirmation, :class => "required confirmable", :"data-message" => "Needs to be between 6 to 20 characters"
       %p
         = f.label :profile_name, "Profile URL"
-        = f.text_field :profile_name, :class => "mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/"
+        = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/"
       /= f.fields_for :member_summary do |ff|
       /%p
       /  = ff.label :location

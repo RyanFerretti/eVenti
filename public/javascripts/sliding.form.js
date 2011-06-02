@@ -39,6 +39,7 @@ $(function() {
     $('#navigation a').bind('click',function(e){
 		var $this	= $(this);
 		var prev	= current;
+        var isValid = true;
 		$this.closest('ul').find('li').removeClass('selected');
         $this.parent().addClass('selected');
 		/*
@@ -56,15 +57,17 @@ $(function() {
 		all the fieldsets, otherwise we validate the previous one
 		before the form slided
 		*/
-        $('#steps').stop().animate({
-            marginLeft: '-' + widths[current-1] + 'px'
-        },500,function(){
-			if(current == fieldsetCount)
-				validateSteps();
-			else
-				validateStep(prev);
-			$('form').children(':nth-child('+ parseInt(current) +')').find(':input:first').focus();
-		});
+
+	    if(current == fieldsetCount) {
+		    isValid = validateSteps();
+        }
+		else {
+			isValid = validateStep(prev);
+        }
+        if(!isValid){
+		    $('form').children(':nth-child('+ parseInt(current) +')').find(':input:first').focus();
+            $('#steps').stop().animate({ marginLeft: '-' + widths[current-1] + 'px' },500);
+        }
         e.preventDefault();
     });
 	
@@ -96,6 +99,7 @@ $(function() {
 				FormErrors = true;
 		}
 		$('form').data('errors',FormErrors);
+        return FormErrors;
 	}
 	
 	/*
@@ -191,10 +195,10 @@ $(function() {
         $(".mirror-typing").live("keyup",function(e) {
             var obj = $(this),
                 message = obj.attr("data-message") || "",
-                span = obj.next();
-            if(!span.length){
-                obj.after("<span></span>");
-                span = obj.next();
+                span = obj.parent().children(":last");
+            if(!span.length || !span.hasClass("message")){
+                appendMessageToParent(obj);
+                span = obj.parent().children(":last");
             }
             span.html(message + obj.val());
             return true;
@@ -205,9 +209,13 @@ $(function() {
     function appendMessages(){
         $("[data-message]").each(function() {
             var obj = $(this);
-            obj.after("<span>" + obj.attr("data-message") + "</span>");
+            appendMessageToParent(obj)
         });
 
+    }
+
+    function appendMessageToParent(obj){
+        obj.parent().append("<span class=\"message\">" + obj.attr("data-message") + "</span>");
     }
 
     $(".confirmable").live("blur",function(e){
@@ -230,4 +238,8 @@ $(function() {
         }
         return isValid;
     }
+
+    $(".required").each(function(){
+        $(this).after("<span class=\"red\">*</span>");
+    });
 });

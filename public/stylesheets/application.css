@@ -394,3 +394,7 @@ label {
 p input + span {
     padding-left: 5px;
 }
+
+.red {
+    color:#cc0000;
+}
