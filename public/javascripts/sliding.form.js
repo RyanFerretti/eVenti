@@ -110,15 +110,13 @@ $(function() {
 		$('form').children(':nth-child('+ parseInt(step) +')').find(':input:not(button)').each(function(){
 			var $this 		= $(this);
 			var valueLength = jQuery.trim($this.val()).length;
-			
-			if(valueLength == ''){
-				hasError = true;
-				$this.css('background-color','#FFEDEF');
-				$this.css('border-color','#cc0000');
-			}
-			else {
-				$this.css('background-color','#FFFFFF');
-				$this.css('border-color','');
+            var isValid = valueLength != '';
+            if($this.hasClass("confirmable")){
+                isValid = isValid && confirmConfirmable($this);
+            }
+			validateObject($this,isValid);
+            if(!isValid){
+               hasError = true;
             }
 		});
 		var $link = $('#navigation li:nth-child(' + parseInt(step-1) + ') a');
@@ -198,7 +196,6 @@ $(function() {
                 obj.after("<span></span>");
                 span = obj.next();
             }
-
             span.html(message + obj.val());
             return true;
         });
@@ -219,7 +216,11 @@ $(function() {
 
     function confirmConfirmable(obj){
         var other = obj.parent().prev().children("input").first();
-        if(obj.val() != other.val()){
+        return validateObject(obj,obj.val() == other.val());
+    }
+
+    function validateObject(obj,isValid){
+        if(!isValid){
             obj.css('background-color','#FFEDEF');
             obj.css('border-color','#cc0000');
         }
@@ -227,5 +228,6 @@ $(function() {
             obj.css('background-color','#FFFFFF');
             obj.css('border-color','');
         }
+        return isValid;
     }
 });
