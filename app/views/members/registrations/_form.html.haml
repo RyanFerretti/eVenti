@@ -18,7 +18,10 @@
         = f.password_field :password_confirmation, :class => "required confirmable", :"data-message" => "Needs to be between 6 to 20 characters"
       %p
         = f.label :profile_name, "Profile URL"
-        = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/"
+        - if resource.new_record?
+          = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/"
+        - else
+          = resource.member_summary.profile_name
       /= f.fields_for :member_summary do |ff|
       /%p
       /  = ff.label :location
@@ -77,6 +80,15 @@
           = ff.label :weight
           = ff.text_field :weight, :class => "required"
         %p
+          = ff.label :eyes, "Eye color"
+          = ff.select :eyes, ['Blue','Green','Hazel','Brown','Other'], :class => "required select-other"
+        %p
+          = ff.label :ethnicity
+          = ff.select :ethnicity, ['Caucasian', 'African American', 'Asian', 'Hispanic', 'Other', 'Decline to State'], :class => "required select-other"
+        %p
+          = ff.label :hair_color
+          = ff.text_field :hair_color, :class => "required"
+        %p
           = ff.label :hair_color
           = ff.text_field :hair_color, :class => "required"
         %p
@@ -114,6 +126,9 @@
       %legend
         Interests
       = f.fields_for :member_summary do |ff|
+        %p
+          = ff.label :experience
+          = ff.text_area   :experience
         %p
           = ff.label :first_concert
           = ff.text_field :first_concert

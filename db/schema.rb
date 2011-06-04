@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110604161051) do
+ActiveRecord::Schema.define(:version => 20110604164225) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -64,6 +64,11 @@ ActiveRecord::Schema.define(:version => 20110604161051) do
     t.string   "top_bands_1"
     t.string   "top_bands_2"
     t.string   "top_bands_3"
+    t.text     "experience"
+    t.string   "eyes"
+    t.string   "eyes_other"
+    t.string   "ethnicity"
+    t.string   "ethnicity_other"
   end
 
   create_table "pictures", :force => true do |t|
