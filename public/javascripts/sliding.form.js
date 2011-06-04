@@ -73,12 +73,12 @@ $(function() {
 	// validates one fieldset
 	function validateStep(step){
         var isValid = true,
-			link = $('#navigation li:nth-child(' + parseInt(step)+1 + ') a'),
+			link = $('#navigation li:nth-child(' + (step+1) + ') a'),
 			valclass = 'checked';
 		if(step == fieldsetCount){
 			return true;
 		}
-		$($('form').children('fieldset')[parseInt(step)]).find(':input:not(button)').each(function(){
+		$($('form').children('fieldset')[step]).find(':input:not(button)').each(function(){
 			if(!validateInput($(this))){
                isValid = false;
             }
