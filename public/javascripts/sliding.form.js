@@ -214,10 +214,4 @@ $(function() {
         changeMonth: true,
 		changeYear: true
     });
-
-    $('input[type=file]').change(function(e){
-      $in=$(this);
-      $in.after("<a target="_blank">preview</a>");
-      $in.next().attr("href",$in.val());
-    });
 });
