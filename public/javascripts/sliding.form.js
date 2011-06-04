@@ -1,7 +1,7 @@
 $(function() {
 
 	var fieldsetCount = $('form').children().length,
-		current	= 1,
+		current	= 0,
 		stepsWidth = 0,
 		widths = new Array();
 		
@@ -21,9 +21,7 @@ $(function() {
 		var $this = $(this),
 			prev = current,
 			isValid = true;
-		$this.closest('ul').find('li').removeClass('selected');
-        $this.parent().addClass('selected');
-		current = $this.parent().index() + 1;
+		current = $this.parent().index('li');
 		
 		// validate all if at the end
 	    if(current == fieldsetCount) {
@@ -39,7 +37,7 @@ $(function() {
 			// focus on first input
 		    $('form').children(':nth-child('+ parseInt(current) +')').find(':input:first').focus();
 			// animate
-            $('#steps').stop().animate({ marginLeft: '-' + widths[current-1] + 'px' },500);
+            $('#steps').stop().animate({ marginLeft: '-' + widths[current] + 'px' },500);
         }
 		else {
 			current = prev
@@ -75,13 +73,12 @@ $(function() {
 	// validates one fieldset
 	function validateStep(step){
         var isValid = true,
-			link = $('#navigation li:nth-child(' + parseInt(step-1) + ') a'),
+			link = $('#navigation li:nth-child(' + parseInt(step)+1 + ') a'),
 			valclass = 'checked';
-		step++;
 		if(step == fieldsetCount){
 			return true;
 		}
-		$('form').children(':nth-child('+ parseInt(step) +')').find(':input:not(button)').each(function(){
+		$($('form').children('fieldset')[parseInt(step)]).find(':input:not(button)').each(function(){
 			if(!validateInput($(this))){
                isValid = false;
             }
@@ -97,16 +94,16 @@ $(function() {
 	// validate object
 	function validateInput(obj){
 		var isValid = true,
-			val = jQuery.trim($this.val());
+			val = jQuery.trim(obj.val());
 		// required
-		if($this.hasClass("required")){
+		if(obj.hasClass("required")){
 			isValid = isValid && val != "";
 		}
 		// confirmed
-		if($this.hasClass("confirmable")){
-			isValid = isValid && confirmConfirmable($this);
+		if(obj.hasClass("confirmable")){
+			isValid = isValid && confirmConfirmable(obj);
 		}
-		showValidationErrorsIfNeeded($this,isValid);
+		showValidationErrorsIfNeeded(obj,isValid);
 		return isValid;
 	}
 
@@ -183,8 +180,8 @@ $(function() {
 	$("fieldset:not(:last-child)").append('<a href="#" class="next-button">Next</a>');
 
     $("fieldset a").live("click",function(e){
-        var current = $(this).parent().index(),
-            atag = $('#navigation li a')[current];
+        var current_fieldset = $(this).parent().index('fieldset'),
+            atag = $('#navigation li a')[current_fieldset+1]; // go to next
         $(atag).click();
         e.preventDefault();
         return false;
@@ -203,12 +200,18 @@ $(function() {
         checkRequiredCheckBoxes();
     });
 
-    $(".confirmable").live("blur",function(e){
+    $("input:not(button)").live("blur",function(e){
 		var obj = $(this);
-		showValidationErrorsIfNeeded(obj,confirmConfirmable(obj));
+        validateInput(obj);
     });
 
     $(".required").each(function(){
         $(this).after("<span class=\"red\">*</span>");
+    });
+
+    $(".birthday-picker").datepicker({
+        maxDate: "-21y",
+        changeMonth: true,
+		changeYear: true
     });
 });
