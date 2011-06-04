@@ -28,29 +28,29 @@
         Details
       %p
         = f.label :first_name
-        = f.text_field :first_name
+        = f.text_field :first_name, :class => "required"
       %p
         = f.label :last_name
-        = f.text_field :last_name
+        = f.text_field :last_name, :class => "required"
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :date_of_birth
-          = ff.text_field :date_of_birth
+          = ff.text_field :date_of_birth, :class => "required birthday-picker"
         %p
           = ff.label :relationship_status
-          = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"%p
+          = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"
         %p
           = ff.label :address
-          = ff.text_field :address
+          = ff.text_field :address, :class => "required"
         %p
           = ff.label :city
-          = ff.text_field :city
+          = ff.text_field :city, :class => "required"
         %p
           = ff.label :state
-          = ff.select :state, Carmen::states, :prompt => "Please Select"
+          = ff.select :state, Carmen::states, { :prompt => "Please Select" }, :class => "required"
         %p
           = ff.label :zip_code
-          = ff.text_field :zip_code
+          = ff.text_field :zip_code, :class => "required"
         %p
           = ff.label :telephone
           = ff.text_field :telephone
@@ -63,13 +63,13 @@
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :height
-          = ff.text_field :height
+          = ff.text_field :height, :class => "required"
         %p
           = ff.label :weight
-          = ff.text_field :weight
+          = ff.text_field :weight, :class => "required"
         %p
           = ff.label :hair_color
-          = ff.text_field :hair_color
+          = ff.text_field :hair_color, :class => "required"
         %p
           = ff.label :bust
           = ff.select :bust, build_bust_options, :prompt => "Please Select"
