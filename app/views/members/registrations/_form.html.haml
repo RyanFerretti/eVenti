@@ -27,6 +27,8 @@
       %legend
         Details
       %p
+        Please make sure enter your information correctly! If your information is not entered correctly we may not be able to contact you for important details about the promotion or notify if you're a finalist.  Please make sure you fill in the appropriate boxes and double-check for typos and other errors.
+      %p
         = f.label :first_name
         = f.text_field :first_name, :class => "required"
       %p
@@ -40,8 +42,11 @@
           = ff.label :relationship_status
           = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"
         %p
-          = ff.label :address
+          = ff.label :address, "Address 1 (Street address, P.O. box, company name, c/o)"
           = ff.text_field :address, :class => "required"
+        %p
+          = ff.label :address_more, "Address 2 (Apartment, suite, unit, building, floor, etc.)"
+          = ff.text_field :address_more
         %p
           = ff.label :city
           = ff.text_field :city, :class => "required"
@@ -52,18 +57,22 @@
           = ff.label :zip_code
           = ff.text_field :zip_code, :class => "required"
         %p
-          = ff.label :telephone
+          = ff.label :cell_phone
+          = ff.text_field :cell_phone, :class => "required"
+        %p
+          = ff.label :telephone, "Secondary Phone"
           = ff.text_field :telephone
         %p
           = ff.label :facebook_url
-          = ff.text_field :facebook_url
+          = ff.text_field :facebook_url, :"data-message" => "This is only for us to contact you and will not be published"
     %fieldset.step
       %legend
         Attributes
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :height
-          = ff.text_field :height, :class => "required"
+          = ff.select :height_feet, 4..7, { :prompt => " - " }, :class => "required"
+          = ff.select :height_inches, 1..11, { :prompt => " - " }, :class => "required"
         %p
           = ff.label :weight
           = ff.text_field :weight, :class => "required"
@@ -112,8 +121,14 @@
           = ff.label :last_concert
           = ff.text_field :last_concert
         %p
-          = ff.label :top_bands
-          = ff.text_field :top_bands
+          = ff.label :top_bands_1, "Top Bands 1"
+          = ff.text_field :top_bands_1
+        %p
+          = ff.label :top_bands_2, "Top Bands 2"
+          = ff.text_field :top_bands_2
+        %p
+          = ff.label :top_bands_3, "Top Bands 3"
+          = ff.text_field :top_bands_3
         %p
           = ff.label :favorite_song
           = ff.text_field :favorite_song
@@ -143,6 +158,8 @@
     %fieldset.step
       %legend
         Confirm
+      %p.left
+        Just one click away and you're done! Thank you for taking the time to enter the 2011 Miss UPROAR model search! Good Luck!
       %p.left
         If everything in the form has been correctly filled in, the steps below will all have a green checkmark. A red checkmark indicates that something has been left blank.
       %p.left

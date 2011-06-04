@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110601202439) do
+ActiveRecord::Schema.define(:version => 20110604161051) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20110601202439) do
     t.string   "zip_code"
     t.string   "facebook_url"
     t.string   "telephone"
-    t.string   "height"
     t.string   "weight"
     t.string   "hair_color"
     t.string   "bust"
@@ -50,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20110601202439) do
     t.string   "tattoos"
     t.string   "first_concert"
     t.string   "last_concert"
-    t.string   "top_bands"
     t.string   "favorite_song"
     t.string   "relationship_status"
     t.string   "favorite_sport"
@@ -59,6 +57,13 @@ ActiveRecord::Schema.define(:version => 20110601202439) do
     t.datetime "updated_at"
     t.string   "piercing_description"
     t.string   "tattoo_description"
+    t.string   "cell_phone"
+    t.string   "address_more"
+    t.integer  "height_feet"
+    t.integer  "height_inches"
+    t.string   "top_bands_1"
+    t.string   "top_bands_2"
+    t.string   "top_bands_3"
   end
 
   create_table "pictures", :force => true do |t|

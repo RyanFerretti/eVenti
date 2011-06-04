@@ -4,6 +4,10 @@
     ="Signed in as #{current_member.email}. Not you?"
     = link_to "Sign out", destroy_member_session_path
   - else
-    = link_to "Sign up", new_member_registration_path
-    or
-    = link_to "Sign in", new_member_session_path
+    - if controller_name != 'registrations'
+      = link_to "Sign up", new_member_registration_path
+      or
+      = link_to "Sign in", new_member_session_path
+    -else
+      Already signed up?  
+      = link_to "Sign in", new_member_session_path
