@@ -24,7 +24,7 @@ $(function() {
 		current = $this.parent().index('li');
 		
 		// validate all if at the end
-	    if(current == fieldsetCount) {
+	    if(current == (fieldsetCount-1)) {
 		    isValid = validateSteps();
         }
 		else {
@@ -35,7 +35,7 @@ $(function() {
 			$this.closest('ul').find('li').removeClass('selected');
 			$this.parent().addClass('selected');
 			// focus on first input
-		    $('form').children(':nth-child('+ parseInt(current) +')').find(':input:first').focus();
+		    //$($('form').children('fieldset')[current]).find(':input:first').focus(); // not working
 			// animate
             $('#steps').stop().animate({ marginLeft: '-' + widths[current] + 'px' },500);
         }
