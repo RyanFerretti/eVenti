@@ -35,8 +35,7 @@ EVenti::Application.configure do
 
   Recaptcha.configure do |config|
     # for prod use shell
-    #export RECAPTCHA_PUBLIC_KEY  = '6Lc6BAAAAAAAAChqRbQZcn_yyyyyyyyyyyyyyyyy'
-    #export RECAPTCHA_PRIVATE_KEY = '6Lc6BAAAAAAAAKN3DRm6VA_xxxxxxxxxxxxxxxxx'
+    # heroku config:add RECAPTCHA_PUBLIC_KEY=6Lf1AMUSAAAAAOdrl7HiOKwhOTzsLjOMvauUAPLn RECAPTCHA_PRIVATE_KEY=6Lf1AMUSAAAAAFz7h6NG-EtzztJqVZVKpnxhXHyl
     config.public_key  = '6Lf1AMUSAAAAAOdrl7HiOKwhOTzsLjOMvauUAPLn'
     config.private_key = '6Lf1AMUSAAAAAFz7h6NG-EtzztJqVZVKpnxhXHyl'
   end
