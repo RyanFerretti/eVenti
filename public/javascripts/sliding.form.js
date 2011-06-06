@@ -200,9 +200,8 @@ $(function() {
         checkRequiredCheckBoxes();
     });
 
-    $("input:not(button)").live("blur",function(e){
-		var obj = $(this);
-        validateInput(obj);
+    $("input:not(button), select").live("blur",function(e){
+        validateInput($(this));
     });
 
     $(".required").each(function(){
@@ -212,6 +211,7 @@ $(function() {
     $(".birthday-picker").datepicker({
         maxDate: "-21y",
         changeMonth: true,
-		changeYear: true
+		changeYear: true,
+        onClose: function(dateText, inst) { validateInput($(this)); }
     });
 });

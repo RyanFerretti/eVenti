@@ -81,13 +81,10 @@
           = ff.text_field :weight, :class => "required"
         %p
           = ff.label :eyes, "Eye color"
-          = ff.select :eyes, ['Blue','Green','Hazel','Brown','Other'], :class => "required select-other"
+          = ff.select :eyes, ['Blue','Green','Hazel','Brown','Other'], :prompt => "Please Select", :class => "required select-other"
         %p
           = ff.label :ethnicity
-          = ff.select :ethnicity, ['Caucasian', 'African American', 'Asian', 'Hispanic', 'Other', 'Decline to State'], :class => "required select-other"
-        %p
-          = ff.label :hair_color
-          = ff.text_field :hair_color, :class => "required"
+          = ff.select :ethnicity, ['Caucasian', 'African American', 'Asian', 'Hispanic', 'Other', 'Decline to State'], :prompt => "Please Select", :class => "required select-other"
         %p
           = ff.label :hair_color
           = ff.text_field :hair_color, :class => "required"
@@ -169,7 +166,7 @@
           - i += 1
           = ff.label :image, "Photo #{i}"
           - if resource.new_record?
-            = ff.file_field :image
+            = ff.file_field :image, :class => "required select-other"
     %fieldset.step
       %legend
         Confirm
