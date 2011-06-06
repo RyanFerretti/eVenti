@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110604164225) do
+ActiveRecord::Schema.define(:version => 20110606010723) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20110604164225) do
     t.string   "eyes_other"
     t.string   "ethnicity"
     t.string   "ethnicity_other"
+    t.boolean  "staffing",             :default => true
   end
 
   create_table "pictures", :force => true do |t|

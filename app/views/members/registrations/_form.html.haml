@@ -177,6 +177,11 @@
         Just one click away and you're done! Thank you for taking the time to enter the 2011 Miss UPROAR model search! Good Luck!
       %p.left
         If everything in the form has been correctly filled in, the steps below will all have a green checkmark. A red checkmark indicates that something has been left blank.
+      - if resource.new_record?
+        = f.fields_for :member_summary do |ff|
+          %p.left
+            = ff.check_box :staffing
+            I would like to be contacted for future promotional modeling opportunities.
       %p.left
         = check_box_tag :accept_ror, 'yes', false, :class => 'required-for-submit'
         I agree to the
