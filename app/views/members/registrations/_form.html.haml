@@ -21,7 +21,7 @@
         - if resource.new_record?
           = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/"
         - else
-          = resource.member_summary.profile_name
+          = #resource.member_summary.profile_name
       /= f.fields_for :member_summary do |ff|
       /%p
       /  = ff.label :location
