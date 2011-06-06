@@ -188,7 +188,6 @@
         = check_box_tag :accept_tc, 'yes', false, :class => 'required-for-submit'
         I agree to the
         = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
-      %p
-        = recaptcha_tags
+      = recaptcha_tags
       %p.submit
         = f.submit "Register", :id => "register-button", :class => "hidden"

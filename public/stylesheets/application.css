@@ -398,3 +398,7 @@ p input + span {
 .red {
     color:#cc0000;
 }
+
+.home-message {
+    margin: 20px;
+}

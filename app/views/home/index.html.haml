@@ -1,13 +1,11 @@
-=form_tag(filter_home_path) do
-  %div
-    %span Sort By:
-    = select_tag(:city, options_for_select(build_city_filter_options(@locations),@city), :include_blank => 'City')
-    = select_tag(:rating, options_for_select(build_rating_filter_options,@rating), :include_blank => 'Rating')
-    = select_tag(:level, options_for_select(build_level_filter_options,@level), :include_blank => 'Level')
-    = submit_tag("Go")
-
-%div
-  - @members.each do |m|
-    %div
-      = "#{m.first_name} - #{m.average_rating}"
+%div.home-message
+  %p.left
+    Welcome to the 2011 Miss UPROAR model search! This is a nationwide model search competition to find the hottest girl in America. Each girl that enters will have the chance to compete LIVE on stage at the Rockstar Energy Drink UPROAR Festival for the crown of Miss UPROAR of each respective tour market. The winner of each local tour date will move on to the final round of 35, which will be narrowed down to 5 girls handpicked by UPROAR bands and crew. The final 5 girls will be flown to Los Angeles for a professional photo shoot, video shoot, and compete in the 2011 Miss UPROAR red carpet finals event. One contestant will win the grand prize and be crowned Miss UPROAR 2011 by a panel of celebrity judges.
+    %br
+    %br
+    The Grand Prize includes: Title of “Miss UPOAR 2011”, Cash prize, full makeover, professional photo shoot, feature in a Rockstar Energy Drink advertising campaign, feature in the 2012 Rockstar Energy Drink calendar, and the spokeswoman for the 2012 Miss UPROAR competition.
+    %br
+    %br
+    If you are at least 21 years of age and would like to enter the contest
+    = link_to "CLICK HERE", new_member_registration_path
 

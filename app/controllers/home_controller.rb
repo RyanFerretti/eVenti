@@ -2,6 +2,10 @@ class HomeController < ApplicationController
   #before_filter :authenticate_member!
 
   def index
+    
+  end
+
+  def index_temp
     @city = params[:city]
     @rating = params[:rating]
     @level = params[:level]
