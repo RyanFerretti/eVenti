@@ -32,5 +32,13 @@ EVenti::Application.configure do
   Paperclip.options[:command_path] = "DYLD_LIBRARY_PATH='/Users/Ryan/Developement/Libraries/ImageMagick-6.6.4/lib' /Users/Ryan/Developement/Libraries/ImageMagick-6.6.4/bin"
 
   Carmen.excluded_states = { 'US' => [ 'FM', 'GU', 'MH', 'MP', 'PR', 'VI', 'AE', 'PW', 'AA', 'AP'] }
+
+  Recaptcha.configure do |config|
+    # for prod use shell
+    #export RECAPTCHA_PUBLIC_KEY  = '6Lc6BAAAAAAAAChqRbQZcn_yyyyyyyyyyyyyyyyy'
+    #export RECAPTCHA_PRIVATE_KEY = '6Lc6BAAAAAAAAKN3DRm6VA_xxxxxxxxxxxxxxxxx'
+    config.public_key  = '6Lf1AMUSAAAAAOdrl7HiOKwhOTzsLjOMvauUAPLn'
+    config.private_key = '6Lf1AMUSAAAAAFz7h6NG-EtzztJqVZVKpnxhXHyl'
+  end
 end
 

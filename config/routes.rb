@@ -10,7 +10,7 @@ EVenti::Application.routes.draw do
 
 #  match 'profiles/:profile_name' => 'profile#show_user', :profile_name => /[^\/]+/, :as => :show_user_profile, :via => :get
 
-  devise_for :members
+  devise_for :members, :controllers => { :sessions => "members/registrations" }
   devise_for :clients
   devise_for :admins
 

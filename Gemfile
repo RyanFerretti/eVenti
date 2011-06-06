@@ -11,6 +11,7 @@ gem "cancan"
 gem 'kaminari'
 gem 'carmen'
 gem 'aws-s3'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
