@@ -1,6 +1,6 @@
 class AddFullMemberAttribute < ActiveRecord::Migration
   def self.up
-    add_column :member_summaries, :staffing, :boolean, :default => 1
+    add_column :member_summaries, :staffing, :boolean, :default => true
   end
 
   def self.down
