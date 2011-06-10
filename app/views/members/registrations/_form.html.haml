@@ -45,11 +45,11 @@
           = ff.label :relationship_status
           = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"
         %p
-          = ff.label :address, "Address 1 (Street address, P.O. box, company name, c/o)"
-          = ff.text_field :address, :class => "required"
+          = ff.label :address, "Address 1"
+          = ff.text_field :address, :class => "required", :"data-message" => "(Street address, P.O. box, company name, c/o)"
         %p
-          = ff.label :address_more, "Address 2 (Apartment, suite, unit, building, floor, etc.)"
-          = ff.text_field :address_more
+          = ff.label :address_more, "Address 2"
+          = ff.text_field :address_more, :"data-message" => "(Apartment, suite, unit, building, floor, etc.)"
         %p
           = ff.label :city
           = ff.text_field :city, :class => "required"
