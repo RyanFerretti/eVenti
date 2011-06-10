@@ -12,10 +12,10 @@
         = text_field_tag :email_confirmation, nil, :class => "required confirmable", :"data-message" => "You will use your email address to log in to your account"
       %p
         = f.label :password
-        = f.password_field :password, :class => "required"
+        = f.password_field :password, :class => "required", :"data-message" => "Needs to be between 6 to 20 characters"
       %p
         = f.label :password_confirmation, "Re Enter Password"
-        = f.password_field :password_confirmation, :class => "required confirmable", :"data-message" => "Needs to be between 6 to 20 characters"
+        = f.password_field :password_confirmation, :class => "required confirmable"
       %p
         = f.label :profile_name, "Profile URL"
         - if resource.new_record?
@@ -74,8 +74,8 @@
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :height
-          = ff.select :height_feet, 4..7, { :prompt => " - " }, :class => "required"
-          = ff.select :height_inches, 1..11, { :prompt => " - " }, :class => "required"
+          = ff.select :height_feet, 4..7, { :prompt => " - " }, :class => "required small"
+          = ff.select :height_inches, 0..11, { :prompt => " - " }, :class => "required small"
         %p
           = ff.label :weight
           = ff.text_field :weight, :class => "required"

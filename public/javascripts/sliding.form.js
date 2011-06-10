@@ -30,7 +30,7 @@ $(function() {
 		else {
 			isValid = validateSteps(prev,current,true);
         }
-        console.log("c: "+current+" p: "+prev);
+
         if(isValid || (current < prev)){
 			// set selected tab
 			$this.closest('ul').find('li').removeClass('selected');
@@ -209,7 +209,10 @@ $(function() {
     });
 
     $(".required").each(function(){
-        $(this).after("<span class=\"red\">*</span>");
+        var obj = $(this);
+        if(obj.parent().children("span.red").length == 0){
+            obj.after("<span class=\"red right\">*</span>");
+        }
     });
 
     $(".birthday-picker").datepicker({
