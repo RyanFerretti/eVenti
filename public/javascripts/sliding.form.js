@@ -25,12 +25,13 @@ $(function() {
 		
 		// validate all if at the end
 	    if(current == (fieldsetCount-1)) {
-		    isValid = validateSteps();
+		    isValid = validateSteps(1,fieldsetCount);
         }
 		else {
-			isValid = validateStep(prev);
+			isValid = validateSteps(prev,current,true);
         }
-        if(isValid){
+        console.log("c: "+current+" p: "+prev);
+        if(isValid || (current < prev)){
 			// set selected tab
 			$this.closest('ul').find('li').removeClass('selected');
 			$this.parent().addClass('selected');
@@ -59,11 +60,14 @@ $(function() {
 	});
 	
 	// validates errors on all the fieldsets
-	function validateSteps(){
+	function validateSteps(start,end,stopOnError){
 		var isValid = true;
-		for(var i = 1; i < fieldsetCount; ++i){
+		for(var i = start; i < end; ++i){
 			if(!validateStep(i)){
 				isValid = false;
+                if(stopOnError){
+                    break;
+                }
 			}
 		}
 		$('form').data('errors',!isValid);
