@@ -167,10 +167,13 @@
         %p
           - unless resource.new_record?
             = image_tag resource.pictures[i].image.url(:thumb)
+            = "Credit - #{resource.pictures[i].credit}"
           - i += 1
           = ff.label :image, "Photo #{i}"
           - if resource.new_record?
             = ff.file_field :image, :class => "required select-other"
+            = ff.label :credit
+            = ff.text_field :credit
       = recaptcha_tags
     %fieldset.step
       %legend

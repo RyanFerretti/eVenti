@@ -17,7 +17,7 @@ class Picture < ActiveRecord::Base
 
 
   #validates_attachment_presence :image
-  attr_accessible :image, :approved, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
+  attr_accessible :image, :approved, :credit, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
 
 
 end
