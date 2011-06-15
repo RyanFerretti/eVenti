@@ -221,4 +221,18 @@ $(function() {
 		changeYear: true,
         onClose: function(dateText, inst) { validateInput($(this)); }
     });
+
+    $("[data-unique]").live("blur",function(e){
+        var obj = $(this),
+            name = obj.attr("name"),
+            loadingClass = "ajax-loading";
+        obj.addClass(loadingClass);
+        $.ajax(obj.attr("data-unique"),{
+            data:{ val:obj.val() },
+            success:function(data){
+                showValidationErrorsIfNeeded(obj,data);
+                obj.removeClass(loadingClass);
+            }
+        });
+    });
 });

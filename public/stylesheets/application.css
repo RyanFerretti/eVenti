@@ -324,3 +324,7 @@ select.small {
 .right {
     float:right;
 }
+
+.ajax-loading {
+    background:url('../images/spinner.gif') no-repeat 95% 50% !important;
+}

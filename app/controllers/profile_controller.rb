@@ -39,6 +39,16 @@ class ProfileController < ApplicationController
     end
   end
 
+  def verify_unique_email
+    user = User.find_by_email params[:val]
+    render :json => user.nil?
+  end
+
+  def verify_unique_profile_name
+    user = Member.find_by_profile_name params[:val]
+    render :json => user.nil?
+  end
+
   private
 
   def build_pictures(member)
