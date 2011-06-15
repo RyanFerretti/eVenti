@@ -3,7 +3,8 @@ $(function() {
 	var fieldsetCount = $('form').children().length,
 		current	= 0,
 		stepsWidth = 0,
-		widths = new Array();
+		widths = new Array(),
+        ajaxErrorClass = "ajax-validation-error";
 		
 	$('#steps .step').each(function(i){
         var $step = $(this);
@@ -99,6 +100,10 @@ $(function() {
 	function validateInput(obj){
 		var isValid = true,
 			val = jQuery.trim(obj.val());
+        // server-side validation already done
+        if(obj.hasClass(ajaxErrorClass)){
+            return false;
+        }
 		// required
 		if(obj.hasClass("required")){
 			isValid = isValid && val != "";
@@ -232,6 +237,13 @@ $(function() {
             success:function(data){
                 showValidationErrorsIfNeeded(obj,data);
                 obj.removeClass(loadingClass);
+                if(data){
+                    obj.removeClass(ajaxErrorClass);
+                }
+                else {
+                    obj.addClass(ajaxErrorClass);
+                }
+
             }
         });
     });
