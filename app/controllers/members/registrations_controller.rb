@@ -9,4 +9,11 @@ class Members::RegistrationsController < Devise::RegistrationsController
       respond_with_navigational(resource){ render_with_scope :new }
     end
   end
+
+  protected
+
+  def after_inactive_sign_up_path_for(resource)
+    root_path # change to custom page path
+  end
+
 end

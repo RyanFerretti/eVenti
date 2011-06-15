@@ -21,11 +21,11 @@ module ApplicationHelper
   end
 
   def build_waist_options
-    build_options_with_range(20..30)
+    build_options_with_range(22..40)
   end
 
   def build_hips_options
-    build_options_with_range(30..40)
+    build_options_with_range(30..50)
   end
 
   def build_options_with_range(range)

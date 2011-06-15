@@ -127,10 +127,12 @@
     %fieldset.step
       %legend
         Interests
+      %p
+        We want to know more about you! Please tell us some of your interests below so you can stand out in this competition!
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :experience
-          = ff.text_area   :experience
+          = ff.text_area :experience, :"data-message" => "Please tell us a little bit about yourself and your modeling career. Tell us why should you be Miss UPROAR 2011!"
         %p
           = ff.label :first_concert
           = ff.text_field :first_concert
@@ -154,15 +156,12 @@
           = ff.text_field :favorite_sport
         %p
           = ff.label :talent, "Unique talent that separates you from the other contestants", :class => "smaller-line"
-          = ff.text_field :talent, :class => "top-margin"
+          = ff.text_area :talent, :rows => 4, :class => "top-margin"
     %fieldset.step
       %legend
         Photos
       %p.left
-        Please upload 3 photos that will be displayed and rated on your profile.
-        br/
-        br/
-        Images must be less than 10MB. JPEG and PNG files accepted.
+        Please upload 3 photos that will be displayed and rated on your profile.  Images must be less than 10MB. JPEG and PNG files accepted.  Please no nude photos!
       - i = 0
       = f.fields_for :pictures do |ff|
         %p
@@ -179,7 +178,7 @@
       %p.left
         Just one click away and you're done! Thank you for taking the time to enter the 2011 Miss UPROAR model search! Good Luck!
       %p.left
-        If everything in the form has been correctly filled in, the steps below will all have a green checkmark. A red checkmark indicates that something has been left blank.
+        If everything in the form has been correctly filled in, the steps above will all have a green checkmark. A red checkmark indicates that something has been left blank.
       - if resource.new_record?
         = f.fields_for :member_summary do |ff|
           %p.left
