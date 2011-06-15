@@ -20,7 +20,7 @@ body{
     position:relative;
     height:100%;
 }
-#wrapper{
+#wrapper, .alert, .notice{
     -moz-box-shadow:0px 0px 3px #aaa;
     -webkit-box-shadow:0px 0px 3px #aaa;
     box-shadow:0px 0px 3px #aaa;
@@ -32,6 +32,10 @@ body{
     width:620px;
     overflow:hidden;
 }
+
+.alert { color:#cc0000; margin-bottom:10px; }
+.notice { color: #009900; margin-bottom:10px; }
+
 #steps{
     width:620px;
 	/*height:320px;*/
@@ -327,4 +331,8 @@ select.small {
 
 .ajax-loading {
     background:url('../images/spinner.gif') no-repeat 95% 50% !important;
+}
+
+.recaptcha_error {
+    display:none;
 }
