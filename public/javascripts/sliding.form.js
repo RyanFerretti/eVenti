@@ -231,28 +231,29 @@ $(function() {
         var obj = $(this),
             name = obj.attr("name"),
             loadingClass = "ajax-loading";
-        obj.addClass(loadingClass);
-        $.ajax(obj.attr("data-unique"),{
-            data:{ val:obj.val() },
-            success:function(data){
-                var uniqueErrorClass = "unique-error";
-                showValidationErrorsIfNeeded(obj,data.valid);
-                obj.removeClass(loadingClass);
-                if(data.valid){
-                    obj.removeClass(ajaxErrorClass);
-                    if(obj.parent().children("span."+uniqueErrorClass).length != 0){
-                        obj.next().next().remove();
+        if(obj.val().length > 0){
+            obj.addClass(loadingClass);
+            $.ajax(obj.attr("data-unique"),{
+                data:{ val:obj.val() },
+                success:function(data){
+                    var uniqueErrorClass = "unique-error";
+                    showValidationErrorsIfNeeded(obj,data.valid);
+                    obj.removeClass(loadingClass);
+                    if(data.valid){
+                        obj.removeClass(ajaxErrorClass);
+                        if(obj.parent().children("span."+uniqueErrorClass).length != 0){
+                            obj.next().next().remove();
+                        }
+                    }
+                    else {
+                        obj.addClass(ajaxErrorClass);
+                        if(obj.parent().children("span."+uniqueErrorClass).length == 0){
+                            obj.next().after("<span class=\"red message "+uniqueErrorClass+"\">"+data.error+"</span>");
+                        }
                     }
                 }
-                else {
-                    obj.addClass(ajaxErrorClass);
-                    if(obj.parent().children("span."+uniqueErrorClass).length == 0){
-                        obj.next().after("<span class=\"red message "+uniqueErrorClass+"\">"+data.error+"</span>");
-                    }
-                }
-
-            }
-        });
+            });
+        }
     });
 
     function getParam(name) {
