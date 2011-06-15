@@ -4,7 +4,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
       super
     else
       build_resource
-      flash[:alert] = "There was an error with the recaptcha code below. Please re-enter the code and click submit."
+      flash[:alert] = "There was an error with the recaptcha code below. Please re-enter the code and select your pictures then click submit."
       @recaptcha_error = true
       respond_with_navigational(resource){ render_with_scope :new }
     end

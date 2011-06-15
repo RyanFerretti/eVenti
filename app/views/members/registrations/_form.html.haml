@@ -22,13 +22,15 @@
         - if resource.new_record?
           = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/", :"data-unique" => "/members/unique/profile_name/"
           %span.message
-            = "This will be your public displayed profile name, please choose a name that you would like everyone to view your profile as:"
+            This will be your public displayed profile name, please choose a name that you would like everyone to view your profile as:
         - else
           = #resource.member_summary.profile_name
       /= f.fields_for :member_summary do |ff|
       /%p
       /  = ff.label :location
       /  = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
+      %p
+        Fields that are NOT required and that you do not fill out will not be displayed on your profile. Your personal and contact information WILL NOT be displayed on your profile.
     %fieldset.step
       %legend
         Details
