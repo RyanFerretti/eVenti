@@ -41,12 +41,12 @@ class ProfileController < ApplicationController
 
   def verify_unique_email
     user = User.find_by_email params[:val]
-    render :json => user.nil?
+    render :json => { :valid => user.nil?, :error => "That email address is already taken" }
   end
 
   def verify_unique_profile_name
     user = Member.find_by_profile_name params[:val]
-    render :json => user.nil?
+    render :json => { :valid => user.nil?, :error => "That profile url is already taken" }
   end
 
   private

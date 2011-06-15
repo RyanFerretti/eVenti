@@ -235,13 +235,20 @@ $(function() {
         $.ajax(obj.attr("data-unique"),{
             data:{ val:obj.val() },
             success:function(data){
-                showValidationErrorsIfNeeded(obj,data);
+                var uniqueErrorClass = "unique-error";
+                showValidationErrorsIfNeeded(obj,data.valid);
                 obj.removeClass(loadingClass);
-                if(data){
+                if(data.valid){
                     obj.removeClass(ajaxErrorClass);
+                    if(obj.parent().children("span."+uniqueErrorClass).length != 0){
+                        obj.next().next().remove();
+                    }
                 }
                 else {
                     obj.addClass(ajaxErrorClass);
+                    if(obj.parent().children("span."+uniqueErrorClass).length == 0){
+                        obj.next().after("<span class=\"red message "+uniqueErrorClass+"\">"+data.error+"</span>");
+                    }
                 }
 
             }
