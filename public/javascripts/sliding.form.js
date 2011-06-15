@@ -254,4 +254,22 @@ $(function() {
             }
         });
     });
+
+    function getParam(name) {
+        var param = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+            regexS = "[\\?&]"+param+"=([^&#]*)";
+            regex = new RegExp(regexS);
+            results = regex.exec(window.location.href);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    function moveToStep(){
+        var step = $("#recaptcha_error").val();
+        if(step){
+            // don't care about the step now... only error will be captcha on the last step
+            $('#navigation a.captcha').click();
+        }
+    }
+
+    moveToStep();
 });

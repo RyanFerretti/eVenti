@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   
   devise :database_authenticatable, :rememberable, :trackable, :validatable
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :email_confirmation, :first_name, :last_name, :password, :password_confirmation, :remember_me
 
   def is_admin?
     has_role? :admin
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   def setup_roles
     roles << Role.find_by_name(self.type.underscore) if roles.empty?
   end
-
+  
   protected
 
   def password_required?

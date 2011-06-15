@@ -1,5 +1,6 @@
 = devise_error_messages!
 #steps
+  = hidden_field_tag :recaptcha_error, @recaptcha_error
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :class => "registration" }) do |f|
     %fieldset.step
       %legend
@@ -9,7 +10,7 @@
         = f.text_field :email, :placeholder => "username@email.com", :class => "required", :"data-message" => "You will use your email address to log in to your account", :"data-unique" => "/members/unique/email/"
       %p
         = f.label :email_confirmation, "Please re enter e-mail"
-        = text_field_tag :email_confirmation, nil, :class => "required confirmable"
+        = f.text_field :email_confirmation, :class => "required confirmable"
       %p
         = f.label :password
         = f.password_field :password, :class => "required", :"data-message" => "Needs to be between 6 to 20 characters"
@@ -167,6 +168,7 @@
           = ff.label :image, "Photo #{i}"
           - if resource.new_record?
             = ff.file_field :image, :class => "required select-other"
+      = recaptcha_tags
     %fieldset.step
       %legend
         Confirm
@@ -188,6 +190,5 @@
         = check_box_tag :accept_tc, 'yes', false, :class => 'required-for-submit'
         I agree to the
         = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
-      = recaptcha_tags
       %p.submit
         = f.submit "Register", :id => "register-button", :class => "hidden"

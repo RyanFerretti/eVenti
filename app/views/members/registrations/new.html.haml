@@ -9,7 +9,7 @@
     %li
       = link_to "Interests", "#"
     %li
-      = link_to "Photos", "#"
+      = link_to "Photos", "#", :class => "captcha"
     %li
       = link_to "Confirm", "#"
 = render :partial => "members/registrations/form", :locals => { :resource => resource, :resource_name => resource_name }

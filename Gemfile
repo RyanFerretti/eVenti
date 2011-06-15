@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.5'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'devise', '1.1.7'
+gem 'devise', '1.3.4'#, '1.1.7'
 gem 'haml', '3.0.25'
 gem "haml-rails"
 gem "paperclip", :git => "git://github.com/patshaughnessy/paperclip.git"
