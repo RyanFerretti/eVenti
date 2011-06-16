@@ -342,35 +342,47 @@ select.small {
 }
 
 .voting-container {
-    margin:20px 0;
+    margin:20px 86px;
+    clear:both;
 }
 
-.voting-container div {
-    display:inline;
+
+.voting-container ul li {
+    float:left;
+    list-style-type:none;
     background-color:yellow;
-    padding:10px;
     border-left:2px solid #000;
     border-right:2px solid #000;
     border-top:4px solid #000;
     border-bottom:4px solid #000;
+    width:40px;
+    margin-top:10px;
+    line-height:40px;
 }
 
-.voting-container div:first-child, .voting-container div:last-child {
+.voting-container ul li:first-child, .voting-container ul li:last-child {
     border-left:4px solid #000;
     border-right:4px solid #000;
-    padding:20px;
+    line-height:60px;
+    margin-top:0px;
 }
 
-.voting-container div:first-child + div {
+.voting-container ul li:first-child + li {
     border-left:0px;
 }
 
-.voting-container div:first-child + div + div + div + div + div + div + div + div {
+.voting-container ul li:first-child + li + li + li + li + li + li + li + li {
     border-right:0px;
 }
 
+.voting-container ul li a {
+    color:#000;
+    display:block;
+    text-decoration:none;
+}
+
 .big-picture {
-    margin-top: 45px;
+    margin-top: 100px;
     margin-bottom: 15px;
 }
 

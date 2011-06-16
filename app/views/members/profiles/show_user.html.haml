@@ -8,9 +8,10 @@
     = link_to "Read My Bio", "member-bio"
 
   .voting-container
-    - 1.upto(10) do |i|
-      .voter
-        = build_vote_link(@member,i)
+    %ul
+      - 1.upto(10) do |i|
+        %li
+          = build_vote_link(@member,i)
   .big-picture.top-margin
     = image_tag @member.pictures.first.image.url(:watermarked)
   .small-pictures
