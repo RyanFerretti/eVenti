@@ -8,6 +8,7 @@ $(document).ready(function(){
   $('.vote_link').bind('ajax:success', function() {
     ;
   });
+  setupSwapProfileImage()
 });
 
 function update_voting_links(old_profile) {
@@ -40,4 +41,13 @@ function show_new_rating_for_last_member(rating) {
 
 function disable_voting() {
   $("#voting_links").remove();
+}
+
+function setupSwapProfileImage(){
+    $(".small-pictures img").live("click",function(){
+        var obj = $(this),
+            bigSrc = obj.attr("data-watermark");
+        console.log("go!");
+        $(".big-picture img").attr("src",bigSrc);
+    });
 }

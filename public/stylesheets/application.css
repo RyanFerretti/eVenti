@@ -329,6 +329,10 @@ select.small {
     float:right;
 }
 
+.float-left {
+   float:left;
+}
+
 .ajax-loading {
     background:url('../images/spinner.gif') no-repeat 95% 50% !important;
 }
@@ -363,4 +367,18 @@ select.small {
 
 .voting-container div:first-child + div + div + div + div + div + div + div + div {
     border-right:0px;
+}
+
+.big-picture {
+    margin-top: 45px;
+    margin-bottom: 15px;
+}
+
+.small-pictures {
+    cursor:pointer;
+}
+
+.share-links {
+    margin-top:15px;
+    margin-left:15px;
 }
