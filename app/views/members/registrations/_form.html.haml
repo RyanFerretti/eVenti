@@ -66,10 +66,10 @@
           = ff.text_field :zip_code, :class => "required"
         %p
           = ff.label :cell_phone
-          = ff.text_field :cell_phone, :class => "required", :"data-message" => "ex: 123-456-7890"
+          = ff.text_field :cell_phone, :class => "required phone", :"data-message" => "ex: 123-456-7890"
         %p
           = ff.label :telephone, "Secondary Phone"
-          = ff.text_field :telephone
+          = ff.text_field :telephone, :class => "phone"
         %p
           = ff.label :facebook_url
           = ff.text_field :facebook_url, :"data-message" => "This is only for us to contact you and will not be published"

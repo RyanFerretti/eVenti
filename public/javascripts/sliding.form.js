@@ -99,7 +99,8 @@ $(function() {
 	// validate object
 	function validateInput(obj){
 		var isValid = true,
-			val = jQuery.trim(obj.val());
+			val = jQuery.trim(obj.val()),
+            phoneRegex = /^\d{3}\-\d{3}\-\d{4}$/;
         // server-side validation already done
         if(obj.hasClass(ajaxErrorClass)){
             return false;
@@ -111,6 +112,10 @@ $(function() {
 		// confirmed
 		if(obj.hasClass("confirmable")){
 			isValid = isValid && confirmConfirmable(obj);
+		}
+        // phone
+		if(obj.hasClass("phone") && obj.val().length > 0){
+			isValid = isValid && obj.val().match(phoneRegex);
 		}
 		showValidationErrorsIfNeeded(obj,isValid);
 		return isValid;
