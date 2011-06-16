@@ -12,6 +12,10 @@ module ApplicationHelper
     raw links
   end
 
+  def build_vote_link(member,i)
+    link_to("#{i}", vote_for_path(:member_id => member.id, :vote_value => i), :remote => true, :method => :post, :class => "vote_link")
+  end
+
   def build_relationship_options
     ["Single","In a relationship","Engaged","Married","It's complicated","In an open relationship","Widowed","Separated","Divorced","In a civil union","In a domestic partnership"]
   end

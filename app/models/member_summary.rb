@@ -9,5 +9,7 @@ class MemberSummary < ActiveRecord::Base
                   :eyes, :eyes_other, :ethnicity, :ethnicity_other
 
 
-  
+  def location_display
+    "#{city.titleize}, #{state.upcase}"
+  end
 end

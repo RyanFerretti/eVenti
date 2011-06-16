@@ -336,3 +336,31 @@ select.small {
 .recaptcha_error {
     display:none;
 }
+
+.voting-container {
+    margin:20px 0;
+}
+
+.voting-container div {
+    display:inline;
+    background-color:yellow;
+    padding:10px;
+    border-left:2px solid #000;
+    border-right:2px solid #000;
+    border-top:4px solid #000;
+    border-bottom:4px solid #000;
+}
+
+.voting-container div:first-child, .voting-container div:last-child {
+    border-left:4px solid #000;
+    border-right:4px solid #000;
+    padding:20px;
+}
+
+.voting-container div:first-child + div {
+    border-left:0px;
+}
+
+.voting-container div:first-child + div + div + div + div + div + div + div + div {
+    border-right:0px;
+}

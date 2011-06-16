@@ -1,4 +1,16 @@
 - if @member
+  .top-margin
+    %p
+      = @member.first_name
+    %p
+      = @member.member_summary.location_display
+  %div
+    = link_to "Read My Bio", "member-bio"
+
+  .voting-container
+    - 1.upto(10) do |i|
+      .voter
+        = build_vote_link(@member,i)
   %p
     %b Email:
     = @member.email
