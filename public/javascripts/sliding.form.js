@@ -274,6 +274,10 @@ $(function() {
         if(step){
             // don't care about the step now... only error will be captcha on the last step
             $('#navigation a.captcha').click();
+            // visually show file inputs in red
+            $('form').children('fieldset:last').find('input[type="file"]').each(function(){
+                showValidationErrorsIfNeeded($(this),false);
+		    });
         }
     }
 

@@ -33,8 +33,25 @@ body{
     overflow:hidden;
 }
 
-.alert { color:#cc0000; margin-bottom:10px; }
-.notice { color: #009900; margin-bottom:10px; }
+.alert {
+    color: #fff;
+    margin-bottom: 10px;
+    background: #c00;
+    font-size: 16px;
+    padding: 16px;
+    width: 588px;
+    text-align:left;
+}
+
+.notice {
+    color: #fff;
+    margin-bottom: 10px;
+    background: #009900;
+    font-size: 16px;
+    padding: 16px;
+    width: 588px;
+    text-align:left;
+}
 
 #steps{
     width:620px;
@@ -54,7 +71,7 @@ body{
 #navigation ul{
     list-style:none;
 	float:left;
-	margin-left:22px;
+	margin-left:65px;
 }
 #navigation ul li{
 	float:left;

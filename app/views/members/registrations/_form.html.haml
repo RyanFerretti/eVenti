@@ -21,8 +21,6 @@
         = f.label :profile_name, "Profile URL"
         - if resource.new_record?
           = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/", :"data-unique" => "/members/unique/profile_name/"
-          %span.message
-            This will be your public displayed profile name, please choose a name that you would like everyone to view your profile as:
         - else
           = #resource.member_summary.profile_name
       /= f.fields_for :member_summary do |ff|
@@ -161,7 +159,7 @@
       %legend
         Photos
       %p.left
-        Please upload 3 photos that will be displayed and rated on your profile.  Images must be less than 10MB. JPEG and PNG files accepted.  Please no nude photos!
+        Please upload 3 photos to be displayed and rated on your profile.  Photo 1 will be the default on your profile. You also have the option to credit your photographer for their amazing work!
       - i = 0
       = f.fields_for :pictures do |ff|
         %p
@@ -174,14 +172,11 @@
             = ff.file_field :image, :class => "required select-other"
             = ff.label :credit
             = ff.text_field :credit
-      = recaptcha_tags
-    %fieldset.step
-      %legend
-        Confirm
       %p.left
         Just one click away and you're done! Thank you for taking the time to enter the 2011 Miss UPROAR model search! Good Luck!
-      %p.left
-        If everything in the form has been correctly filled in, the steps above will all have a green checkmark. A red checkmark indicates that something has been left blank.
+        %br
+        %br
+        Images must be less than 10MB. JPEG and PNG files accepted.
       - if resource.new_record?
         = f.fields_for :member_summary do |ff|
           %p.left
@@ -196,5 +191,6 @@
         = check_box_tag :accept_tc, 'yes', false, :class => 'required-for-submit'
         I agree to the
         = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
+      = recaptcha_tags
       %p.submit
         = f.submit "Register", :id => "register-button", :class => "hidden"
