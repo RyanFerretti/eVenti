@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Contents:
+  = @ad.contents
+%p
+  %b Ad group:
+  = @ad.ad_group_id
+
+= link_to 'Edit', edit_ad_path(@ad)
+\|
+= link_to 'Back', ads_path

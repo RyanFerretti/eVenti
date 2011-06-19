@@ -34,3 +34,10 @@ end
 
 puts "Admin has #{Admin.first.roles.count} role called #{Admin.first.roles.first.name}"
 puts "Client has #{Client.first.roles.count} role called #{Client.first.roles.first.name}"
+
+1.upto 4 do |i|
+  group = AdGroup.create! :name => "Group #{i}"
+  1.upto 4 do |j|
+    group.ads.create! :contents => "Ad #{j}"
+  end
+end

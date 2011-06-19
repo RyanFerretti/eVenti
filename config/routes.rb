@@ -1,5 +1,7 @@
 EVenti::Application.routes.draw do
 
+  resources :ads
+
   resources :locations
 
   #root :to => "home#index"
