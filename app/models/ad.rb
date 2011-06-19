@@ -1,6 +1,10 @@
 class Ad < ActiveRecord::Base
   belongs_to :ad_group
-  attr_accessible :contents
+
+  has_many :advertisements, :dependent => :destroy
+  has_many :locations, :through => :advertisements
+
+  attr_accessible :contents, :locations, :advertisements, :ad_group, :location_ids
 
   scope :random, lambda {|group_id| where(:group_id => group_id).first() }
 

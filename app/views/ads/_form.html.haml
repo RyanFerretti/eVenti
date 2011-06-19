@@ -12,5 +12,9 @@
   .field
     = f.label :ad_group_id
     = f.text_field :ad_group_id
+  .field
+    - Location.all.each do |location|
+      = check_box_tag "ad[location_ids][]", location.id, @ad.locations.include?(location)
+      = location.name
   .actions
     = f.submit 'Save'

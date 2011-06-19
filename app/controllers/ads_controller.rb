@@ -56,6 +56,7 @@ class AdsController < ApplicationController
   # PUT /ads/1
   # PUT /ads/1.xml
   def update
+    params[:ad][:location_ids] ||= []
     @ad = Ad.find(params[:id])
 
     respond_to do |format|

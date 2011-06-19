@@ -6,7 +6,13 @@
 %p
   %b Ad group:
   = @ad.ad_group_id
-
+%p
+  %b Locations:
+  - if @ad.locations.blank?
+    All
+  - else
+    = @ad.locations.map(&:name).join(" - ")
+    
 = link_to 'Edit', edit_ad_path(@ad)
 \|
 = link_to 'Back', ads_path
