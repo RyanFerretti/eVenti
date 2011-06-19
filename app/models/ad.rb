@@ -8,8 +8,8 @@ class Ad < ActiveRecord::Base
 
   scope :random, lambda {|group_id| where(:group_id => group_id).first() }
 
-  def self.random(group_id)
-    group = where(:ad_group_id => group_id)
+  def self.random(group_id,location_id)
+    group = joins(:advertisements).where(:ad_group_id => group_id).where("advertisements.location_id" => location_id)
     offset = rand group.count
     group.offset(offset).first()
   end

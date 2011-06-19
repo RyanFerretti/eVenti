@@ -8,7 +8,8 @@ $(document).ready(function(){
   $('.vote_link').bind('ajax:success', function() {
     ;
   });
-  setupSwapProfileImage()
+  setupSwapProfileImage();
+  setupSelectAll();
 });
 
 function update_voting_links(old_profile) {
@@ -49,5 +50,26 @@ function setupSwapProfileImage(){
             bigSrc = obj.attr("data-watermark");
         console.log("go!");
         $(".big-picture img").attr("src",bigSrc);
+    });
+}
+
+function setupSelectAll(){
+    var allSelector = '[name="all"]',
+        childrenToSelect = ".select-all",
+        checkedSelector = "checked";
+    $(allSelector).change(function(){
+        var isChecked = $(this).is(":"+checkedSelector);
+        $(childrenToSelect).each(function(){
+            $(this).attr(checkedSelector, isChecked);
+        });
+    });
+
+    $(childrenToSelect).change(function(){
+        var isChecked = true;
+        $(childrenToSelect).each(function(){
+            isChecked = $(this).attr(checkedSelector);
+            return isChecked;
+        });
+        $(allSelector).attr(checkedSelector, isChecked);
     });
 }

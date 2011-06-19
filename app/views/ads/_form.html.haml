@@ -13,8 +13,10 @@
     = f.label :ad_group_id
     = f.text_field :ad_group_id
   .field
+    = check_box_tag "all", "all", @ad.locations.count == Location.count
+    All
     - Location.all.each do |location|
-      = check_box_tag "ad[location_ids][]", location.id, @ad.locations.include?(location)
+      = check_box_tag "ad[location_ids][]", location.id, @ad.locations.include?(location), :class => "select-all"
       = location.name
   .actions
     = f.submit 'Save'
