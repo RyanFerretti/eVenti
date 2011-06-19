@@ -19,7 +19,10 @@
         .block
           .column.span-24
             = content_tag :div, msg, :class => name
-      -#= content_tag :h1, yield(:title) if show_title?
+      - if content_for?(:error)
+        .block
+          .column.span-24
+            = yield(:error)
       .block
         #wrapper
           = yield

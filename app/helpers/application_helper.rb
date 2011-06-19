@@ -57,4 +57,19 @@ module ApplicationHelper
     end
     options
   end
+
+  # overriding default devise helper
+  def error_messages!
+    return "" if resource.errors.empty?
+
+    messages = resource.errors.full_messages.map { |msg| content_tag(:p, msg) }.join
+
+    html = <<-HTML
+    <div class="alert">
+      <ul>#{messages}</ul>
+    </div>
+    HTML
+
+    html.html_safe
+  end
 end
