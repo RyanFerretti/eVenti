@@ -1,19 +1,20 @@
-#steps
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %fieldset.step
-      %legend
-        Sign In
-    %p
-      = f.label :email
-      = f.text_field :email
-    %p
-      = f.label :password
-      = f.password_field :password
-    - if devise_mapping.rememberable?
+- content_for :form do
+  #steps
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      %fieldset.step
+        %legend
+          Sign In
       %p
-        = f.label :remember_me
-        = f.check_box :remember_me
-    %p.submit
-      = f.submit "Sign in"
-    %p
-      = render :partial => "devise/shared/links"
+        = f.label :email
+        = f.text_field :email
+      %p
+        = f.label :password
+        = f.password_field :password
+      - if devise_mapping.rememberable?
+        %p
+          = f.label :remember_me
+          = f.check_box :remember_me
+      %p.submit
+        = f.submit "Sign in"
+      %p
+        = render :partial => "devise/shared/links"
