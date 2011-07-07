@@ -2,31 +2,34 @@
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : "Rockstar Uproar!"
-    = stylesheet_link_tag "redmond-theme/jquery-ui-1.8.11.custom", "application"
+    = stylesheet_link_tag "redmond-theme/jquery-ui-1.8.11.custom", "application", "main"
     <!-- stylesheet_link_tag "blueprint/print.css", :media => "print", look into blueprint ie8 hack -->
     = javascript_include_tag "jquery-1.5.2.min", "jquery-ui-1.8.11.custom.min", "rails", "application"
     = csrf_meta_tag
     = yield(:head)
   %body{:class => body_class}
-    #container
-      .header.block
-        .column.span-16
-          %h1
-            = image_tag "/images/uproar-2011.png"
-        .column.span-8.last
-          = render "layouts/user_status"
-      - flash.each do |name, msg|
-        .block
-          .column.span-24
-            = content_tag :div, msg, :class => name
-      - if content_for?(:error)
-        .block
-          .column.span-24
-            = yield(:error)
-      .block
-        #wrapper
-          = yield
-      .footer.block
-        %h2
-          /This is the Footer :(
+    #socTab
+      .icon
+        = link_to image_tag("http://rockstaruproar.com/wp-content/themes/SGE/images/icons/facebook32.png", :alt => "facebook"),"http://www.facebook.com/RockstarUPROAR", :target => "_blank"
+        = link_to image_tag("http://rockstaruproar.com/wp-content/themes/SGE/images/icons/twitter32.png", :alt => "twitter"),"http://www.twitter.com/RockstarUPROAR", :target => "_blank"
+        = link_to image_tag("http://rockstaruproar.com/wp-content/themes/SGE/images/icons/youtube32.png", :alt => "youtube"),"http://www.youtube.com/user/RockstarUPROAR", :target => "_blank"
+
+    #wrapper.hfeed
+      #deathbat
+        = image_tag "http://cache.rockstaruproar.com/images/deathbat.png", :alt => "deathbat"
+      #lion
+        = image_tag "http://cache.rockstaruproar.com/images/lion.png", :alt => "lion"
+      .main-header
+        %iframe{:src => "http://rockstaruproar.com/headerfooter/", :width => "940", :height => "242", :scrolling => "no", :frameborder => "0"}
+      #main
+        #header
+        #content
+          - if content_for?(:form)
+            .form-wrapper
+              = yield(:form)
+          - else
+            = yield
+
+    .footer
+      %iframe{:src => "http://rockstaruproar.com/headerfooter/", :width => "940", :height => "742", :scrolling => "no", :frameborder => "0"}
   = yield(:footer)

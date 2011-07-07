@@ -195,3 +195,4 @@
       = recaptcha_tags
       %p.submit
         = f.submit "Register", :id => "register-button", :class => "hidden"
+= content_for(:footer,javascript_include_tag("sliding.form"))

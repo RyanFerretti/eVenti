@@ -1,0 +1,142 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	background: url(http://cache.rockstaruproar.com/images/bg.jpg) no-repeat fixed center 0 black;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#wrapper {
+	background: transparent;
+	padding: 0;
+	border: none;
+	margin: 0 auto;
+	width: 940px;
+}
+
+#socTab {
+	width:47px;
+	height:178px;
+	position:fixed;
+	top:32px;
+	right:0px;
+	margin:0;
+	background: url(http://cache.rockstaruproar.com/images/TabBG.png) no-repeat;
+	z-index: 999;
+}
+
+.icon {
+	width:32px;
+	height:32px;
+	margin:8px 0 0 8px;
+	padding:0;
+}
+
+#deathbat {
+	width: 223px;
+	height: 260px;
+	position: fixed;
+	top: 14px;
+	left: 50%;
+	margin: 0 0 0 -652px;
+	background: transparent;
+	z-index: 989;
+}
+
+#lion {
+	width: 353px;
+	height: 383px;
+	position: fixed;
+	top: 454px;
+	left: 50%;
+	margin: 0 0 0 444px;
+	background: transparent;
+	z-index: 988;
+}
+
+#main {
+	clear: both;
+	overflow: hidden;
+	padding: 0;
+	background: url(http://missimages.rockstaruproar.com/images/gradientBG.jpg) #202020 top repeat-x;
+	border-left: 1px solid #202020;
+	border-right: 1px solid #202020;
+	width: 938px;
+	margin: 0 auto;
+}
+
+#header {
+	width: 938px;
+	height: 210px;
+	background: url(http://missimages.rockstaruproar.com/images/missUproarHeader.png) no-repeat;
+	margin: 0;
+	z-index: 980;
+}
+
+#content {
+	width: 890px;
+	min-height: 508px;
+	background: url(http://missimages.rockstaruproar.com/images/model.png) no-repeat bottom right;
+	margin: -80px 0 0 0;
+	padding: 60px 0 0 48px;
+	z-index: 990;
+}
+
+#info {
+	width: 354px;
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #ffffff;
+	line-height: 1.5;
+}
+
+.yellow {
+	color: #fff200;
+}
+
+a:link, a:visited {
+	color: #fff200;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #fff200;
+	text-decoration: underline;
+}
+
+#button {
+	width: 264px;
+	height: 89px;
+	margin: 30px 0 0;
+	background: url(http://missimages.rockstaruproar.com/images/signUpButtonSprite.png) no-repeat top;
+
+}
+
+#button:hover, #button:active {
+	background-position: 0 -89px;
+}
+
+.footer {
+    width:940px;
+    margin: 0px auto;
+    height: 500px;
+    overflow:hidden;
+    position:relative;
+}
+
+.footer iframe {
+    position: absolute;
+    top: -242px;
+    left: 0px;
+    width: 940px;
+    height: 742px;"
+}
+
+.main-header {
+    width:940px;
+    margin: 0px auto;
+    height: 242px;
+}

@@ -1,14 +1,14 @@
-#navigation
-  %ul
-    %li.selected
-      = link_to "Account", "#"
-    %li
-      = link_to "Details", "#"
-    %li
-      = link_to "Attributes", "#"
-    %li
-      = link_to "Interests", "#"
-    %li
-      = link_to "Photos", "#", :class => "captcha"
-= render :partial => "members/registrations/form", :locals => { :resource => resource, :resource_name => resource_name }
-= content_for(:footer,javascript_include_tag("sliding.form"))
+- content_for :form do
+  #navigation
+    %ul
+      %li.selected
+        = link_to "Account", "#"
+      %li
+        = link_to "Details", "#"
+      %li
+        = link_to "Attributes", "#"
+      %li
+        = link_to "Interests", "#"
+      %li
+        = link_to "Photos", "#", :class => "captcha"
+  = render :partial => "members/registrations/form", :locals => { :resource => resource, :resource_name => resource_name }
