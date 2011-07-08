@@ -144,3 +144,7 @@ a:hover, a:active {
 #wrapper + iframe {
     display:none;
 }
+
+.user_nav {
+    color:#fff;
+}
