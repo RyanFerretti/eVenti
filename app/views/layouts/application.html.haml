@@ -23,21 +23,20 @@
         %iframe{:src => "http://rockstaruproar.com/headerfooter/", :width => "940", :height => "242", :scrolling => "no", :frameborder => "0"}
       #main
         #header
-        #content
-          - if content_for?(:form)
-            = render "layouts/user_status"
-            - flash.each do |name, msg|
-              .block
-                .column.span-24
-                  = content_tag :div, msg, :class => name
-            - if content_for?(:error)
-              .block
-                .column.span-24
-                  = yield(:error)
-            .form-wrapper
-              = yield(:form)
-          - else
-            = yield
+        - if content_for?(:form)
+          = render "layouts/user_status"
+          - flash.each do |name, msg|
+            .block
+              .column.span-24
+                = content_tag :div, msg, :class => name
+          - if content_for?(:error)
+            .block
+              .column.span-24
+                = yield(:error)
+          .form-wrapper
+            = yield(:form)
+        - else
+          = yield
 
     .footer
       %iframe{:src => "http://rockstaruproar.com/headerfooter/", :width => "940", :height => "742", :scrolling => "no", :frameborder => "0"}
