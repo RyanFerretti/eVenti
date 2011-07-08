@@ -140,3 +140,7 @@ a:hover, a:active {
     margin: 0px auto;
     height: 242px;
 }
+
+#wrapper + iframe {
+    display:none;
+}
