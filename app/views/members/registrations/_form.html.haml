@@ -14,14 +14,14 @@
         = f.text_field :email_confirmation, :class => "required confirmable"
       %p
         = f.label :password
-        = f.password_field :password, :class => "required", :"data-message" => "Needs to be between 6 to 20 characters"
+        = f.password_field :password, :class => "required", :"data-message" => t("form.password_confirmation_note")
       %p
         = f.label :password_confirmation, "Re Enter Password"
         = f.password_field :password_confirmation, :class => "required confirmable"
       %p
         = f.label :profile_name, "Profile URL"
         - if resource.new_record?
-          = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => "miss.rockstaruproar.com/profile/", :"data-unique" => "/members/unique/profile_name/"
+          = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/"
         - else
           = #resource.member_summary.profile_name
       /= f.fields_for :member_summary do |ff|
@@ -34,7 +34,7 @@
       %legend
         Details
       %p
-        Please make sure enter your information correctly! If your information is not entered correctly we may not be able to contact you for important details about the promotion or notify if you're a finalist.  Please make sure you fill in the appropriate boxes and double-check for typos and other errors.
+        = t "form.correct_info_note"
       %p
         = f.label :first_name
         = f.text_field :first_name, :class => "required"
@@ -50,10 +50,10 @@
           = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"
         %p
           = ff.label :address, "Address 1"
-          = ff.text_field :address, :class => "required", :"data-message" => "(Street address, P.O. box, company name, c/o)"
+          = ff.text_field :address, :class => "required", :"data-message" => t("form.address_1_note")
         %p
           = ff.label :address_more, "Address 2"
-          = ff.text_field :address_more, :"data-message" => "(Apartment, suite, unit, building, floor, etc.)"
+          = ff.text_field :address_more, :"data-message" =>  t("form.address_2_note")
         %p
           = ff.label :city
           = ff.text_field :city, :class => "required"
@@ -65,13 +65,13 @@
           = ff.text_field :zip_code, :class => "required"
         %p
           = ff.label :cell_phone
-          = ff.text_field :cell_phone, :class => "required phone", :"data-message" => "ex: 123-456-7890"
+          = ff.text_field :cell_phone, :class => "required phone", :"data-message" => t("form.phone_note")
         %p
           = ff.label :telephone, "Secondary Phone"
           = ff.text_field :telephone, :class => "phone"
         %p
           = ff.label :facebook_url
-          = ff.text_field :facebook_url, :"data-message" => "This is only for us to contact you and will not be published"
+          = ff.text_field :facebook_url, :"data-message" => t("form.facebook_note")
     %fieldset.step
       %legend
         Attributes
@@ -127,11 +127,11 @@
       %legend
         Interests
       %p
-        We want to know more about you! Please tell us some of your interests below so you can stand out in this competition!
+        = t("form.know_more_note")
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :experience
-          = ff.text_area :experience, :"data-message" => "Please tell us a little bit about yourself and your modeling career. Tell us why should you be Miss UPROAR 2011!"
+          = ff.text_area :experience, :"data-message" => t("form.experience_note")
         %p
           = ff.label :first_concert
           = ff.text_field :first_concert
@@ -160,7 +160,7 @@
       %legend
         Photos
       %p.left
-        Please upload 3 photos to be displayed and rated on your profile.  Photo 1 will be the default on your profile. You also have the option to credit your photographer for their amazing work!
+        =  t("form.upload_note")
       - i = 0
       = f.fields_for :pictures do |ff|
         %p
@@ -174,15 +174,15 @@
             = ff.label :credit
             = ff.text_field :credit
       %p.left
-        Just one click away and you're done! Thank you for taking the time to enter the 2011 Miss UPROAR model search! Good Luck!
+        = t("form.encourage_note")
         %br
         %br
-        Images must be less than 10MB. JPEG and PNG files accepted.
+        = t("form.photo_limit_note")
       - if resource.new_record?
         = f.fields_for :member_summary do |ff|
           %p.left
             = ff.check_box :staffing
-            I would like to be contacted for future promotional modeling opportunities.
+            = t("form.contact_note")
       %p.left
         = check_box_tag :accept_ror, 'yes', false, :class => 'required-for-submit'
         I agree to the
