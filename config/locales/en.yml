@@ -2,4 +2,10 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  welcome:
+    intro_html: Welcome to the 2011 Miss UPROAR model search! We are searching for the hottest women across the country to represent the %{href} We will choose a winner in each tour market, and one grand prize winner that will be crowned.
+    grand_prize_description_html: Title of <span class="yellow">Miss UPROAR 2011</span>, inclusion in a Rockstar Energy Drink advertising campaign, cash, product, and more!
+
+  form:
+    email_note: You will use your email address to log in to your account
+    fields_note: Fields that are NOT required and that you do not fill out will not be displayed on your profile. Your personal and contact information WILL NOT be displayed on your profile.

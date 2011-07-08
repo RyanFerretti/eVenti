@@ -8,7 +8,7 @@
         Account
       %p
         = f.label :email, "My e-mail address is"
-        = f.text_field :email, :placeholder => "username@email.com", :class => "required", :"data-message" => "You will use your email address to log in to your account", :"data-unique" => "/members/unique/email/"
+        = f.text_field :email, :placeholder => "username@email.com", :class => "required", :"data-message" => t("form.email_note"), :"data-unique" => "/members/unique/email/"
       %p
         = f.label :email_confirmation, "Please re enter e-mail"
         = f.text_field :email_confirmation, :class => "required confirmable"
@@ -29,7 +29,7 @@
       /  = ff.label :location
       /  = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
       %p
-        Fields that are NOT required and that you do not fill out will not be displayed on your profile. Your personal and contact information WILL NOT be displayed on your profile.
+        = t "form.fields_note"
     %fieldset.step
       %legend
         Details
