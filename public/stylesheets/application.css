@@ -27,6 +27,7 @@ body{
 
 .form-wrapper {
     margin-left:110px;
+	margin-top: 10px;
 }
 
 .form-wrapper, .alert, .notice{
@@ -44,7 +45,7 @@ body{
 
 .alert {
     color: #fff;
-    margin-bottom: 10px;
+    margin: 10px 110px;
     background: #c00;
     font-size: 16px;
     padding: 16px;
@@ -54,7 +55,7 @@ body{
 
 .notice {
     color: #fff;
-    margin-bottom: 10px;
+    margin: 10px 110px;
     background: #009900;
     font-size: 16px;
     padding: 16px;
@@ -177,7 +178,19 @@ span.error{
     -moz-box-shadow:0px 0px 3px #aaa;
     -webkit-box-shadow:0px 0px 3px #aaa;
     box-shadow:0px 0px 3px #aaa;
+	text-align: justify;
 }
+
+#steps form p a:link, #steps form p a:visited {
+    color:#c00;
+    text-decoration: none;
+}
+
+#steps form p a:hover, #steps form p a:active {
+    color:#c00;
+    text-decoration: underline;
+}
+
 #steps form p label{
     width:160px;
     float:left;
@@ -220,20 +233,20 @@ span.error{
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    color: #ffffff;
+    color: #000;
     display: block;
     cursor:pointer;
     margin: 0px 136px;
     clear:both;
     padding: 7px 25px;
-    text-shadow: 0 1px 1px #777;
+    text-shadow: 0 1px 1px #fff;
     font-weight:bold;
     font-family:"Century Gothic", Helvetica, sans-serif;
     font-size:22px;
     -moz-box-shadow:0px 0px 3px #aaa;
     -webkit-box-shadow:0px 0px 3px #aaa;
     box-shadow:0px 0px 3px #aaa;
-    background:#ffba00;
+    background:#fff000;
     width: 135px;
 }
 
@@ -267,22 +280,27 @@ span.error{
     margin: 10px 96px;
     clear:both;
     padding: 5px 10px;
-    text-shadow: 0 1px 1px #777;
+    text-shadow: 0 1px 1px #fff;
     font-weight:bold;
     font-family:"Century Gothic", Helvetica, sans-serif;
     font-size:16px;
     -moz-box-shadow:0px 0px 3px #aaa;
     -webkit-box-shadow:0px 0px 3px #aaa;
     box-shadow:0px 0px 3px #aaa;
-    background:#ffba00;
+    background:#fff000;
 	text-decoration:none;
 
+}
+
+.next-button:link, .next-button:visited {
+    color:#202020;
 }
 
 .next-button:hover {
     background:#d8d8d8;
     color:#666;
     text-shadow:1px 1px 1px #fff;
+    text-decoration:none;
 }
 
 .radios {
