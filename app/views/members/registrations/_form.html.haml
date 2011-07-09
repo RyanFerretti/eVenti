@@ -24,10 +24,10 @@
           = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/"
         - else
           = #resource.member_summary.profile_name
-      /= f.fields_for :member_summary do |ff|
-      /%p
-      /  = ff.label :location
-      /  = ff.select("location_id", Location.all.collect {|l| [ "#{l.city}, #{l.state}", l.id ] })
+      = f.fields_for :member_summary do |ff|
+        %p
+          = ff.label :location, "Market"
+          = ff.select "location_id", Location.active.collect {|l| [ "#{l.city}, #{l.state}", l.id ] }, :prompt => "Please Select", :class => "required"
       %p
         = t "form.fields_note"
     %fieldset.step

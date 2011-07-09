@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20110708015056) do
     t.datetime "updated_at"
     t.text     "promos"
     t.text     "advertisements"
-    t.boolean  "active"
+    t.boolean  "active",         :default => false
   end
 
   create_table "member_summaries", :force => true do |t|
