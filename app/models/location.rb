@@ -9,7 +9,7 @@ class Location < ActiveRecord::Base
   scope :ref_data, select("id, city, state")
 
   scope :active, where(:active => true)
-  scope :c_active, Rails.cache.fetch(:location){self.active}
+  scope :c_active, Rails.cache.fetch(:location){self.active.to_a}
 
   def name
     "#{city}, #{state}"
