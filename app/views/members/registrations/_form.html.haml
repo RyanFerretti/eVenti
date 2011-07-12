@@ -27,7 +27,7 @@
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :location, "Market"
-          = ff.select "location_id", Location.active.collect {|l| [ "#{l.city}, #{l.state}", l.id ] }, :prompt => "Please Select", :class => "required"
+          = ff.select "location_id", Location.c_active.collect {|l| [ "#{l.city}, #{l.state}", l.id ] }, :prompt => "Please Select", :class => "required"
       %p
         = t "form.fields_note"
     %fieldset.step

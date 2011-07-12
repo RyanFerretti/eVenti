@@ -36,7 +36,7 @@ EVenti::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'dev-msuproar.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'missuproar.rockstaruproar.com' }
 
   # Enable threaded mode
   # config.threadsafe!
@@ -47,6 +47,8 @@ EVenti::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.cache_store = :dalli_store
 
   Paperclip.options[:swallow_stderr] = false
   Paperclip.options[:command_path] = "/usr/bin"
