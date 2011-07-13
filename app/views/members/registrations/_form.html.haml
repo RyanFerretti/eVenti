@@ -44,7 +44,7 @@
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :date_of_birth
-          = ff.text_field :date_of_birth, :class => "required birthday-picker"
+          = ff.text_field :date_of_birth, :class => "required birthday-picker", :"data-message" => "You must be at least 21 years of age to enter."
         %p
           = ff.label :relationship_status
           = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"
