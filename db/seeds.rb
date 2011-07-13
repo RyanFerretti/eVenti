@@ -1,6 +1,15 @@
-Location.create! :city => "Chicago", :state => "IL"
-Location.create! :city => "New York", :state => "NY"
-Location.create! :city => "Los Angeles", :state => "CA"
+locations = [["Camden","NJ",true],["Scranton","PA",true],["Boston","MA",true],["Washington","DC",true],["Virginia Beach","VA",true],
+  ["Tampa","FL",true],["Biloxi","MS",true],["Houston","TX",true],["Detroit","MI",true],["Buffalo","NY",true],["Hartford","CT",true],
+  ["Montreal","QC",false],["Toronto","ON",true],["Pittsburgh","PA",true],["Indianapolis","IN",true],["Chicago","IL",true],
+  ["Milwaukee","WI",false],["Cleveland","OH",true],["Omaha","NE",true],["Kansas City","MO",true],["St. Louis","MO",true],["Calgary","AB",true],
+  ["Edmonton","AB",true],["Auburn","WA",true],["Spokane","WA",false],["West Valley City","UT",false],["Denver","CO",true],["Albuquerque","NM",true],
+  ["Phoenix","AZ",true],["San Diego","CA",true],["Sacramento","CA",true],["San Francisco","CA",true]
+]
+
+locations.each do |loc|
+  Location.create! :city => loc[0], :state => loc[1], :active => loc[2]
+end
+
 
 Role.create! :name => "admin"
 Role.create! :name => "client"

@@ -226,6 +226,7 @@ $(function() {
     });
 
     $(".birthday-picker").datepicker({
+        defaultDate: "-22y",
         maxDate: "-21y",
         changeMonth: true,
 		changeYear: true,

@@ -9,3 +9,16 @@ en:
   form:
     email_note: You will use your email address to log in to your account
     fields_note: Fields that are NOT required and that you do not fill out will not be displayed on your profile. Your personal and contact information WILL NOT be displayed on your profile.
+    password_confirmation_note: Needs to be between 6 to 20 characters
+    profile_url_note: missuproar.rockstaruproar.com/profile/
+    correct_info_note: Please make sure enter your information correctly! If your information is not entered correctly we may not be able to contact you for important details about the promotion or notify if you're a finalist. Please make sure you fill in the appropriate boxes and double-check for typos and other errors.
+    address_1_note: (Street address, P.O. box, company name, c/o)
+    address_2_note: (Apartment, suite, unit, building, floor, etc.)
+    phone_note: ex 123-456-7890
+    facebook_note: This is only for us to contact you and will not be published
+    know_more_note: We want to know more about you! Please tell us some of your interests below so you can stand out in this competition!
+    experience_note: Please tell us a little bit about yourself and your modeling career. Tell us why should you be Miss UPROAR 2011!
+    upload_note: Please upload 3 photos to be displayed and rated on your profile. Photo 1 will be the default on your profile. You also have the option to credit your photographer for their amazing work!
+    encourage_note: Just one click away and you're done! Thank you for taking the time to enter the 2011 Miss UPROAR model search! Good Luck!
+    photo_limit_note: Images must be less than 10MB. JPEG and PNG files accepted.
+    contact_note: I would like to be contacted for future promotional modeling opportunities.
