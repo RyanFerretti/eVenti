@@ -24,6 +24,8 @@ EVenti::Application.routes.draw do
   match "captcha/verify" => "captcha#verify", :as => :verify_captcha
 #  resources :events
 
+  match "/rules" => "home#rules"
+  match "/terms" => "home#terms"
   match "/" => "home#index", :as => :filter_home, :via => :post
 
   root :to => "home#index"

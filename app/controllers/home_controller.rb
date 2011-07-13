@@ -5,6 +5,14 @@ class HomeController < ApplicationController
     
   end
 
+  def rules
+
+  end
+
+  def terms
+
+  end
+  
   def index_temp
     @city = params[:city]
     @rating = params[:rating]
