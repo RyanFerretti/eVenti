@@ -181,15 +181,22 @@ $(function() {
     mirrorTyping();
 
 	$('form').live('submit',function(e){
-		if($('#navigation .errors').length){
+        if($('#navigation .errors').length){
 			alert('Please correct the errors in the Form');
-            return true;
+            e.preventDefault();
+			return false;
 		}
         if(!checkRequiredCheckBoxes()){
 			alert('Please accept the Rules and Terms of Conditions');
             e.preventDefault();
 			return false;
 		}
+        if(!validateCaptcha()){
+            alert('Please correct the captcha and try again');
+            e.preventDefault();
+			return false;
+		}
+        return true;
 	});
 	$("fieldset:not(:last-child)").append('<a href="#" class="next-button">Next</a>');
 
@@ -290,4 +297,44 @@ $(function() {
             return false;
         }
     });
+
+    function validateCaptcha() {
+        var obj = $("#recaptcha_response_field"),
+            challenge = $("#recaptcha_challenge_field"),
+            name = obj.attr("name"),
+            challenge_name = challenge.attr("name"),
+            loadingClass = "ajax-loading",
+            data_values = {}
+            isSuccess = false;
+        if(obj.val().length > 0){
+            obj.addClass(loadingClass);
+            data_values[name] = obj.val();
+            data_values[challenge_name] = challenge.val();
+            $.ajax("/captcha/verify",{
+                data:data_values,
+                success: function(data){
+                        var captchaErrorClass = "captcha-error";
+                        showValidationErrorsIfNeeded(obj,data.valid);
+                        obj.removeClass(loadingClass);
+                        if(data.valid){
+                            obj.removeClass(ajaxErrorClass);
+                            if(obj.parent().children("span."+captchaErrorClass).length != 0){
+                                obj.next().next().remove();
+                            }
+                            isSuccess = true;
+                        }
+                        else {
+                            obj.addClass(ajaxErrorClass);
+                            if(obj.parent().children("span."+captchaErrorClass).length == 0){
+                                obj.next().after("<span class=\"red message "+captchaErrorClass+"\">"+data.error+"</span>");
+                            }
+                        }
+
+                    },
+                async:false
+            });
+        }
+        console.log(isSuccess);
+        return isSuccess;
+    }
 });
