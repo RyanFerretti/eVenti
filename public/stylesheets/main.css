@@ -56,7 +56,7 @@ body {
 	z-index: 988;
 }
 
-#main {
+.main {
 	clear: both;
 	overflow: hidden;
 	padding: 0;
@@ -67,10 +67,22 @@ body {
 	margin: 0 auto;
 }
 
+.welcome {
+	clear: both;
+	overflow: hidden;
+	padding: 0;
+	background: url(http://missimages.rockstaruproar.com/images/sullenModel_02.jpg) #000 bottom no-repeat;
+	border-left: 1px solid #202020;
+	border-right: 1px solid #202020;
+	width: 938px;
+	margin: 0 auto;
+	height: 1060px;
+}
+
 #header {
 	width: 938px;
 	height: 210px;
-	background: url(http://missimages.rockstaruproar.com/images/missUproarHeader.png) no-repeat;
+	background: url(http://missimages.rockstaruproar.com/images/missUproarHeader_02.png) no-repeat;
 	margin: 0;
 	z-index: 980;
 }
@@ -78,13 +90,22 @@ body {
 #content {
 	width: 890px;
 	min-height: 508px;
-	background: url(http://missimages.rockstaruproar.com/images/model.png) no-repeat bottom right;
 	margin: -80px 0 0 0;
 	padding: 60px 0 0 48px;
 	z-index: 990;
 }
 
-#info {
+.info1 {
+	width: 840px;
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #ffffff;
+	line-height: 1.5;
+	margin-top: 40px;
+}
+
+.info2 {
 	width: 354px;
 	text-align: justify;
 	font-family: Arial, Helvetica, sans-serif;
@@ -148,3 +169,31 @@ a:hover, a:active {
 .user_nav {
     color:#fff;
 }
+
+.copyContent {
+	padding:40px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 1.4;
+}
+
+.pageTitle {
+	color: #FFF000;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 1.3em;
+	margin-bottom: 0;
+	font-family: "MinionProRegular", "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.copyContent h2 {
+	color: #FFBA00;
+	line-height: 1.5em;
+	margin: 0 0 6px 0;
+	font-family: "MinionProRegular", "Times New Roman", Times, serif;
+	font-size: 16px;
+}
+

@@ -21,7 +21,7 @@
         = image_tag "http://cache.rockstaruproar.com/images/lion.png", :alt => "lion"
       .main-header
         %iframe{:src => "http://rockstaruproar.com/headerfooterms/", :width => "940", :height => "242", :scrolling => "no", :frameborder => "0"}
-      #main
+      .main{:class => (content_for?(:main_class) ? yield(:main_class) : "")}
         #header
         - if content_for?(:form)
           = render "layouts/user_status"
