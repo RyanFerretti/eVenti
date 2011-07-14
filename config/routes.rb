@@ -1,5 +1,7 @@
 EVenti::Application.routes.draw do
 
+  protocol = Rails.env.development? ? "http" : "https"
+
   resources :ads
 
   resources :locations
@@ -14,9 +16,14 @@ EVenti::Application.routes.draw do
 
   match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
 
-  devise_for :members, :controllers => { :registrations => "members/registrations" } do
+  devise_scope :members do
     match "members/registrations/:profile_name/success" => "members/registrations#success", :via => :get, :as => :registration_success
   end
+
+  constraints :protocol => protocol do
+    devise_for :members, :controllers => { :registrations => "members/registrations" }
+  end
+
   devise_for :clients
   devise_for :admins
 
