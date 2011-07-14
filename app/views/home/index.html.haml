@@ -14,9 +14,9 @@
     %br
     %br
     Just click on the button below to get started!
-    = link_to url_for(:action=>"new", :controller=>"members/registrations", :protocol => "https") do
+    = link_to url_for(:action=>"new", :controller=>"members/registrations", :protocol => "https", :only_path => false) do
       #button
 
-    = link_to new_member_registration_url(:protocol => "https") do
+    = link_to new_member_registration_url(:protocol => "https", :only_path => false) do
       #button
 
