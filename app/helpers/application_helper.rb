@@ -73,7 +73,8 @@ module ApplicationHelper
     html.html_safe
   end
 
-  def ssl_options
+  # could expand this to include defaults passed in then do a merge! on options
+  def ssl_options(options = {})
     {:protocol => "https", :only_path => false} unless Rails.env.development?
   end
 end
