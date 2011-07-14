@@ -14,6 +14,9 @@
     %br
     %br
     Just click on the button below to get started!
-    = link_to new_member_registration_path do
+    = link_to url_for(:action=>"new", :controller=>"members/registrations") do
+      #button
+
+    = link_to new_member_registration_url do
       #button
 
