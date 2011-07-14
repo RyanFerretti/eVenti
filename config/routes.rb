@@ -14,9 +14,13 @@ EVenti::Application.routes.draw do
 
   match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
 
-  devise_for :members, :controllers => { :registrations => "members/registrations" }
+  devise_for :members, :controllers => { :registrations => "members/registrations" } do
+    match "members/registrations/:profile_name/success" => "members/registrations#success", :via => :get, :as => :registration_success
+  end
   devise_for :clients
   devise_for :admins
+
+
 
   match "members/unique/email" => "profile#verify_unique_email", :as => :unique_email
   match "members/unique/profile_name" => "profile#verify_unique_profile_name", :as => :unique_profile_name
