@@ -50,7 +50,7 @@ $(function() {
 	// pressing tab on the last input will slide to the next fieldset
 	$('form > fieldset').each(function(){
 		var $fieldset = $(this);
-		$fieldset.children(':last').find(':input').keydown(function(e){
+		$fieldset.find(':input:last').keydown(function(e){
 			if (e.which == 9){
 				$('#navigation li:nth-child(' + (parseInt(current)+1) + ') a').click();
 				/* force the blur for validation */
