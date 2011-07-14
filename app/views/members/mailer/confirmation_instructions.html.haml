@@ -1,7 +1,4 @@
 %p
   Welcome #{@resource.first_name.titleize}!
 %p You can confirm your account through the link below:
-%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
-%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token).gsub!("http","https")
 %p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :host => "missuproar.rockstaruproar.com", :protocol => "https", :only_path => false)
-%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :host => "missuproar.rockstaruproar.com", :protocol => "https", :only_path => false).gsub!("http","https")
