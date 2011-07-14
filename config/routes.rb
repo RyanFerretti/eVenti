@@ -16,12 +16,10 @@ EVenti::Application.routes.draw do
 
   match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
 
-  devise_scope :members do
-    match "members/registrations/:profile_name/success" => "members/registrations#success", :via => :get, :as => :registration_success
-  end
-
   constraints :protocol => protocol do
-    devise_for :members, :controllers => { :registrations => "members/registrations" }
+    devise_for :members, :controllers => { :registrations => "members/registrations" }do
+      match "members/registrations/:profile_name/success" => "members/registrations#success", :via => :get, :as => :registration_success
+    end
   end
 
   devise_for :clients
