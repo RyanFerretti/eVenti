@@ -71,11 +71,12 @@ body {
 	clear: both;
 	overflow: hidden;
 	padding: 0;
-	background: url(http://missimages.rockstaruproar.com/images/sullenModel.jpg) #000 top no-repeat;
+	background: url(http://missimages.rockstaruproar.com/images/sullenModel_02.jpg) #000 bottom no-repeat;
 	border-left: 1px solid #202020;
 	border-right: 1px solid #202020;
 	width: 938px;
 	margin: 0 auto;
+	height: 1060px;
 }
 
 #header {
@@ -94,7 +95,17 @@ body {
 	z-index: 990;
 }
 
-#info {
+.info1 {
+	width: 840px;
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #ffffff;
+	line-height: 1.5;
+	margin-top: 40px;
+}
+
+.info2 {
 	width: 354px;
 	text-align: justify;
 	font-family: Arial, Helvetica, sans-serif;
@@ -158,3 +169,31 @@ a:hover, a:active {
 .user_nav {
     color:#fff;
 }
+
+.copyContent {
+	padding:40px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 1.4;
+}
+
+.pageTitle {
+	color: #FFF000;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 1.3em;
+	margin-bottom: 0;
+	font-family: "MinionProRegular", "Times New Roman", Times, serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.copyContent h2 {
+	color: #FFBA00;
+	line-height: 1.5em;
+	margin: 0 0 6px 0;
+	font-family: "MinionProRegular", "Times New Roman", Times, serif;
+	font-size: 16px;
+}
+
