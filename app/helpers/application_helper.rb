@@ -72,4 +72,8 @@ module ApplicationHelper
 
     html.html_safe
   end
+
+  def ssl_options
+    {:protocol => "https", :only_path => false} unless Rails.env.development?
+  end
 end
