@@ -233,11 +233,17 @@ $(function() {
     });
 
     $(".birthday-picker").datepicker({
-        defaultDate: "-22y",
-        maxDate: "-21y",
+        //defaultDate: "-18y",
+        //maxDate: "-21y",
         changeMonth: true,
 		changeYear: true,
-        onClose: function(dateText, inst) { validateInput($(this)); }
+        onClose: function(dateText, inst) {
+            if(validateInput($(this))){
+                if(!isLegal(dateText)) {
+                    $(this).parent().next().remove();
+                }
+            }
+        }
     });
 
     $("[data-unique]").live("blur",function(e){
@@ -297,6 +303,19 @@ $(function() {
             return false;
         }
     });
+
+    function isLegal(dateText) {
+        var birth = new Date(dateText),
+            today = new Date(),
+            min_age = 18,
+            adjusted_birth = new Date((birth.getFullYear() + min_age), birth.getMonth(), birth.getDate())
+
+            if ( (today.getTime() - adjusted_birth.getTime()) < 0) {
+				alert("You are too young to enter this contest!");
+				return false;
+			}
+        return true;
+    }
 
     function validateCaptcha() {
         var obj = $("#recaptcha_response_field"),
