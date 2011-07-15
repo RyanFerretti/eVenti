@@ -2,7 +2,8 @@ class HomeController < ApplicationController
   #before_filter :authenticate_member!
 
   def index
-    
+    @time = "Rendered at #{Time.now}"
+    cache_5
   end
 
   def rules

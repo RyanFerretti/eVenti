@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def cache_5
+    response.headers['Cache-Control'] = 'public, max-age=300'
+  end
+
   def setup_next_profile_pictures
     current = session[:last_rating] || 0
     @members = Member.where("id > ?",current).order("id").page(1).per(2)
