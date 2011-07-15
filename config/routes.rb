@@ -35,6 +35,9 @@ EVenti::Application.routes.draw do
 
   match "/rules" => "home#rules"
   match "/terms" => "home#terms"
+
+  match "/mu-76074217-37c5dcb0-4f514cf6-33bcd2d9", :to => proc {|env| [200, {}, ["42"]] }
+
   match "/" => "home#index", :as => :filter_home, :via => :post
 
   root :to => "home#index"
