@@ -5,6 +5,13 @@
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :class => "registration" }) do |f|
     %fieldset.step
       %legend
+        Verify
+      = f.fields_for :member_summary do |ff|
+        %p
+          = ff.label :date_of_birth
+          = ff.text_field :date_of_birth, :class => "required birthday-picker"
+    %fieldset.step
+      %legend
         Account
       %p
         = f.label :email, "My e-mail address is"
@@ -42,9 +49,6 @@
         = f.label :last_name
         = f.text_field :last_name, :class => "required"
       = f.fields_for :member_summary do |ff|
-        %p
-          = ff.label :date_of_birth
-          = ff.text_field :date_of_birth, :class => "required birthday-picker", :"data-message" => "You must be at least 21 years of age to enter."
         %p
           = ff.label :relationship_status
           = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"
