@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
-  #before_filter :authenticate_member!
+  before_filter :check_logged_in, :only => [:index]
+
+  caches_action :index
 
   def index
-    @time = "Rendered at #{Time.now}"
-    cache_5
+    #cache_5
   end
 
   def rules
@@ -44,4 +45,11 @@ class HomeController < ApplicationController
     setup_next_profile_pictures
     @allow_voting = allow_voting?
   end
+
+private
+
+  def check_logged_in
+    redirect_to edit_member_registration_path if member_signed_in?
+  end
+
 end
