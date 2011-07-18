@@ -178,12 +178,12 @@
             = ff.file_field :image, :class => "required select-other"
             = ff.label :credit
             = ff.text_field :credit
-      %p.left
-        = t("form.encourage_note")
-        %br
-        %br
-        = t("form.photo_limit_note")
       - if resource.new_record?
+        %p.left
+          = t("form.encourage_note")
+          %br
+          %br
+          = t("form.photo_limit_note")
         = f.fields_for :member_summary do |ff|
           %p.left
             = ff.check_box :staffing
