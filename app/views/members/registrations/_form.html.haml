@@ -31,7 +31,7 @@
         - if resource.new_record?
           = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/"
         - else
-          = link_to "#{t("form.profile_url_note")}/#{resource.member_summary.profile_name}" "http://#{t("form.profile_url_note")}/#{resource.member_summary.profile_name}"
+          = link_to "#{t("form.profile_url_note")}/#{resource.member_summary.profile_name}", "http://#{t("form.profile_url_note")}/#{resource.member_summary.profile_name}"
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :location, "Market"
