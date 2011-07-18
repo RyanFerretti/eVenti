@@ -19,18 +19,19 @@
       %p
         = f.label :email_confirmation, "Please re enter e-mail"
         = f.text_field :email_confirmation, :class => "required confirmable"
-      %p
-        = f.label :password
-        = f.password_field :password, :class => "required", :"data-message" => t("form.password_confirmation_note")
-      %p
-        = f.label :password_confirmation, "Re Enter Password"
-        = f.password_field :password_confirmation, :class => "required confirmable"
+      - if resource.new_record?
+        %p
+          = f.label :password
+          = f.password_field :password, :class => "required", :"data-message" => t("form.password_confirmation_note")
+        %p
+          = f.label :password_confirmation, "Re Enter Password"
+          = f.password_field :password_confirmation, :class => "required confirmable"
       %p
         = f.label :profile_name, "Profile URL"
         - if resource.new_record?
           = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/"
         - else
-          = #resource.member_summary.profile_name
+          = link_to "#{t("form.profile_url_note")}/#{resource.member_summary.profile_name}" "http://#{t("form.profile_url_note")}/#{resource.member_summary.profile_name}"
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :location, "Market"
@@ -187,16 +188,16 @@
           %p.left
             = ff.check_box :staffing
             = t("form.contact_note")
-      %p.left
-        = check_box_tag :accept_ror, 'yes', false, :class => 'required-for-submit'
-        I agree to the
-        = link_to("Miss UPROAR Rules and Regulations", "", {:target => "_blank"})
-        %br/
-        %br/
-        = check_box_tag :accept_tc, 'yes', false, :class => 'required-for-submit'
-        I agree to the
-        = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
-      = recaptcha_tags
+        %p.left
+          = check_box_tag :accept_ror, 'yes', false, :class => 'required-for-submit'
+          I agree to the
+          = link_to("Miss UPROAR Rules and Regulations", "", {:target => "_blank"})
+          %br/
+          %br/
+          = check_box_tag :accept_tc, 'yes', false, :class => 'required-for-submit'
+          I agree to the
+          = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
+        = recaptcha_tags
       %p.submit
-        = f.submit "Register", :id => "register-button", :class => "hidden"
+        = f.submit "Register", :id => "register-button", :class => (resource.new_record? ? "hidden" : "")
 = content_for(:footer,javascript_include_tag("sliding.form"))
