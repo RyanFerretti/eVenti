@@ -95,6 +95,14 @@ body {
 	z-index: 990;
 }
 
+#confirmation {
+	width: 890px;
+	height: 698px;
+	margin: 0;
+	padding: 0 0 0 48px;
+	background: url(http://missimages.rockstaruproar.com/images/sullenModel2_02.jpg) black bottom no-repeat;
+}
+
 .info1 {
 	width: 840px;
 	text-align: justify;
@@ -112,6 +120,16 @@ body {
 	font-size: 16px;
 	color: #ffffff;
 	line-height: 1.5;
+}
+
+.info3 {
+	width: 320px;
+	text-align: justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #ffffff;
+	line-height: 1.5;
+	padding-top: 30px;
 }
 
 .yellow {
