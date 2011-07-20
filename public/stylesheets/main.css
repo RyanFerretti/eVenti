@@ -196,6 +196,16 @@ a:hover, a:active {
 	line-height: 1.4;
 }
 
+.copyContent table {
+    padding-top: 16px;
+	font-size:12px;
+}
+
+.copyContent td {
+    border: 1px solid #666;
+    padding: 10px;  
+}
+
 .pageTitle {
 	color: #FFF000;
 	font-size: 22px;
