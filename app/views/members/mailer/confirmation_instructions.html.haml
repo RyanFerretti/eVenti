@@ -4,5 +4,6 @@
 %p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :host => "missuproar.rockstaruproar.com", :protocol => "https", :only_path => false)
 %p We will keep you posted on any other updates regarding the contest.
 %p
-  = "In the future, you can sign in at #{link_to("https://missuproar.rockstaruproar.com/members/sign_in","https://missuproar.rockstaruproar.com/members/sign_in")}"
+  In the future, you can sign in at: 
+  = link_to("https://missuproar.rockstaruproar.com/members/sign_in","https://missuproar.rockstaruproar.com/members/sign_in")
 %p Stay tuned for more information! Thanks for entering and GOOD LUCK!
