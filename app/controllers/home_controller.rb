@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
-  before_filter :check_logged_in, :only => [:index]
+  #before_filter :check_logged_in, :only => [:index]
 
-  caches_action :index
+  #caches_action :index
 
   def index
     #cache_5
