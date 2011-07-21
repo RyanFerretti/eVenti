@@ -17,7 +17,7 @@ class Picture < ActiveRecord::Base
 
 
   #validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 10.megabytes
+  validates_attachment_size :image, :less_than => 3.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
   attr_accessible :image, :approved, :credit, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
 
