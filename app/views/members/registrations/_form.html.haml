@@ -16,9 +16,10 @@
       %p
         = f.label :email, "My e-mail address is"
         = f.text_field :email, :placeholder => "username@email.com", :class => "required", :"data-message" => t("form.email_note"), :"data-unique" => "/members/unique/email/"
-      %p
-        = f.label :email_confirmation, "Please re enter e-mail"
-        = f.text_field :email_confirmation, :class => "required confirmable"
+      - if resource.new_record?
+        %p
+          = f.label :email_confirmation, "Please re enter e-mail"
+          = f.text_field :email_confirmation, :class => "required confirmable"
       - if resource.new_record?
         %p
           = f.label :password
@@ -174,7 +175,7 @@
             = "Credit - #{resource.pictures[i].credit}"
           - i += 1
           = ff.label :image, "Photo #{i}"
-          - if resource.new_record?
+          - if resource.new_record? || ff.object.image_file_name.nil?
             = ff.file_field :image, :class => "required select-other"
             = ff.label :credit
             = ff.text_field :credit
