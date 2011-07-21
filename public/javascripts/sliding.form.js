@@ -181,7 +181,7 @@ $(function() {
     mirrorTyping();
 
 	$('form').live('submit',function(e){
-        if($('#navigation .errors').length){
+        if(!validateStep(5) || $('#navigation .errors').length){
 			alert('Please correct the errors in the Form');
             e.preventDefault();
 			return false;
