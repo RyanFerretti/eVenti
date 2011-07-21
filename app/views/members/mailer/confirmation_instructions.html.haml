@@ -1,4 +1,6 @@
 %p
-  Welcome #{@resource.first_name.titleize}!
-%p You can confirm your account through the link below:
+  Hey #{@resource.first_name.titleize}!
+%p Thank you for entering the Sullen Art Collective’s 2011 Miss UPROAR model search! You can confirm your account through the link below:
 %p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :host => "missuproar.rockstaruproar.com", :protocol => "https", :only_path => false)
+%p We will keep you posted on any other updates regarding the contest.
+%p Stay tuned for more information! Thanks for entering and GOOD LUCK!
