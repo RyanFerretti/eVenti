@@ -311,7 +311,7 @@ $(function() {
             adjusted_birth = new Date((birth.getFullYear() + min_age), birth.getMonth(), birth.getDate())
 
             if ( (today.getTime() - adjusted_birth.getTime()) < 0) {
-				alert("You are too young to enter this contest!");
+				alert("You must be at least 21 years of age to enter this competition.");
 				return false;
 			}
         return true;
