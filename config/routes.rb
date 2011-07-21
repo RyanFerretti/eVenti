@@ -17,6 +17,9 @@ EVenti::Application.routes.draw do
   match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
 
   constraints :protocol => protocol do
+    namespace :members do
+      root :to => "registrations#edit"
+    end
     devise_for :members, :controllers => { :registrations => "members/registrations" }do
       match "members/registrations/:profile_name/success" => "members/registrations#success", :via => :get, :as => :registration_success
     end
