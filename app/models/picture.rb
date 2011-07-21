@@ -3,7 +3,7 @@ require 'paperclip_processors/watermark'
 class Picture < ActiveRecord::Base
   belongs_to :member
   has_attached_file :image, :processors => [:watermark],
-                    :styles => { :thumb => "90x120>", #:small => "100x100>",# :original => "800x600>",
+                    :styles => { :thumb => "90x120", #:small => "100x100>",# :original => "800x600>",
                                  :watermarked => { :geometry => '600x800>', :watermark_path => "#{Rails.root}/public/images/watermark.png"}
                     },
                     :storage => ENV['S3_BUCKET'] ? :s3 : :filesystem,
