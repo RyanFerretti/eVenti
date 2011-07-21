@@ -191,12 +191,12 @@
         %p.left
           = check_box_tag :accept_ror, 'yes', false, :class => 'required-for-submit'
           I agree to the
-          = link_to("Miss UPROAR Rules and Regulations", "", {:target => "_blank"})
+          = link_to("Miss UPROAR Rules and Regulations", "/rules", {:target => "_blank"})
           %br/
           %br/
           = check_box_tag :accept_tc, 'yes', false, :class => 'required-for-submit'
           I agree to the
-          = link_to("Miss UPROAR Terms and Conditions", "", {:target => "_blank"})
+          = link_to("Miss UPROAR Terms and Conditions", "/terms", {:target => "_blank"})
         = recaptcha_tags
       %p.submit
         - if resource.new_record?
