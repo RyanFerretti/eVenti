@@ -237,7 +237,7 @@ $(function() {
         //maxDate: "-21y",
         changeMonth: true,
 		changeYear: true,
-        yearRange: '1960:2000',
+        yearRange: '1940:2011',
         onClose: function(dateText, inst) {
             if(validateInput($(this))){
                 if(!isLegal(dateText)) {
