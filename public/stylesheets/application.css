@@ -28,6 +28,7 @@ body{
 .form-wrapper {
     margin-left:150px;
 	margin-top: 10px;
+	margin-bottom: 40px;
 }
 
 .form-wrapper, .alert, .notice{
