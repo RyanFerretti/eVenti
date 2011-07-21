@@ -22,7 +22,9 @@ body{
 }
 
 .user_nav {
-    margin-left:375px;
+    margin-left: 150px;
+    text-align: center;
+    width: 620px;
 }
 
 .form-wrapper {
