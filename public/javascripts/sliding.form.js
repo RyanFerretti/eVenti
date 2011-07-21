@@ -200,7 +200,7 @@ $(function() {
 	});
 	$("fieldset:not(:last-child)").append('<a href="#" class="next-button">Next</a>');
 
-    $("fieldset a").live("click",function(e){
+    $("fieldset a:not(.outside)").live("click",function(e){
         var current_fieldset = $(this).parent().index('fieldset'),
             atag = $('#navigation li a')[current_fieldset+1]; // go to next
         $(atag).click();
