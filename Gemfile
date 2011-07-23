@@ -12,7 +12,7 @@ gem 'kaminari'
 gem 'carmen'
 gem 'aws-s3'
 gem 'recaptcha', :require => 'recaptcha/rails'
-
+gem 'kaminari'
 gem 'dalli'
 
 # Use unicorn as the web server

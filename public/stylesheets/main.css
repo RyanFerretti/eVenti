@@ -85,22 +85,15 @@ body {
 	background: url(http://missimages.rockstaruproar.com/images/missUproarHeader_02.png) no-repeat;
 	margin: 0;
 	z-index: 980;
+	position:absolute;
 }
 
 #content {
 	width: 890px;
 	min-height: 508px;
-	margin: -80px 0 0 0;
+	margin: 120px 0 0 0;
 	padding: 60px 0 0 48px;
 	z-index: 990;
-}
-
-#confirmation {
-	width: 890px;
-	height: 698px;
-	margin: 0;
-	padding: 0 0 0 48px;
-	background: url(http://missimages.rockstaruproar.com/images/sullenModel2_02.jpg) black bottom no-repeat;
 }
 
 .info1 {
@@ -120,16 +113,6 @@ body {
 	font-size: 16px;
 	color: #ffffff;
 	line-height: 1.5;
-}
-
-.info3 {
-	width: 320px;
-	text-align: justify;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	color: #ffffff;
-	line-height: 1.5;
-	padding-top: 30px;
 }
 
 .yellow {
@@ -171,7 +154,7 @@ a:hover, a:active {
     top: -242px;
     left: 0px;
     width: 940px;
-    height: 742px;"
+    height: 742px;
 }
 
 .main-header {
@@ -186,6 +169,7 @@ a:hover, a:active {
 
 .user_nav {
     color:#fff;
+	margin-top: 200px;
 }
 
 .copyContent {
@@ -194,16 +178,7 @@ a:hover, a:active {
 	font-size: 14px;
 	color: #ffffff;
 	line-height: 1.4;
-}
-
-.copyContent table {
-    padding-top: 16px;
-	font-size:12px;
-}
-
-.copyContent td {
-    border: 1px solid #666;
-    padding: 10px;  
+	margin-top: 180px;
 }
 
 .pageTitle {
@@ -215,6 +190,7 @@ a:hover, a:active {
 	font-family: "MinionProRegular", "Times New Roman", Times, serif;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	text-align: center;
 }
 
 .copyContent h2 {
@@ -225,3 +201,94 @@ a:hover, a:active {
 	font-size: 16px;
 }
 
+#content2 {
+	width:890px;
+	min-height: 508px;
+	margin: 0px 0 0 0;
+	padding:186px 24px 20px;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 1.5;
+}
+
+.sliderMain {
+	width:890px;
+	height: 360px;
+	background: #fff;	
+}
+
+.shareButtons {
+	padding-top: 24px;
+}
+
+.sort {
+	padding-top: 30px;
+}
+
+.thumbsContainer {
+	padding: 30px 5px 0;
+}
+
+.thumbBox {
+	width: 110px;
+	float: left;
+	text-align: center;	
+	padding-bottom: 20px;
+}
+
+.thumbnail {
+	width: 90px;
+	height: 120px;
+	background: #fff;
+	margin: 0 auto 6px;
+}
+
+a.thumbName:link, a.thumbName:visited {
+	color: #fff200;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+a.thumbName:hover, a.thumbName:active {
+	text-decoration: underline;
+}
+
+.thumbCity {
+	color: #aaa;
+	font-size: 12px;
+	vertical-align: 4px;
+}
+
+.pagenation {
+	text-align:center;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-bottom: 10px;
+}
+
+.contestFooter {
+	text-align:center;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding-top: 10px;
+}
+
+#content2 .contestFooter a {
+	color: #fff;
+	font-size:12px;
+}
+
+.sort-by {
+    color:#000;
+    background:#aaa;
+    padding:3px 4px;
+    border:1px solid #666;
+}
+
+.sort-by-go {
+    color:#000;
+    background:#fff200;
+    padding:3px 4px;
+    border:1px solid #666;
+}

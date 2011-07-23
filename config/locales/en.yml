@@ -22,3 +22,9 @@ en:
     encourage_note: Just one click away and you're done! Thank you for taking the time to enter the 2011 Miss UPROAR model search! Good Luck!
     photo_limit_note: Images must be less than 3MB. JPEG and PNG files accepted.
     contact_note: I would like to be contacted for future promotional modeling opportunities.
+
+  views:
+    pagination:
+      previous: "Previous"
+      next: "Next"
+      truncate: "..."

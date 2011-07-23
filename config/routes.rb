@@ -35,8 +35,8 @@ EVenti::Application.routes.draw do
   match "captcha/verify" => "captcha#verify", :as => :verify_captcha
 #  resources :events
 
-  match "/rules" => "home#rules"
-  match "/terms" => "home#terms"
+  match "/rules" => "home#rules", :as => :rules
+  match "/terms" => "home#terms", :as => :terms
 
   match "/mu-76074217-37c5dcb0-4f514cf6-33bcd2d9", :to => proc {|env| [200, {}, ["42"]] }
 
