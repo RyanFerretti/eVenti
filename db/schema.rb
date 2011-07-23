@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110708015056) do
+ActiveRecord::Schema.define(:version => 20110723205600) do
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
@@ -73,11 +73,11 @@ ActiveRecord::Schema.define(:version => 20110708015056) do
     t.string   "favorite_song"
     t.string   "relationship_status"
     t.string   "favorite_sport"
-    t.string   "talent"
+    t.text     "talent",               
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "piercing_description"
-    t.string   "tattoo_description"
+    t.text     "piercing_description"
+    t.text     "tattoo_description"
     t.string   "cell_phone"
     t.string   "address_more"
     t.integer  "height_feet"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20110708015056) do
     t.string   "eyes_other"
     t.string   "ethnicity"
     t.string   "ethnicity_other"
-    t.boolean  "staffing",             :default => true
+    t.boolean  "staffing",                            :default => true
   end
 
   create_table "pictures", :force => true do |t|
