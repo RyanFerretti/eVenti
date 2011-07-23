@@ -8,6 +8,8 @@ EVenti::Application.routes.draw do
 
   #root :to => "home#index"
 
+  match "admin/show_members" => "admin#show_members", :as => :admin_show_members
+
 #  match 'profile' => 'profile#show', :as => :show_profile, :via => :get
 #  match 'profile/edit' => 'profile#edit', :as => :edit_profile, :via => :get
 #  match 'profile' => 'profile#update', :as => :update_profile, :via => :put

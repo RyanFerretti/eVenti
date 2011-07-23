@@ -71,10 +71,10 @@
           = ff.text_field :zip_code, :class => "required"
         %p
           = ff.label :cell_phone
-          = ff.text_field :cell_phone, :class => "required phone", :"data-message" => t("form.phone_note")
+          = ff.text_field :cell_phone, :class => "required", :"data-message" => t("form.phone_note")
         %p
           = ff.label :telephone, "Secondary Phone"
-          = ff.text_field :telephone, :class => "phone"
+          = ff.text_field :telephone
         %p
           = ff.label :facebook_url
           = ff.text_field :facebook_url, :"data-message" => t("form.facebook_note")
