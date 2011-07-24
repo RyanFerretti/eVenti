@@ -5,7 +5,15 @@ class HomeController < ApplicationController
 
   def index
     #cache_5
-    @members = Member.includes([:pictures, :roles, { :member_summary => :location }]).page(params[:page]).per(4)
+    location = params[:location_name]
+    summaries = MemberSummary
+    if location
+      location = location.humanize.titleize
+      summaries = MemberSummary.joins(:location).where("locations.city = ?",location).includes({:member => :pictures })
+    end
+
+    @members = summaries.page(params[:page]).per(10)
+
   end
 
   def rules

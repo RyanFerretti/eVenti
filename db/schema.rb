@@ -73,11 +73,11 @@ ActiveRecord::Schema.define(:version => 20110723205600) do
     t.string   "favorite_song"
     t.string   "relationship_status"
     t.string   "favorite_sport"
-    t.text     "talent",               
+    t.text     "talent",               :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "piercing_description"
-    t.text     "tattoo_description"
+    t.text     "piercing_description", :limit => 255
+    t.text     "tattoo_description",   :limit => 255
     t.string   "cell_phone"
     t.string   "address_more"
     t.integer  "height_feet"

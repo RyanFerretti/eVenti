@@ -1,7 +1,7 @@
 locations = [["Camden","NJ",true],["Scranton","PA",true],["Boston","MA",true],["Washington","DC",true],["Virginia Beach","VA",true],
   ["Tampa","FL",true],["Biloxi","MS",true],["Houston","TX",true],["Detroit","MI",true],["Buffalo","NY",true],["Hartford","CT",true],
   ["Montreal","QC",false],["Toronto","ON",true],["Pittsburgh","PA",true],["Indianapolis","IN",true],["Chicago","IL",true],
-  ["Milwaukee","WI",false],["Cleveland","OH",true],["Omaha","NE",true],["Kansas City","MO",true],["St. Louis","MO",true],["Calgary","AB",true],
+  ["Milwaukee","WI",false],["Cleveland","OH",true],["Omaha","NE",true],["Kansas City","MO",true],["St Louis","MO",true],["Calgary","AB",true],
   ["Edmonton","AB",true],["Auburn","WA",true],["Spokane","WA",false],["West Valley City","UT",false],["Denver","CO",true],["Albuquerque","NM",true],
   ["Phoenix","AZ",true],["San Diego","CA",true],["Sacramento","CA",true],["San Francisco","CA",true]
 ]
@@ -33,6 +33,8 @@ end
   m = Member.create!:email => "member#{i}@gmail.com", :first_name => "member#{i}", :profile_name => "member#{i}", :password => "member123", :password_confirmation => "member123", :confirmation_sent_at => "2011-01-01 11:00:00"
   m.confirmed_at = DateTime.now
   m.member_summary.location = Location.find((i%3)+1)
+  m.member_summary.city = "Chicago"
+  m.member_summary.state = "il"
   m.ratings.create(:value => (i%10)+1)
   m.ratings.create(:value => (i+1%10)+1)
   m.save!

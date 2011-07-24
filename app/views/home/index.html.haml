@@ -20,13 +20,13 @@
       &nbsp;Go&nbsp;
 
   .thumbsContainer
-    - @members.each do |member|
+    - @members.each do |summary|
       .thumbBox
         %a{:href => "#"}
           .thumbnail
-            = image_tag member.pictures.first.image.url(:cthumb)
-        %a{:href => "#", :class => "thumbName"}= member.first_name
-        %span.thumbCity="#{member.member_summary.location.name}"
+            = image_tag summary.member.pictures.first.image.url(:cthumb)
+        %a{:href => "#", :class => "thumbName"}= summary.member.first_name
+        %span.thumbCity="#{summary.location_display}"
         
   .pagenation
     = paginate @members
