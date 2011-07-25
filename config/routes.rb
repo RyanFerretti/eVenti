@@ -45,5 +45,8 @@ EVenti::Application.routes.draw do
 
   root :to => "home#welcome"
 
-  match "/:location_name/" => "home#index"
+  #match "/all/" => "home#index"
+  #match "/all/page/:page/" => "home#index"
+  #match "/:location_name/" => "home#index"
+  #match "/:location_name/page/:page/" => "home#index"
 end

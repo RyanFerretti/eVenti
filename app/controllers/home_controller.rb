@@ -12,7 +12,7 @@ class HomeController < ApplicationController
       summaries = MemberSummary.joins(:location).where("locations.city = ?",location).includes({:member => :pictures })
     end
 
-    @members = summaries.page(params[:page]).per(10)
+    @members = summaries.page(params[:page]).per(8)
 
   end
 
