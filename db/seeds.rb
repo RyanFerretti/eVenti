@@ -10,11 +10,6 @@ locations.each do |loc|
   Location.create! :city => loc[0], :state => loc[1], :active => loc[2]
 end
 
-
-Role.create! :name => "admin"
-Role.create! :name => "client"
-Role.create! :name => "member"
-
 Admin.create! :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123"
 c = Client.create!:email => "client@gmail.com", :password => "client123", :password_confirmation => "client123", :confirmation_sent_at => "2011-01-01 11:00:00"
 c.confirmed_at = DateTime.now
@@ -42,9 +37,6 @@ end
   m.save!
   puts "Member #{m.email} created with #{m.pictures.count} pictures"
 end
-
-puts "Admin has #{Admin.first.roles.count} role called #{Admin.first.roles.first.name}"
-puts "Client has #{Client.first.roles.count} role called #{Client.first.roles.first.name}"
 
 1.upto 4 do |i|
   group = AdGroup.create! :name => "Group #{i}"
