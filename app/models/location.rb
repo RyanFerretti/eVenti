@@ -6,6 +6,9 @@ class Location < ActiveRecord::Base
   has_many :advertisements, :dependent => :destroy
   has_many :ads, :through => :advertisements
 
+  has_many :member_summaries
+  has_many :members, :through => :member_summaries
+
   scope :ref_data, select("id, city, state")
 
   scope :active, where(:active => true)

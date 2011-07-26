@@ -9,6 +9,7 @@ class Member < User
   devise :registerable, :recoverable, :confirmable
 
   has_one :member_summary, :dependent => :destroy
+  has_one :location, :through => :member_summary
 
   has_many :ratings, :dependent => :destroy
   has_many :pictures, :dependent => :destroy
