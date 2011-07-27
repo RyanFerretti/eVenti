@@ -311,3 +311,8 @@ a.thumbName:hover, a.thumbName:active {
     padding:3px 4px;
     border:1px solid #666;
 }
+
+.admin-members {
+    margin: 175px 0 10px 20px;
+
+}

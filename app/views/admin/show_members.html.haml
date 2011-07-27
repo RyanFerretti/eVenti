@@ -1,6 +1,7 @@
-- @members.each do |m|
-  .member
-    = "#{m.first_name} #{m.last_name}"
-    .pictures
-      - m.pictures.each do |p|
-        = image_tag p.image.url(:cthumb)
+.admin-members
+  - @members.each do |m|
+    .member
+      = "#{m.first_name} #{m.last_name}"
+      .pictures
+        - m.pictures.each do |p|
+          = image_tag p.image.url(:cthumb)
