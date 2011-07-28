@@ -8,6 +8,10 @@ body {
 	padding: 0;
 }
 
+.clear {
+	clear: both;
+}
+
 #wrapper {
 	background: transparent;
 	padding: 0;
@@ -230,10 +234,31 @@ a:hover, a:active {
 	line-height: 1.5;
 }
 
+.oneColumn {
+}
+
+.twoColumnLeft {
+	width:670px;
+	float:left;	
+}
+
+.twoColumnRight {
+	width:210px;
+	float:right;
+	background:#fff;	
+}
+
 .sliderMain {
-	width:890px;
 	height: 360px;
 	background: #fff;	
+}
+
+.sliderLocal {
+	margin-right: 10px;
+}
+
+.localWidget {
+	
 }
 
 .shareButtons {
@@ -283,14 +308,14 @@ a.thumbName:hover, a.thumbName:active {
 	text-align:center;
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 
 .contestFooter {
 	text-align:center;
 	font-size: 13px;
 	font-family: Arial, Helvetica, sans-serif;
-	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #content2 .contestFooter a {
