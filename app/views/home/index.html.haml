@@ -21,7 +21,7 @@
 
   .thumbsContainer
     - @members.each do |summary|
-      - unless summary.member.pictures.first.image.nil?
+      - unless summary.member.pictures.first.image_file_name.nil?
         .thumbBox
           %a{:href => "#"}
             .thumbnail
