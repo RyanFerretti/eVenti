@@ -11,7 +11,7 @@
     %ul
       - 1.upto(10) do |i|
         %li
-          = build_vote_link(@member,i)
+          = i#build_vote_link(@member,i)
   .big-picture.top-margin
     = image_tag @member.pictures.first.image.url(:watermarked)
   .small-pictures

@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+  before_filter :authenticate_admin!
+  
   def show
     @member = current_member
     @host = request.host

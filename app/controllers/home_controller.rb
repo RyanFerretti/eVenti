@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_filter :authenticate_admin!
   #before_filter :check_logged_in, :only => [:index]
 
   #caches_action :index
@@ -12,7 +13,7 @@ class HomeController < ApplicationController
       summaries = MemberSummary.joins(:location).where("locations.city = ?",location).includes({:member => :pictures })
     end
 
-    @members = summaries.page(params[:page]).per(8)
+    @members = summaries.page(params[:page]).per(16)
 
   end
 

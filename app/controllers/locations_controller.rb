@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_filter :authenticate_admin!
   # GET /locations
   # GET /locations.xml
   def index
