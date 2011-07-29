@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :authenticate_admin!
+  #before_filter :authenticate_admin!
   #before_filter :check_logged_in, :only => [:index]
 
   #caches_action :index
