@@ -1,0 +1,5 @@
+.admin-locations
+  - @locations.each do |l|
+    .location
+      %h2
+        = link_to "#{l.name} - (#{l.members.count})", location_profiles_path(l)

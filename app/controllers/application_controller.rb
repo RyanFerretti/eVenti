@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || (resource.is_a?(Admin)? admin_show_members_path : edit_member_registration_path)
+    stored_location_for(resource) || (resource.is_a?(Admin)? admin_show_locations_path : edit_member_registration_path)
   end
 end

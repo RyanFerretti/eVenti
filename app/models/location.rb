@@ -17,6 +17,10 @@ class Location < ActiveRecord::Base
     "#{city}, #{state}"
   end
 
+  def to_param
+    city.parameterize
+  end
+
 private
 
   def expire_caches

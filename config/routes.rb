@@ -44,10 +44,10 @@ EVenti::Application.routes.draw do
   match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
   #match "/" => "home#index", :as => :filter_home, :via => :post
 
-
+  match "admins/locations" => "admin#locations", :as => :admin_show_locations
 
   #match "/all/" => "home#index"
   #match "/all/page/:page/" => "home#index"
-  #match "/:location_name/" => "home#index"
+  match "/:location_name/" => "home#index", :as => :location_profiles
   #match "/:location_name/page/:page/" => "home#index"
 end
