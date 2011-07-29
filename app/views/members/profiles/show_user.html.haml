@@ -16,7 +16,7 @@
     = image_tag @member.pictures.first.image.url(:watermarked)
   .small-pictures
     - @member.pictures.each do |p|
-      = image_tag p.image.url(:small), :"data-watermark" => p.image.url(:watermarked)
+      = image_tag p.image.url(:cthumb), :"data-watermark" => p.image.url(:watermarked)
   .share-links.float-left
     <iframe src="http://www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
 
