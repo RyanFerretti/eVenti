@@ -7,7 +7,8 @@ EVenti::Application.routes.draw do
   resources :locations
 
   #root :to => "home#index"
-
+  root :to => "home#welcome"
+  
   match "admin/show_members" => "admin#show_members", :as => :admin_show_members
 
 #  match 'profile' => 'profile#show', :as => :show_profile, :via => :get
@@ -41,9 +42,9 @@ EVenti::Application.routes.draw do
   match "/mu-76074217-37c5dcb0-4f514cf6-33bcd2d9", :to => proc {|env| [200, {}, ["42"]] }
 
   match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
-  match "/" => "home#index", :as => :filter_home, :via => :post
+  #match "/" => "home#index", :as => :filter_home, :via => :post
 
-  root :to => "home#welcome"
+
 
   #match "/all/" => "home#index"
   #match "/all/page/:page/" => "home#index"
