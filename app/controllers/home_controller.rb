@@ -6,14 +6,16 @@ class HomeController < ApplicationController
 
   def index
     #cache_5
-    location = params[:location_name]
+    page = 16
+    @location = params[:location_name]
     summaries = MemberSummary
-    if location
-      location = location.humanize.titleize
-      summaries = MemberSummary.joins(:location).where("locations.city = ?",location).includes({:member => :pictures })
+    if @location
+      page = 12
+      @location = @location.humanize.titleize
+      summaries = MemberSummary.joins(:location).where("locations.city = ?",@location).includes({:member => :pictures })
     end
 
-    @members = summaries.page(params[:page]).per(16)
+    @members = summaries.page(params[:page]).per(page)
 
   end
 

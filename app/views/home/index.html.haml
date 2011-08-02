@@ -1,39 +1,12 @@
 #content2
-  .twoColumnLeft
-    .sliderMain.sliderLocal
-    .shareButtons
-      %iframe{:src => "http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.rockstaruproar.com&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21", :scrolling => "no", :frameborder => "0", :allow_transparency => true, :style => "border:none; overflow:hidden; width:90px; height:21px; margin-left:2px; vertical-align:-1px;"}
-      %a{:href => "http://twitter.com/share", :class => "twitter-share-button", :data => {:url => "http://www.rockstarUPROAR.com", :text => "Rockstar Energy Drink UPROAR Festival. #Uproar", :count => "horizontal", :via => "RockstarUPROAR"}}="Tweet"
-      %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
-
-    .sort
-      Sort by: &nbsp;&nbsp;
-      %span.sort-by
-        &nbsp;v&nbsp;&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      %span.sort-by
-        &nbsp;v&nbsp;&nbsp;Rating&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      %span.sort-by
-        &nbsp;v&nbsp;&nbsp;Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      %span.sort-by-go
-        &nbsp;Go&nbsp;
-
-    .thumbsContainer
-      - @members.each do |summary|
-        - unless summary.member.pictures.first.image_file_name.nil?
-          .thumbBox
-            %a{:href => "#"}
-              .thumbnail
-                = link_to image_tag(summary.member.pictures.first.image.url(:cthumb)), show_user_profile_path(summary.member.profile_name)
-            = link_to summary.member.first_name, show_user_profile_path(summary.member.profile_name), :class => "thumbName"
-            %br
-            %span.thumbCity="#{summary.location_display}"
-      .clear
-      .pagenation
-        = paginate @members
-  .twoColumnRight
+  - if @location
+    .twoColumnLeft
+      .sliderMain.sliderLocal
+      = render :partial => "main", :locals => { :members => @members }
+    .twoColumnRight
+  - else
+    .sliderMain
+    = render :partial => "main", :locals => { :members => @members }
 .clear
 .contestFooter
   = link_to "Official Rules", rules_path
