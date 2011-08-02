@@ -405,6 +405,7 @@ select.small {
     width:40px;
     margin-top:10px;
     line-height:40px;
+    text-align: center;
 }
 
 .voting-container ul li:first-child, .voting-container ul li:last-child {
@@ -440,4 +441,8 @@ select.small {
 .share-links {
     margin-top:15px;
     margin-left:15px;
+}
+
+.member-bio p{
+    width:75px;
 }

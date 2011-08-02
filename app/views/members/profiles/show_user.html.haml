@@ -1,25 +1,45 @@
-- if @member
-  .top-margin
-    %p
-      = @member.first_name
-    %p
-      = @member.member_summary.location_display
-  %div
-    = link_to "Read My Bio", "member-bio"
+#content2
+  - if @member
+    .top-margin
+      %p
+        = @member.first_name
+      %p
+        = @member.member_summary.location_display
+    %div
+      = link_to "Read My Bio", "#member-bio"
 
-  .voting-container
-    %ul
-      - 1.upto(10) do |i|
-        %li
-          = i#build_vote_link(@member,i)
-  .big-picture.top-margin
-    = image_tag @member.pictures.first.image.url(:watermarked)
-  .small-pictures
-    - @member.pictures.each do |p|
-      = image_tag p.image.url(:cthumb), :"data-watermark" => p.image.url(:watermarked)
-  .share-links.float-left
-    <iframe src="http://www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
-
-- else
-  %p
-    %b No User Found
+    .voting-container
+      %ul
+        - 1.upto(10) do |i|
+          %li
+            = link_to i,"#" #build_vote_link(@member,i)
+    .big-picture.top-margin
+      = image_tag @member.pictures.first.image.url(:watermarked)
+    .small-pictures
+      - @member.pictures.each do |p|
+        = image_tag p.image.url(:cthumb), :"data-watermark" => p.image.url(:watermarked)
+    .share-links.float-left
+      <iframe src="http://www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+    .clear
+      %a{:name => "member-bio"}
+      %h1 Member Info
+      %table
+        %tr
+          %td email
+          %td #{@member.email}
+        %tr
+          %td first name
+          %td #{@member.first_name}
+        %tr
+          %td last name
+          %td #{@member.last_name}
+        %tr
+          %td profile name
+          %td #{@member.profile_name}
+        - MemberSummary.accessible_attributes.sort{|a,b|a<=>b}.each do |attr|
+          %tr
+            %td #{attr}
+            %td #{@member.member_summary[attr]}
+  - else
+    %p
+      %b No User Found
