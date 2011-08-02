@@ -276,6 +276,7 @@ a.thumbName:hover, a.thumbName:active {
 	color: #aaa;
 	font-size: 12px;
 	vertical-align: 4px;
+    white-space:nowrap;
 }
 
 .pagenation {
