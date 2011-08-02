@@ -20,21 +20,20 @@
       %span.sort-by-go
         &nbsp;Go&nbsp;
 
-  .thumbsContainer
-    - @members.each do |summary|
-      - unless summary.member.pictures.first.image_file_name.nil?
-        .thumbBox
-          %a{:href => "#"}
-            .thumbnail
-              = link_to image_tag(summary.member.pictures.first.image.url(:cthumb)), show_user_profile_path(summary.member.profile_name)
-          = link_to summary.member.first_name, show_user_profile_path(summary.member.profile_name), :class => "thumbName"
-          %br
-          %span.thumbCity="#{summary.location_display}"
-          .clear
-
-    .pagenation
-      = paginate @members
-    .twoColumnRight
+    .thumbsContainer
+      - @members.each do |summary|
+        - unless summary.member.pictures.first.image_file_name.nil?
+          .thumbBox
+            %a{:href => "#"}
+              .thumbnail
+                = link_to image_tag(summary.member.pictures.first.image.url(:cthumb)), show_user_profile_path(summary.member.profile_name)
+            = link_to summary.member.first_name, show_user_profile_path(summary.member.profile_name), :class => "thumbName"
+            %br
+            %span.thumbCity="#{summary.location_display}"
+      .clear
+      .pagenation
+        = paginate @members
+  .twoColumnRight
 .clear
 .contestFooter
   = link_to "Official Rules", rules_path
