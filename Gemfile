@@ -14,6 +14,8 @@ gem 'aws-s3'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'kaminari'
 gem 'dalli'
+gem 'hoptoad_notifier'
+gem 'heroku'
 
 # Use unicorn as the web server
 # gem 'unicorn'
