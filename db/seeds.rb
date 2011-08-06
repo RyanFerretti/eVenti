@@ -25,14 +25,13 @@ def add_pictures(member,dir)
 end
 
 1.upto 18 do |i|
-  m = Member.create!:email => "member#{i}@gmail.com", :first_name => "member#{i}", :profile_name => "member#{i}", :password => "member123", :password_confirmation => "member123", :confirmation_sent_at => "2011-01-01 11:00:00"
+  m = Member.new:email => "member#{i}@gmail.com", :first_name => "member#{i}", :profile_name => "member#{i}", :password => "member123", :password_confirmation => "member123", :confirmation_sent_at => "2011-01-01 11:00:00"
   m.confirmed_at = DateTime.now
   m.member_summary.location = Location.find((i%3)+1)
   m.member_summary.city = "Chicago"
   m.member_summary.state = "il"
-  m.ratings.create(:value => (i%10)+1)
-  m.ratings.create(:value => (i+1%10)+1)
-  m.save!
+  #m.ratings.create(:value => (i%10)+1)
+  #m.ratings.create(:value => (i+1%10)+1)
   add_pictures(m,i)
   m.save!
   puts "Member #{m.email} created with #{m.pictures.count} pictures"

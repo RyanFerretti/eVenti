@@ -3,34 +3,35 @@
 #steps
   = hidden_field_tag :recaptcha_error, @recaptcha_error
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :class => "registration" }) do |f|
+    - i_size = 200
     %fieldset.step
       %legend
         Verify
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :date_of_birth
-          = ff.text_field :date_of_birth, :class => "required birthday-picker"
+          = ff.text_field :date_of_birth, :class => "required birthday-picker", :size => i_size
     %fieldset.step
       %legend
         Account
       %p
         = f.label :email, "My e-mail address is"
-        = f.text_field :email, :placeholder => "username@email.com", :class => "required", :"data-message" => t("form.email_note"), :"data-unique" => "/members/unique/email/"
+        = f.text_field :email, :placeholder => "username@email.com", :class => "required", :"data-message" => t("form.email_note"), :"data-unique" => "/members/unique/email/", :size => i_size
       - if resource.new_record?
         %p
           = f.label :email_confirmation, "Please re enter e-mail"
-          = f.text_field :email_confirmation, :class => "required confirmable"
+          = f.text_field :email_confirmation, :class => "required confirmable", :size => i_size
       - if resource.new_record?
         %p
           = f.label :password
-          = f.password_field :password, :class => "required", :"data-message" => t("form.password_confirmation_note")
+          = f.password_field :password, :class => "required", :"data-message" => t("form.password_confirmation_note"), :size => i_size
         %p
           = f.label :password_confirmation, "Re Enter Password"
-          = f.password_field :password_confirmation, :class => "required confirmable"
+          = f.password_field :password_confirmation, :class => "required confirmable", :size => i_size
       %p
         = f.label :profile_name, "Profile URL"
         - if resource.new_record?
-          = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/"
+          = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/", :size => i_size
         - else
           = link_to "#{t("form.profile_url_note")}#{resource.profile_name}", "http://#{t("form.profile_url_note")}#{resource.profile_name}"
       = f.fields_for :member_summary do |ff|
@@ -46,38 +47,38 @@
         = t "form.correct_info_note"
       %p
         = f.label :first_name
-        = f.text_field :first_name, :class => "required"
+        = f.text_field :first_name, :class => "required", :size => i_size
       %p
         = f.label :last_name
-        = f.text_field :last_name, :class => "required"
+        = f.text_field :last_name, :class => "required", :size => i_size
       = f.fields_for :member_summary do |ff|
         %p
           = ff.label :relationship_status
           = ff.select :relationship_status, build_relationship_options, :prompt => "Please Select"
         %p
           = ff.label :address, "Address 1"
-          = ff.text_field :address, :class => "required", :"data-message" => t("form.address_1_note")
+          = ff.text_field :address, :class => "required", :"data-message" => t("form.address_1_note"), :size => i_size
         %p
           = ff.label :address_more, "Address 2"
-          = ff.text_field :address_more, :"data-message" =>  t("form.address_2_note")
+          = ff.text_field :address_more, :"data-message" =>  t("form.address_2_note"), :size => i_size
         %p
           = ff.label :city
-          = ff.text_field :city, :class => "required"
+          = ff.text_field :city, :class => "required", :size => i_size
         %p
           = ff.label :state
           = ff.select :state, Carmen::states, { :prompt => "Please Select" }, :class => "required"
         %p
           = ff.label :zip_code
-          = ff.text_field :zip_code, :class => "required"
+          = ff.text_field :zip_code, :class => "required", :size => i_size
         %p
           = ff.label :cell_phone
-          = ff.text_field :cell_phone, :class => "required", :"data-message" => t("form.phone_note")
+          = ff.text_field :cell_phone, :class => "required", :"data-message" => t("form.phone_note"), :size => i_size
         %p
           = ff.label :telephone, "Secondary Phone"
-          = ff.text_field :telephone
+          = ff.text_field :telephone, :size => i_size
         %p
           = ff.label :facebook_url
-          = ff.text_field :facebook_url, :"data-message" => t("form.facebook_note")
+          = ff.text_field :facebook_url, :"data-message" => t("form.facebook_note"), :size => i_size
     %fieldset.step
       %legend
         Attributes
@@ -88,7 +89,7 @@
           = ff.select :height_inches, 0..11, { :prompt => " - " }, :class => "required small"
         %p
           = ff.label :weight
-          = ff.text_field :weight, :class => "required"
+          = ff.text_field :weight, :class => "required", :size => i_size
         %p
           = ff.label :eyes, "Eye color"
           = ff.select :eyes, ['Blue','Green','Hazel','Brown','Other'], :prompt => "Please Select", :class => "required select-other"
@@ -97,7 +98,7 @@
           = ff.select :ethnicity, ['Caucasian', 'African American', 'Asian', 'Hispanic', 'Other', 'Decline to State'], :prompt => "Please Select", :class => "required select-other"
         %p
           = ff.label :hair_color
-          = ff.text_field :hair_color, :class => "required"
+          = ff.text_field :hair_color, :class => "required", :size => i_size
         %p
           = ff.label :bust
           = ff.select :bust, build_bust_options, :prompt => "Please Select"
@@ -140,25 +141,25 @@
           = ff.text_area :experience, :"data-message" => t("form.experience_note")
         %p
           = ff.label :first_concert
-          = ff.text_field :first_concert
+          = ff.text_field :first_concert, :size => i_size
         %p
           = ff.label :last_concert
-          = ff.text_field :last_concert
+          = ff.text_field :last_concert, :size => i_size
         %p
           = ff.label :top_bands_1, "Top Bands 1"
-          = ff.text_field :top_bands_1
+          = ff.text_field :top_bands_1, :size => i_size
         %p
           = ff.label :top_bands_2, "Top Bands 2"
-          = ff.text_field :top_bands_2
+          = ff.text_field :top_bands_2, :size => i_size
         %p
           = ff.label :top_bands_3, "Top Bands 3"
-          = ff.text_field :top_bands_3
+          = ff.text_field :top_bands_3, :size => i_size
         %p
           = ff.label :favorite_song
-          = ff.text_field :favorite_song
+          = ff.text_field :favorite_song, :size => i_size
         %p
           = ff.label :favorite_sport
-          = ff.text_field :favorite_sport
+          = ff.text_field :favorite_sport, :size => i_size
         %p
           = ff.label :talent, "Unique talent that separates you from the other contestants", :class => "smaller-line"
           = ff.text_area :talent, :rows => 4, :class => "top-margin"
@@ -178,7 +179,7 @@
           - if resource.new_record? || ff.object.image_file_name.nil?
             = ff.file_field :image, :class => "required select-other"
             = ff.label :credit
-            = ff.text_field :credit
+            = ff.text_field :credit, :size => i_size
       - if resource.new_record?
         %p.left
           = t("form.encourage_note")
