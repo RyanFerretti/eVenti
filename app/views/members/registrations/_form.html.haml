@@ -29,6 +29,9 @@
           = f.label :password_confirmation, "Re Enter Password"
           = f.password_field :password_confirmation, :class => "required confirmable", :maxlength => i_size
       %p
+        Profile URL will be the url your fans use to view your profile for this contest.  Please do not put your facebook or any other url here.  Most contestants are choosing to enter their first name or nickname!
+
+      %p
         = f.label :profile_name, "Profile URL"
         - if resource.new_record?
           = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/", :maxlength => i_size
