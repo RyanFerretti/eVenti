@@ -16,7 +16,7 @@ class Picture < ActiveRecord::Base
                     :url => "/assets/images/:id/:style/:basename.:extension"
 
 
-  #validates_attachment_presence :image
+  validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 3.megabytes
   attr_accessible :image, :approved, :credit, :image_file_name, :image_content_type, :image_file_size, :image_updated_at
 
