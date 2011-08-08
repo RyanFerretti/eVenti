@@ -2,13 +2,19 @@ EVenti::Application.routes.draw do
 
   protocol = Rails.env.development? ? "http" : "https"
 
-  resources :ads
+  root :to => "home#index"
+  #root :to => "home#welcome"
 
+  # paging
+  match "/page/:page/" => "home#index", :via => :get
+  match "/all/" => "home#index", :via => :get
+  match "/all/page/:page/" => "home#index", :via => :get
+  match "/:location_name/" => "home#index", :via => :get, :as => :location_profiles
+  match "/:location_name/page/:page/" => "home#index", :via => :get
+
+  resources :ads
   resources :locations
 
-  #root :to => "home#index"
-  root :to => "home#welcome"
-  
   match "admin/show_members" => "admin#show_members", :as => :admin_show_members
 
 #  match 'profile' => 'profile#show', :as => :show_profile, :via => :get
@@ -28,8 +34,6 @@ EVenti::Application.routes.draw do
   devise_for :clients
   devise_for :admins
 
-
-
   match "members/unique/email" => "profile#verify_unique_email", :as => :unique_email
   match "members/unique/profile_name" => "profile#verify_unique_profile_name", :as => :unique_profile_name
 
@@ -41,13 +45,9 @@ EVenti::Application.routes.draw do
 
   match "/mu-76074217-37c5dcb0-4f514cf6-33bcd2d9", :to => proc {|env| [200, {}, ["42"]] }
 
-  match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
+  #$match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
   #match "/" => "home#index", :as => :filter_home, :via => :post
 
   match "admins/locations" => "admin#locations", :as => :admin_show_locations
 
-  #match "/all/" => "home#index"
-  #match "/all/page/:page/" => "home#index"
-  match "/:location_name/" => "home#index", :as => :location_profiles
-  #match "/:location_name/page/:page/" => "home#index"
 end
