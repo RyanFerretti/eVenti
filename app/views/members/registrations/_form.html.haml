@@ -29,11 +29,11 @@
           = f.label :password_confirmation, "Re Enter Password"
           = f.password_field :password_confirmation, :class => "required confirmable", :maxlength => i_size
       %p
-        = t("form.profile_url_warning_note")
-      %p
-        = f.label :profile_name, "Profile URL"
         - if resource.new_record?
-          = f.text_field :profile_name, :class => "required mirror-typing", :"data-message" => t("form.profile_url_note"), :"data-unique" => "/members/unique/profile_name/", :maxlength => i_size
+          %span.super-label Profile URL
+          = t("form.profile_url_warning_note")
+          = f.label :profile_name, "missuproar.rockstaruproar.com/profile/", :style => "width:235px;text-transform:none;"
+          = f.text_field :profile_name, :style => "width:125px;", :class => "required", :"data-unique" => "/members/unique/profile_name/", :maxlength => i_size
         - else
           = link_to "#{t("form.profile_url_note")}#{resource.profile_name}", "http://#{t("form.profile_url_note")}#{resource.profile_name}"
       = f.fields_for :member_summary do |ff|
