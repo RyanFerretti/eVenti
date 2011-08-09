@@ -1,5 +1,5 @@
 class ProfileController < ApplicationController
-  before_filter :authenticate_admin!
+  before_filter :authenticate_admin!, :except => [:verify_unique_email,:verify_unique_profile_name]
   
   def show
     @member = current_member
