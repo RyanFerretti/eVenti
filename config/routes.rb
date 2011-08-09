@@ -2,15 +2,8 @@ EVenti::Application.routes.draw do
 
   protocol = Rails.env.development? ? "http" : "https"
 
-  root :to => "home#index"
-  #root :to => "home#welcome"
-
-  # paging
-  match "/page/:page/" => "home#index", :via => :get
-  match "/all/" => "home#index", :via => :get
-  match "/all/page/:page/" => "home#index", :via => :get
-  match "/:location_name/" => "home#index", :via => :get, :as => :location_profiles
-  match "/:location_name/page/:page/" => "home#index", :via => :get
+  #root :to => "home#index"
+  root :to => "home#welcome"
 
   resources :ads
   resources :locations
@@ -44,8 +37,7 @@ EVenti::Application.routes.draw do
   match "/terms" => "home#terms", :as => :terms
 
   match "/mu-76074217-37c5dcb0-4f514cf6-33bcd2d9", :to => proc {|env| [200, {}, ["42"]] }
-
-  #$match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
+  match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
   #match "/" => "home#index", :as => :filter_home, :via => :post
 
   match "admins/locations" => "admin#locations", :as => :admin_show_locations
