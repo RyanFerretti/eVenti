@@ -69,7 +69,7 @@
           = ff.text_field :city, :class => "required", :maxlength => i_size
         %p
           = ff.label :state
-          = ff.select :state, Carmen::states, { :prompt => "Please Select" }, :class => "required"
+          = ff.select :state, build_states_list, { :prompt => "Please Select" }, :class => "required"
         %p
           = ff.label :zip_code
           = ff.text_field :zip_code, :class => "required", :maxlength => i_size

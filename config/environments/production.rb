@@ -52,4 +52,7 @@ EVenti::Application.configure do
 
   Paperclip.options[:swallow_stderr] = false
   Paperclip.options[:command_path] = "/usr/bin"
+
+  Carmen.priority_countries = %w(US CA)
+  Carmen.excluded_states = { 'US' => [ 'FM', 'GU', 'MH', 'MP', 'PR', 'VI', 'PW'] }
 end

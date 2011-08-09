@@ -77,4 +77,8 @@ module ApplicationHelper
   def ssl_options(options = {})
     {:protocol => "https", :only_path => false} unless Rails.env.development?
   end
+
+  def build_states_list
+    Carmen::states('US').concat(Carmen::states('CA'))
+  end
 end

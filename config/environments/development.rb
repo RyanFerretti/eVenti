@@ -33,7 +33,8 @@ EVenti::Application.configure do
   Paperclip.options[:log_command] = false
   Paperclip.options[:command_path] = "DYLD_LIBRARY_PATH='/Users/Ryan/Developement/Libraries/ImageMagick-6.6.4/lib' /Users/Ryan/Developement/Libraries/ImageMagick-6.6.4/bin"
 
-  Carmen.excluded_states = { 'US' => [ 'FM', 'GU', 'MH', 'MP', 'PR', 'VI', 'AE', 'PW', 'AA', 'AP'] }
+  Carmen.priority_countries = %w(US CA)
+  Carmen.excluded_states = { 'US' => [ 'FM', 'GU', 'MH', 'MP', 'PR', 'VI', 'PW'] }
 
   Recaptcha.configure do |config|
     # for prod use shell
