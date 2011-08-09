@@ -16,6 +16,7 @@ gem 'kaminari'
 gem 'dalli'
 gem 'hoptoad_notifier'
 gem 'heroku'
+gem 'state_machine'
 
 # Use unicorn as the web server
 # gem 'unicorn'

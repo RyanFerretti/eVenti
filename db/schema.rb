@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726224910) do
+ActiveRecord::Schema.define(:version => 20110809214156) do
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(:version => 20110726224910) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email_confirmation"
+    t.string   "state"
   end
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true

@@ -21,6 +21,29 @@ class Member < User
 
   validates_uniqueness_of :profile_name
 
+  state_machine :state, :initial => :pending do
+    event :activate do
+      transition :pending => :active
+    end
+    event :reject do
+      transition [:pending, :active] => :rejected
+    end
+    event :refresh do
+      transition :rejected => :pending
+    end
+    after_transition :on => :activate do |member, transition|
+      # do something
+    end
+    after_transition :on => :reject do |member, transition|
+      case transition.from
+      when :pending
+        # do something for pending
+      when :active
+        # do something for active
+      end
+    end
+  end
+
   def build_dependent
     build_member_summary if member_summary.nil?
     3.times { pictures.build } if pictures.empty?
@@ -33,5 +56,4 @@ class Member < User
   def self.statuses
     [REGISTERED,CONTESTANT,FULL]
   end
-
 end
