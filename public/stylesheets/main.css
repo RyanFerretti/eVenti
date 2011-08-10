@@ -389,7 +389,7 @@ a.thumbName:hover, a.thumbName:active {
     margin-bottom: 10px;
 }
 
-.admin-member-list a {
+.admin-member-list a.button {
     margin-left: 15px;
 }
 
