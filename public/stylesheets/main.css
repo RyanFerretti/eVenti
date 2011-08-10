@@ -374,13 +374,13 @@ a.thumbName:hover, a.thumbName:active {
 }
 
 .admin-member-list .active-member {
-    border: 1px dashed green;
+    border: 2px dashed green;
 }
 
 .admin-member-list .pending-member {
-    border: 1px dashed #ffff00;
+    border: 2px dashed #ffff00;
 }
 
 .admin-member-list .rejected-member {
-    border: 1px dashed red;
+    border: 2px dashed red;
 }

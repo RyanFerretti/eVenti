@@ -2,7 +2,7 @@ EVenti::Application.routes.draw do
 
   protocol = Rails.env.development? ? "http" : "https"
 
-  root :to => "home#welcome"
+  #root :to => "home#welcome"
 
   resources :ads
 
