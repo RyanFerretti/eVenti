@@ -2,11 +2,14 @@ EVenti::Application.routes.draw do
 
   protocol = Rails.env.development? ? "http" : "https"
 
-  #root :to => "home#index"
   root :to => "home#welcome"
 
   resources :ads
-  resources :locations
+
+  namespace :admins do
+    root :to => 'pages#index'
+    resources :locations
+  end
 
   match "admin/show_members" => "admin#show_members", :as => :admin_show_members
 
@@ -42,4 +45,22 @@ EVenti::Application.routes.draw do
 
   match "admins/locations" => "admin#locations", :as => :admin_show_locations
 
+  resources :members, :only => [] do
+    post "activate", :action => :activate
+    post "reject", :action => :reject
+    post "refresh", :action => :refresh
+  end
+
+  resources :locations, :path => "/", :only => [] do
+    resources :members, :path => "/", :only => [:index] do
+      get 'page/:page', :action => :index, :on => :collection
+    end
+  end
+  
+  resources :members, :path => "/", :only => [:index] do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+
+  #root :to => "home#index"
+  #root :to => "home#welcome"
 end

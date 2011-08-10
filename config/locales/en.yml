@@ -10,7 +10,7 @@ en:
     email_note: You will use your email address to log in to your account
     fields_note: Fields that are NOT required and that you do not fill out will not be displayed on your profile. Your personal and contact information WILL NOT be displayed on your profile.
     password_confirmation_note: Needs to be between 6 to 20 characters
-    profile_url_warning_note: "Profile URL will be the user-friendly-url your fans use to view your profile for this contest. Please do not put your facebook or any other url here. We suggest using your first name or nickname. examples: meganf, julie22, etc."
+    profile_url_warning_note: " will be the user-friendly-url your fans use to view your profile for this contest. Please do not put your facebook or any other url here. We suggest using your first name or nickname. examples: meganf, julie22, etc."
     profile_url_note: missuproar.rockstaruproar.com/profile/
     correct_info_note: Please make sure enter your information correctly! If your information is not entered correctly we may not be able to contact you for important details about the promotion or notify if you're a finalist. Please make sure you fill in the appropriate boxes and double-check for typos and other errors.
     address_1_note: (Street address, P.O. box, company name, c/o)

@@ -8,6 +8,13 @@
     %div
       = link_to "Read My Bio", "#member-bio"
 
+    - if admin_signed_in?
+      .admin-member-actions
+        %h2= "This Member is #{@member.state.titleize}"
+        = link_to("Activate", member_activate_path(@member), :method => :post, :class => :button) if @member.pending?
+        = link_to("Reject", member_reject_path(@member), :method => :post, :class => :button) unless @member.rejected?
+        = link_to("Refresh", member_refresh_path(@member), :method => :post, :class => :button) if @member.rejected?
+
     .voting-container
       %ul
         - 1.upto(10) do |i|

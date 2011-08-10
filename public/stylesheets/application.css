@@ -193,6 +193,11 @@ span.error{
     color:#c00;
     text-decoration: underline;
 }
+.super-label{
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+    font-weight:bold;
+}
 
 #steps form p label{
     width:160px;

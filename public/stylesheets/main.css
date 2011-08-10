@@ -343,3 +343,32 @@ a.thumbName:hover, a.thumbName:active {
 .localWidget {
     
 }
+
+.button {
+	border:none;
+	outline:none;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    color: #000 !important;
+    cursor:pointer;
+    padding: 7px 25px;
+    text-shadow: 0 1px 1px #fff;
+    font-weight:bold;
+    font-family:"Century Gothic", Helvetica, sans-serif;
+    font-size:22px;
+    -moz-box-shadow:0px 0px 3px #aaa;
+    -webkit-box-shadow:0px 0px 3px #aaa;
+    box-shadow:0px 0px 3px #aaa;
+    background:#fff000;
+    width: 90px;
+    text-align: center;
+}
+
+.admin-member-actions h2 {
+    margin-bottom: 10px;
+}
+
+.admin-member-actions a {
+    margin-right: 10px;
+}

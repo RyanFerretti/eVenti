@@ -1,0 +1,14 @@
+#content2
+  - if @location
+    .twoColumnLeft
+      .sliderMain.sliderLocal
+      = render :partial => "main", :locals => { :members => @members }
+    .twoColumnRight
+  - else
+    .sliderMain
+    = render :partial => "main", :locals => { :members => @members }
+.clear
+.contestFooter
+  = link_to "Official Rules", rules_path
+  = "  |  "
+  = link_to "Terms & Conditions", terms_path
