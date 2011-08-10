@@ -81,4 +81,10 @@ module ApplicationHelper
   def build_states_list
     Carmen::states('US').concat(Carmen::states('CA'))
   end
+
+  def location_drop_down_options
+    options = [["Select a City", ""]]
+    Location.active.collect {|l| options << [ "#{l.city}, #{l.state}", l.to_param ] }
+    options
+  end
 end

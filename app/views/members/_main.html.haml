@@ -6,14 +6,7 @@
 .sort
   Sort by: &nbsp;&nbsp;
   %span.sort-by
-    &nbsp;v&nbsp;&nbsp;City&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  %span.sort-by
-    &nbsp;v&nbsp;&nbsp;Rating&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  %span.sort-by
-    &nbsp;v&nbsp;&nbsp;Level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    = select_tag "location_id", options_for_select(location_drop_down_options, "")
   %span.sort-by-go
     &nbsp;Go&nbsp;
 
