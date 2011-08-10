@@ -60,6 +60,6 @@ EVenti::Application.routes.draw do
     get 'page/:page', :action => :index, :on => :collection
   end
 
-  #root :to => "home#index"
+  root :to => "home#index"
   #root :to => "home#welcome"
 end
