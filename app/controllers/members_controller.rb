@@ -13,6 +13,13 @@ class MembersController < ApplicationController
     @members = query.page(params[:page]).per(page)
   end
 
+  def by_status
+    all_members = index()
+    state = params[:status]
+    @members = all_members.where(:state => state)
+    render :index
+  end
+
   def activate
     member = Member.find(params[:member_id])
     member.activate!

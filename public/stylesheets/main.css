@@ -384,3 +384,23 @@ a.thumbName:hover, a.thumbName:active {
 .admin-member-list .rejected-member {
     border: 2px dashed red;
 }
+
+.admin-member-list .location {
+    margin-bottom: 10px;
+}
+
+.admin-member-list a {
+    margin-left: 15px;
+}
+
+.admin-member-list a.active {
+    color: green;
+}
+
+.admin-member-list a.pending {
+    color: #ffff00;
+}
+
+.admin-member-list a.rejected {
+    color: red;
+}

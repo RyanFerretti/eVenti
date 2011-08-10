@@ -6,11 +6,6 @@ EVenti::Application.routes.draw do
 
   resources :ads
 
-  namespace :admins do
-    root :to => 'pages#index'
-    resources :locations
-  end
-
   match "admin/show_members" => "admin#show_members", :as => :admin_show_members
 
 #  match 'profile' => 'profile#show', :as => :show_profile, :via => :get
@@ -43,7 +38,10 @@ EVenti::Application.routes.draw do
   match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
   #match "/" => "home#index", :as => :filter_home, :via => :post
 
-  match "admins/locations" => "admin#locations", :as => :admin_show_locations
+  namespace :admins do
+    root :to => "admins#index"
+    get "locations" => "admins#locations", :as => :locations_report
+  end
 
   resources :members, :only => [] do
     post "activate", :action => :activate
@@ -54,6 +52,7 @@ EVenti::Application.routes.draw do
   resources :locations, :path => "/", :only => [] do
     resources :members, :path => "/", :only => [:index] do
       get 'page/:page', :action => :index, :on => :collection
+      get 'by_status/:status', :action => :by_status, :on => :collection, :as => :by_status
     end
   end
   
