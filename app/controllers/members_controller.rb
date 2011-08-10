@@ -7,8 +7,8 @@ class MembersController < ApplicationController
     query = Member
     if @location
       #page = 12
-      @location = @location.humanize.titleize
-      query = Member.joins(:location).where("locations.city = ?",@location).includes(:pictures,:member_summary)
+      location_name = @location.humanize.titleize
+      query = Member.joins(:location).where("locations.city = ?",location_name).includes(:pictures,:member_summary)
     end
     @members = query.page(params[:page]).per(page)
   end

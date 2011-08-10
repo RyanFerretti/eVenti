@@ -4,11 +4,12 @@
   %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
 
 .sort
-  Sort by: &nbsp;&nbsp;
-  %span.sort-by
-    = select_tag "location_id", options_for_select(location_drop_down_options, "")
-  %span.sort-by-go
-    &nbsp;Go&nbsp;
+  = form_tag "/", :method => :get do
+    Sort by: &nbsp;&nbsp;
+    %span.sort-by
+      = select_tag "location-selector", options_for_select(location_drop_down_options, @location)
+    %span.sort-by-go
+      = link_to "Go", "/", :class => :get_link
 
 .thumbsContainer
   - members.each do |m|

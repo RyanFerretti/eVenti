@@ -10,6 +10,7 @@ $(document).ready(function(){
   });
   setupSwapProfileImage();
   setupSelectAll();
+    setupCitySelectLink();
 });
 
 function update_voting_links(old_profile) {
@@ -71,5 +72,13 @@ function setupSelectAll(){
             return isChecked;
         });
         $(allSelector).attr(checkedSelector, isChecked);
+    });
+}
+
+function setupCitySelectLink() {
+    $(".get_link").click(function(){
+        var obj = $(this),
+            city = $("#location-selector").val();
+        obj.attr("href","/"+city);
     });
 }
