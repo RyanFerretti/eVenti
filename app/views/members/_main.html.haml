@@ -19,12 +19,11 @@
 
 .thumbsContainer
   - members.each do |m|
-    - unless m.pictures.first.image_file_name.nil?
-      .thumbBox
-        = link_to image_tag(m.pictures.first.image.url(:cthumb)), show_user_profile_path(m.profile_name)
-        = link_to m.first_name, show_user_profile_path(m.profile_name), :class => "thumbName"
-        %br
-        %span.thumbCity="#{m.member_summary.location_display}"
+    .thumbBox{:class => "#{m.state}-member"}
+      = link_to image_tag(m.pictures.first.image.url(:cthumb)), show_user_profile_path(m.profile_name)
+      = link_to m.first_name, show_user_profile_path(m.profile_name), :class => "thumbName"
+      %br
+      %span.thumbCity="#{m.member_summary.location_display}"
   .clear
   .pagenation
     = paginate members

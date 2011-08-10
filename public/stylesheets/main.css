@@ -372,3 +372,15 @@ a.thumbName:hover, a.thumbName:active {
 .admin-member-actions a {
     margin-right: 10px;
 }
+
+.admin-member-list .active-member {
+    border: 1px dashed green;
+}
+
+.admin-member-list .pending-member {
+    border: 1px dashed #ffff00;
+}
+
+.admin-member-list .rejected-member {
+    border: 1px dashed red;
+}

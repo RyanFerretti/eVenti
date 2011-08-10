@@ -1,13 +1,9 @@
-#content2
-  - if @location
-    .twoColumnLeft
-      .sliderMain.sliderLocal
-      = render :partial => "main", :locals => { :members => @members }
-    .twoColumnRight
-  - else
-    .sliderMain
-    = render :partial => "main", :locals => { :members => @members }
+#content2{:class => (admin_signed_in? ? "admin-member-list" : "")}
+  .sliderMain
+
+  = render :partial => "main", :locals => { :members => @members }
 .clear
+ 
 .contestFooter
   = link_to "Official Rules", rules_path
   = "  |  "

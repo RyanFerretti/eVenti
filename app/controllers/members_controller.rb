@@ -2,11 +2,11 @@ class MembersController < ApplicationController
   before_filter :authenticate_admin!, :except => [:index]
 
   def index
-    page = 16
+    page = 32
     @location = params[:location_id]
     query = Member
     if @location
-      page = 12
+      #page = 12
       @location = @location.humanize.titleize
       query = Member.joins(:location).where("locations.city = ?",@location).includes(:pictures,:member_summary)
     end
