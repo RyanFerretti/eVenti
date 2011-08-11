@@ -49,6 +49,7 @@ EVenti::Application.routes.draw do
     post "refresh", :action => :refresh
   end
 
+  # switch the from /all to / and move below the :locations resources
   resources :members, :path => "/all", :only => [:index] do
     get 'page/:page', :action => :index, :on => :collection
   end
