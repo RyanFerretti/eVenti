@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   before_filter :authenticate_admin!, :except => [:index]
 
   def index
+    response.headers['Cache-Control'] = 'public, max-age=300'
     page = 32
     @location = params[:location_id]
     query = Member
