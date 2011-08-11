@@ -45,7 +45,7 @@ class Member < User
   end
 
   def build_dependent
-    if new?
+    if new_record?
       build_member_summary if member_summary.nil?
       3.times { pictures.build } if pictures.empty?
     end
