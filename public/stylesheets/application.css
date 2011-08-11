@@ -550,7 +550,7 @@ select.small {
 	margin:6px 0;
 }
 
-a.pNLink:link, a.pNLink:visited {
+a.pNLink, a.pNLink:visited {
 	color:#ffba00;
 	font-size:12px;
 }

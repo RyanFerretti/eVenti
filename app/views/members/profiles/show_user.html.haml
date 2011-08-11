@@ -20,7 +20,9 @@
         %ul
           - 1.upto(10) do |i|
             %li
-              = link_to i,"#" #build_vote_link(@member,i)
+              - i = "&nbsp;&nbsp;#{i}" if i == 1
+              - i = "#{i}&nbsp&nbsp;&nbsp;" if i == 9
+              = link_to raw(i),"#" #build_vote_link(@member,i)
       .big-picture-area.top-margin
         %a.float-left
           = image_tag "/images/profile/prevArrow.png", :class => :arrowIcon
@@ -44,7 +46,7 @@
         - @member.pictures.each do |p|
           = image_tag p.image.url(:cthumb), :"data-watermark" => p.image.url(:watermarked)
     .share-links
-      .float-left
+      .left 
         <iframe src="http://www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
     .clear
       %a{:name => "member-bio"}
