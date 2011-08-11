@@ -1,32 +1,51 @@
 #content2
   - if @member
-    .top-margin
-      %p
-        = @member.first_name
-      %p
-        = @member.member_summary.location_display
-    %div
-      = link_to "Read My Bio", "#member-bio"
+    .profileTopArea
+      .top-margin
+        %h1
+          = @member.first_name.titleize
+        .profileTopHometown
+          = @member.member_summary.location_display
+      %div
+        = link_to "Read My Bio", "#member-bio"
 
-    - if admin_signed_in?
-      .admin-member-actions
-        %h2= "This Member is #{@member.state.titleize}"
-        = link_to("Activate", member_activate_path(@member), :method => :post, :class => :button) if @member.pending?
-        = link_to("Reject", member_reject_path(@member), :method => :post, :class => :button) unless @member.rejected?
-        = link_to("Refresh", member_refresh_path(@member), :method => :post, :class => :button) if @member.rejected?
+      - if admin_signed_in?
+        .admin-member-actions
+          %h2= "This Member is #{@member.state.titleize}"
+          = link_to("Activate", member_activate_path(@member), :method => :post, :class => :button) if @member.pending?
+          = link_to("Reject", member_reject_path(@member), :method => :post, :class => :button) unless @member.rejected?
+          = link_to("Refresh", member_refresh_path(@member), :method => :post, :class => :button) if @member.rejected?
 
-    .voting-container
-      %ul
-        - 1.upto(10) do |i|
-          %li
-            = link_to i,"#" #build_vote_link(@member,i)
-    .big-picture.top-margin
-      = image_tag @member.pictures.first.image.url(:watermarked)
-    .small-pictures
-      - @member.pictures.each do |p|
-        = image_tag p.image.url(:cthumb), :"data-watermark" => p.image.url(:watermarked)
-    .share-links.float-left
-      <iframe src="http://www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+      .voting-container
+        %ul
+          - 1.upto(10) do |i|
+            %li
+              = link_to i,"#" #build_vote_link(@member,i)
+      .big-picture-area.top-margin
+        %a.float-left
+          = image_tag "/images/profile/prevArrow.png", :class => :arrowIcon
+        .previousProfile.float-left
+          %a.thumbName
+            NAME!
+          .pNThumb{:style => "background:#fff"}
+          %a.pNLink
+            Previous Model
+        %a.right
+          = image_tag "/images/profile/nextArrow.png", :class => :arrowIcon
+        .previousProfile.right
+          %a.thumbName
+            NAME!
+          .pNThumb{:style => "background:#fff"}
+          %a.pNLink
+            Next Model
+        .big-picture
+          = image_tag @member.pictures.first.image.url(:watermarked)
+      .small-pictures
+        - @member.pictures.each do |p|
+          = image_tag p.image.url(:cthumb), :"data-watermark" => p.image.url(:watermarked)
+    .share-links
+      .float-left
+        <iframe src="http://www.facebook.com/plugins/like.php?href&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
     .clear
       %a{:name => "member-bio"}
       %h1 Member Info
