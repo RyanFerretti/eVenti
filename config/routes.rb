@@ -35,7 +35,7 @@ EVenti::Application.routes.draw do
   match "/terms" => "home#terms", :as => :terms
 
   match "/mu-76074217-37c5dcb0-4f514cf6-33bcd2d9", :to => proc {|env| [200, {}, ["42"]] }
-  match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
+  #match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
   #match "/" => "home#index", :as => :filter_home, :via => :post
 
   namespace :admins do
@@ -49,6 +49,10 @@ EVenti::Application.routes.draw do
     post "refresh", :action => :refresh
   end
 
+  resources :members, :path => "/all", :only => [:index] do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+
   resources :locations, :path => "/", :only => [] do
     resources :members, :path => "/", :only => [:index] do
       get 'page/:page', :action => :index, :on => :collection
@@ -56,10 +60,6 @@ EVenti::Application.routes.draw do
     end
   end
   
-  resources :members, :path => "/", :only => [:index] do
-    get 'page/:page', :action => :index, :on => :collection
-  end
-
-  root :to => "home#index"
-  #root :to => "home#welcome"
+  #root :to => "home#index"
+  root :to => "home#welcome"
 end
