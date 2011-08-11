@@ -4,7 +4,7 @@ class Member < User
   CONTESTANT = 1
   FULL = 2
 
-  #after_initialize :build_dependent
+  after_initialize :build_dependent
 
   devise :registerable, :recoverable, :confirmable
 
@@ -45,9 +45,10 @@ class Member < User
   end
 
   def build_dependent
-    puts "building dependant" 
-    build_member_summary if member_summary.nil?
-    3.times { pictures.build } if pictures.empty?
+    if new?
+      build_member_summary if member_summary.nil?
+      3.times { pictures.build } if pictures.empty?
+    end
   end
 
   def average_rating
