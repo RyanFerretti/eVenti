@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_filter :authenticate_admin!, :except => [:index]
 
   def index
-    response.headers['Cache-Control'] = 'public, max-age=300'
+    #cache_5
     find_members()
   end
 
