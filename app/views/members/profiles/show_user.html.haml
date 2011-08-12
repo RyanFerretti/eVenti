@@ -23,25 +23,21 @@
               = build_vote_link(@member,i)
       .big-picture-area.top-margin
         - unless @previous.nil?
-          %a.float-left
-            = image_tag "/images/profile/prevArrow.png", :class => :arrowIcon
+          = link_to image_tag("/images/profile/prevArrow.png", :class => :arrowIcon), show_user_profile_path(@previous.profile_name), :class => "float-left"
           .previousProfile.float-left
-            %a.thumbName
-              = @previous.first_name.titleize
+            = link_to @previous.first_name.titleize, show_user_profile_path(@previous.profile_name), :class => "thumbName"
             .pNThumb{:style => "background:#fff"}
               = image_tag @previous.pictures.first.image.url(:cthumb)
-            %a.pNLink
-              Previous Model
+            = link_to "Previous Model", show_user_profile_path(@previous.profile_name), :class => "pNLink"
             %h2
               = number_with_precision(@previous.average_rating, :precision => 1)
         %a.right
-          = image_tag "/images/profile/nextArrow.png", :class => :arrowIcon
+          = link_to image_tag("/images/profile/nextArrow.png", :class => :arrowIcon), show_user_profile_path(@next.profile_name), :class => :right
         .previousProfile.right
-          %a.thumbName
-            NAME!
+          = link_to @next.first_name.titleize, show_user_profile_path(@next.profile_name), :class => "thumbName"
           .pNThumb{:style => "background:#fff"}
-          %a.pNLink
-            Next Model
+            = image_tag @next.pictures.first.image.url(:cthumb)
+          = link_to "Next Model", show_user_profile_path(@next.profile_name), :class => "pNLink"
         .big-picture
           = image_tag @member.pictures.first.image.url(:watermarked)
       .small-pictures
