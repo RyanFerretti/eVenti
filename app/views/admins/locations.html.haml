@@ -3,7 +3,8 @@
   - @locations.keys.sort{|a,b|a.id <=> b.id}.each do |l|
     .location
       %h2
-        = link_to "#{l.name}", location_members_path(l)
+        /= link_to "#{l.name}", location_members_path(l)
+        = "#{l.name}"
         = link_to "Active: #{@locations[l][:active]}", by_status_location_members_path(l,:status => :active), :class => :active
         = link_to "Rejected: #{@locations[l][:rejected]}", by_status_location_members_path(l,:status => :rejected), :class => :rejected
         = link_to "Pending: #{@locations[l][:pending]}", by_status_location_members_path(l,:status => :pending), :class => :pending
