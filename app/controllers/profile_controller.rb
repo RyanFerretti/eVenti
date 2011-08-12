@@ -14,7 +14,7 @@ class ProfileController < ApplicationController
       @previous = Member.find(params[:prev],:include => [:ratings,:pictures])
     end
     @member = Member.where(:profile_name => params[:profile_name]).includes(:pictures,:member_summary).first
-    @next = Member.where(:state => :active).where("id > ?",@member.id).order("id").page(1).per(1).first
+    @next = Member.where("id > ?",@member.id).order("id").page(1).per(1).first
     @next = Member.first if @next.nil?
     render "members/profiles/show_user"
   end
