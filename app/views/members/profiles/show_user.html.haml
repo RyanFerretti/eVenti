@@ -53,21 +53,52 @@
       %h1 Member Info
       %table
         %tr
-          %td email
-          %td #{@member.email}
+          %td Height
+          %td
+            = "#{@member.member_summary.height_feet}' #{@member.member_summary.height_inches}\""
         %tr
-          %td first name
-          %td #{@member.first_name}
+          %td Weight
+          %td #{@member.member_summary.weight}
         %tr
-          %td last name
-          %td #{@member.last_name}
+          %td Eye Color
+          %td #{@member.member_summary.eyes}
         %tr
-          %td profile name
-          %td #{@member.profile_name}
-        - MemberSummary.accessible_attributes.sort{|a,b|a<=>b}.each do |attr|
-          %tr
-            %td #{attr}
-            %td #{@member.member_summary[attr]}
+          %td Hair Color
+          %td #{@member.member_summary.hair_color}
+        %tr
+          %td Measurements
+          %td
+            = "#{@member.member_summary.bust}-#{@member.member_summary.waist}-#{@member.member_summary.hips}"
+        %tr
+          %td Piercings
+          %td
+            = "#{@member.member_summary.piercings} #{@member.member_summary.piercing_description}"
+        %tr
+          %td Tattoos
+          %td
+            = "#{@member.member_summary.tattoos} #{@member.member_summary.tattoo_description}"
+        %tr
+          %td Experience
+          %td #{@member.member_summary.experience}
+        %tr
+          %td First Concert
+          %td #{@member.member_summary.first_concert}
+        %tr
+          %td Last Concert
+          %td #{@member.member_summary.last_concert}
+        %tr
+          %td Top Bands
+          %td
+            = "#{@member.member_summary.top_bands_1}, #{@member.member_summary.top_bands_2}, #{@member.member_summary.top_bands_3}"
+        %tr
+          %td Favorite Song
+          %td #{@member.member_summary.favorite_song}
+        %tr
+          %td Favorite Sport
+          %td #{@member.member_summary.favorite_sport}
+        %tr
+          %td Unique Talent
+          %td #{@member.member_summary.talent}
   - else
     %p
       %b No User Found
