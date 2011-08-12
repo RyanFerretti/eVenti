@@ -36,11 +36,11 @@ class MembersController < ApplicationController
   def find_members
     page = 32
     @location = params[:location_id]
-    query = Member
+    query = Member.includes(:pictures,:member_summary)
     if @location
       #page = 12
       location_name = @location.humanize.titleize
-      query = Member.joins(:location).where("locations.city = ?",location_name).includes(:pictures,:member_summary)
+      query = Member.joins(:location).where("locations.city = ?",location_name)
     end
     @members = query.page(params[:page]).per(page)
   end

@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
   def show_user
     @member = Member.where(:profile_name => params[:profile_name]).includes(:pictures,:member_summary).first
     unless params[:prev].blank?
-      @previous = Member.find(params[:prev],:include => [:ratings,:pictures])
+      @previous = Member.find(params[:prev],:include => [:pictures])
       @voted = true
     else
       @previous = @member.previous(state_to_display)
