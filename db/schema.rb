@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809214156) do
+ActiveRecord::Schema.define(:version => 20110812020314) do
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20110809214156) do
     t.text     "advertisements"
     t.boolean  "active",         :default => false
   end
+
+  add_index "locations", ["city"], :name => "index_locations_on_city", :unique => true
 
   create_table "member_summaries", :force => true do |t|
     t.integer  "member_id"
@@ -93,6 +95,9 @@ ActiveRecord::Schema.define(:version => 20110809214156) do
     t.boolean  "staffing",                            :default => true
   end
 
+  add_index "member_summaries", ["location_id"], :name => "index_member_summaries_on_location_id"
+  add_index "member_summaries", ["member_id"], :name => "index_member_summaries_on_member_id", :unique => true
+
   create_table "pictures", :force => true do |t|
     t.integer  "member_id"
     t.boolean  "approved"
@@ -103,12 +108,16 @@ ActiveRecord::Schema.define(:version => 20110809214156) do
     t.string   "credit"
   end
 
+  add_index "pictures", ["member_id"], :name => "index_pictures_on_member_id"
+
   create_table "ratings", :force => true do |t|
-    t.string   "member_id"
+    t.integer  "member_id",  :limit => 255
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "ratings", ["member_id"], :name => "index_ratings_on_member_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",        :null => false
@@ -138,6 +147,8 @@ ActiveRecord::Schema.define(:version => 20110809214156) do
     t.string   "state",                               :default => "pending"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["profile_name"], :name => "index_users_on_profile_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
