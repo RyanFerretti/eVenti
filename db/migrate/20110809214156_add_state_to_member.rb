@@ -1,6 +1,6 @@
 class AddStateToMember < ActiveRecord::Migration
   def self.up
-    add_column :users, :state, :string
+    add_column :users, :state, :string, :default => "pending"
   end
 
   def self.down
