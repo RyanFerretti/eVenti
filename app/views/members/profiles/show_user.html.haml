@@ -32,6 +32,8 @@
           .pNThumb{:style => "background:#fff"}
           %a.pNLink
             Previous Model
+          %h2
+            10.0
         %a.right
           = image_tag "/images/profile/nextArrow.png", :class => :arrowIcon
         .previousProfile.right
@@ -40,8 +42,6 @@
           .pNThumb{:style => "background:#fff"}
           %a.pNLink
             Next Model
-          %h2
-            10.0
         .big-picture
           = image_tag @member.pictures.first.image.url(:watermarked)
       .small-pictures
