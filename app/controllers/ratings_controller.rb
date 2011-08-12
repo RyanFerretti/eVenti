@@ -5,7 +5,7 @@ class RatingsController < ApplicationController
   def create
     @current = Member.find(params[:member_id],:include => :ratings)
     @current.ratings.create(:value => params[:vote_value])
-    @next = @current.next
+    @next = @current.next(state_to_display)
     redirect_to show_user_profile_path(:profile_name => @next.profile_name, :prev => @current.id)
   end
 end

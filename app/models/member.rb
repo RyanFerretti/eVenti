@@ -58,14 +58,16 @@ class Member < User
     ratings.average(:value)
   end
 
-  def previous
+  def previous(filter_state)
     scoping = Member.includes(:pictures)
+    scoping = scoping.where(:state => filter_state) unless filter_state.blank?
     member = scoping.where("id < ?",id).order("id desc").page(1).per(1).first
     member || scoping.last
   end
 
-  def next
+  def next(filter_state)
     scoping = Member.includes(:pictures)
+    scoping = scoping.where(:state => filter_state) unless filter_state.blank?
     member = scoping.where("id > ?",id).order("id asc").page(1).per(1).first
     member || scoping.first
   end

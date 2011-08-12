@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || (resource.is_a?(Admin)? admins_root_path : edit_member_registration_path)
   end
+
+  def state_to_display
+    admin_signed_in? ? nil : :active
+  end
 end

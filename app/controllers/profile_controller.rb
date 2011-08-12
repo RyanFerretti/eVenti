@@ -15,9 +15,9 @@ class ProfileController < ApplicationController
       @previous = Member.find(params[:prev],:include => [:ratings,:pictures])
       @voted = true
     else
-      @previous = @member.previous
+      @previous = @member.previous(state_to_display)
     end
-    @next = @member.next
+    @next = @member.next(state_to_display)
     render "members/profiles/show_user"
   end
 
