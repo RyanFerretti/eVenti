@@ -32,7 +32,7 @@
             %a.pNLink
               Previous Model
             %h2
-              = @previous.average_rating
+              = number_with_precision(@previous.average_rating, :precision => 1)
         %a.right
           = image_tag "/images/profile/nextArrow.png", :class => :arrowIcon
         .previousProfile.right
