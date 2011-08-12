@@ -107,4 +107,8 @@ module ApplicationHelper
     bands << three unless three.blank?
     bands.join ", "
   end
+
+  def profile_link(display,member,klass = nil)
+    link_to display, show_user_profile_path(member.profile_name), :class => klass
+  end
 end

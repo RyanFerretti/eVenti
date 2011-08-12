@@ -23,24 +23,24 @@
               = build_vote_link(@member,i)
       .big-picture-area.top-margin
         - unless @previous.nil?
-          = link_to image_tag("/images/profile/prevArrow.png", :class => :arrowIcon), show_user_profile_path(@previous.profile_name), :class => "float-left"
+          = profile_link(image_tag("/images/profile/prevArrow.png", :class => :arrowIcon),@previous,"float-left")
           .previousProfile.float-left
-            = link_to @previous.first_name.titleize, show_user_profile_path(@previous.profile_name), :class => "thumbName"
+            = profile_link(@previous.first_name.titleize,@previous,"thumbName")
             .pNThumb{:style => "background:#fff"}
-              = link_to image_tag(@previous.pictures.first.image.url(:cthumb)), show_user_profile_path(@previous.profile_name)
-            = link_to "Previous Model", show_user_profile_path(@previous.profile_name), :class => "pNLink"
+              = profile_link(image_tag(@previous.pictures.first.image.url(:cthumb)),@previous)
+            = profile_link("Previous Model",@previous,"pNLink")
             %h2
               - if @voted
                 = number_with_precision(@previous.average_rating, :precision => 1)
         - else
           .previousProfile.float-left
         %a.right
-          = link_to image_tag("/images/profile/nextArrow.png", :class => :arrowIcon), show_user_profile_path(@next.profile_name), :class => :right
+          = profile_link(image_tag("/images/profile/nextArrow.png", :class => :arrowIcon),@next,:right)
         .previousProfile.right
-          = link_to @next.first_name.titleize, show_user_profile_path(@next.profile_name), :class => "thumbName"
+          = profile_link(@next.first_name.titleize,@next,"thumbName")
           .pNThumb{:style => "background:#fff"}
-            = link_to image_tag(@next.pictures.first.image.url(:cthumb)), show_user_profile_path(@next.profile_name)
-          = link_to "Next Model", show_user_profile_path(@next.profile_name), :class => "pNLink"
+            = profile_link(image_tag(@next.pictures.first.image.url(:cthumb)),@next)
+          = profile_link("Next Model",@next,"pNLink")
         .big-picture
           = image_tag @member.pictures.first.image.url(:watermarked)
       .small-pictures
