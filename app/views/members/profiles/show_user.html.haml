@@ -29,6 +29,7 @@
             %a.thumbName
               = @previous.first_name.titleize
             .pNThumb{:style => "background:#fff"}
+              = image_tag @previous.pictures.first.image.url(:cthumb)
             %a.pNLink
               Previous Model
             %h2

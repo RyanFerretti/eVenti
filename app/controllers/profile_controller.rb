@@ -11,7 +11,7 @@ class ProfileController < ApplicationController
 
   def show_user
     unless params[:prev].blank?
-      @previous = Member.find(params[:prev],:include => :ratings)
+      @previous = Member.find(params[:prev],:include => [:ratings,:pictures])
     end
     @member = Member.where(:profile_name => params[:profile_name]).includes(:pictures,:member_summary).first
     respond_to do |format|
