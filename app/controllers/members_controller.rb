@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_filter :authenticate_admin!, :except => [:index]
 
   def index
-    #cache_5
+    cache_5
     @members = find_members().where(:state => :active)
   end
 
