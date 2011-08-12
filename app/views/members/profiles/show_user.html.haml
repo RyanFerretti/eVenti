@@ -48,7 +48,7 @@
           = image_tag p.image.url(:cthumb), :"data-watermark" => p.image.url(:watermarked)
     .share-links
       .left 
-        = render :partial => "members/profiles/facebook"
+        = render :partial => "members/profiles/facebook", :locals => {:member => @member}
         = render :partial => "members/profiles/twitter", :locals => {:member => @member}
         = render :partial => "members/profiles/plus_one"
         .clear
