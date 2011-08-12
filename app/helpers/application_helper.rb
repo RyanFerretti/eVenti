@@ -90,4 +90,21 @@ module ApplicationHelper
     Location.all.collect {|l| options << [ "#{l.city}, #{l.state}", l.to_param ] }
     options
   end
+
+  def join_measurements(bust,waist,hips)
+    q = "?"
+    bust = q if bust.blank?
+    waist = q if waist.blank?
+    hips = q if hips.blank?
+    "#{bust} - #{waist} - #{hips}"
+  end
+
+
+  def join_bands(one,two,three)
+    bands = []
+    bands << one unless one.blank?
+    bands << two unless two.blank?
+    bands << three unless three.blank?
+    bands.join ", "
+  end
 end
