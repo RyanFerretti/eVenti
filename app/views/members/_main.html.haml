@@ -1,7 +1,15 @@
+- content_for :footer do
+  :javascript
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+
 .shareButtons
-  %iframe{:src => "http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.rockstaruproar.com&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21", :scrolling => "no", :frameborder => "0", :allow_transparency => true, :style => "border:none; overflow:hidden; width:90px; height:21px; margin-left:2px; vertical-align:-1px;"}
-  %a{:href => "http://twitter.com/share", :class => "twitter-share-button", :data => {:url => "http://www.rockstarUPROAR.com", :text => "Rockstar Energy Drink UPROAR Festival. #Uproar", :count => "horizontal", :via => "RockstarUPROAR"}}="Tweet"
-  %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
+  <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmissuproar.rockstaruproar.com&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:98px; height:21px; padding-left:14px;" allowTransparency="true"></iframe>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://missuproar.rockstaruproar.com" data-text="Check out the Sullen Art Collective's Miss Uproar 2011 Model Search!  #MissUproar" data-count="horizontal" data-via="rockstaruproar">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <g:plusone size="medium"></g:plusone>
 
 .thumbsContainer
   - members.each do |m|
