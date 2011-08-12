@@ -17,7 +17,7 @@ class Member < User
   accepts_nested_attributes_for :member_summary, :allow_destroy => true
   accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |a| a[:image].blank? }
 
-  attr_accessible :member_summary_attributes, :pictures_attributes, :profile_name
+  attr_accessible :member_summary_attributes, :pictures_attributes, :profile_name, :state
 
   validates_uniqueness_of :profile_name
 
@@ -46,6 +46,7 @@ class Member < User
 
   def build_dependent
     if new_record?
+      state = "pending"
       build_member_summary if member_summary.nil?
       3.times { pictures.build } if pictures.empty?
     end
