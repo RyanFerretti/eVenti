@@ -84,7 +84,7 @@ module ApplicationHelper
 
   def location_drop_down_options
     options = [["Select a City", ""]]
-    Location.active.collect {|l| options << [ "#{l.city}, #{l.state}", l.to_param ] }
+    Location.all.collect {|l| options << [ "#{l.city}, #{l.state}", l.to_param ] }
     options
   end
 end
