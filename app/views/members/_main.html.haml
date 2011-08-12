@@ -3,14 +3,6 @@
   %a{:href => "http://twitter.com/share", :class => "twitter-share-button", :data => {:url => "http://www.rockstarUPROAR.com", :text => "Rockstar Energy Drink UPROAR Festival. #Uproar", :count => "horizontal", :via => "RockstarUPROAR"}}="Tweet"
   %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
 
-.sort
-  = form_tag "/", :method => :get do
-    Sort by: &nbsp;&nbsp;
-    %span.sort-by
-      = select_tag "location-selector", options_for_select(location_drop_down_options, @location)
-    %span.sort-by-go
-      = link_to "Go", "/", :class => :get_link
-
 .thumbsContainer
   - members.each do |m|
     .thumbBox{:class => "#{m.state}-member"}
