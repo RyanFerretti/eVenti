@@ -13,8 +13,8 @@ EVenti::Application.routes.draw do
 #  match 'profile' => 'profile#update', :as => :update_profile, :via => :put
 
   match 'profile/:profile_name' => 'profile#show_user', :profile_name => /[^\/]+/, :as => :show_user_profile, :via => :get
-
- # match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
+  #match 'profile/:profile_name/prev/:previous' => 'profile#show_user', :as => :show_user_profile_and_previous, :via => :get
+  match 'profile/:member_id/vote/:vote_value' => 'ratings#create', :as => :vote_for, :via => :post
 
   constraints :protocol => protocol do
     devise_for :members, :controllers => { :registrations => "members/registrations" }do

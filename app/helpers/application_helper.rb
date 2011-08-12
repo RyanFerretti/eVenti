@@ -13,7 +13,10 @@ module ApplicationHelper
   end
 
   def build_vote_link(member,i)
-    link_to("#{i}", vote_for_path(:member_id => member.id, :vote_value => i), :remote => true, :method => :post, :class => "vote_link")
+    text = i
+    text = "&nbsp;&nbsp;#{i}" if i == 1
+    text = "#{i}&nbsp&nbsp;&nbsp;" if i == 9
+    link_to(raw(text), vote_for_path(:member_id => member.id, :vote_value => i), :method => :post)
   end
 
   def build_relationship_options

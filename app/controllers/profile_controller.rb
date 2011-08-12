@@ -10,7 +10,10 @@ class ProfileController < ApplicationController
   end
 
   def show_user
-    @member = Member.find_by_profile_name(params[:profile_name])
+    unless params[:prev].blank?
+      @previous = Member.find(params[:prev],:include => :ratings)
+    end
+    @member = Member.where(:profile_name => params[:profile_name]).includes(:pictures,:member_summary).first
     respond_to do |format|
       format.html { render "members/profiles/show_user" }
     end
