@@ -17,6 +17,8 @@ class Member < User
   accepts_nested_attributes_for :member_summary, :allow_destroy => true
   accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |a| a[:image].blank? }
 
+  scope :active, where(:state => :active)
+
   attr_accessible :member_summary_attributes, :pictures_attributes, :profile_name, :state
 
   validates_uniqueness_of :profile_name
@@ -54,6 +56,18 @@ class Member < User
 
   def average_rating
     ratings.average(:value)
+  end
+
+  def previous
+    scoping = Member.includes(:pictures)
+    member = scoping.where("id < ?",id).order("id desc").page(1).per(1).first
+    member || scoping.last
+  end
+
+  def next
+    scoping = Member.includes(:pictures)
+    member = scoping.where("id > ?",id).order("id asc").page(1).per(1).first
+    member || scoping.first
   end
 
   def self.statuses

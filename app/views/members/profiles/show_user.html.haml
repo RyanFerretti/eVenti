@@ -30,7 +30,8 @@
               = link_to image_tag(@previous.pictures.first.image.url(:cthumb)), show_user_profile_path(@previous.profile_name)
             = link_to "Previous Model", show_user_profile_path(@previous.profile_name), :class => "pNLink"
             %h2
-              = number_with_precision(@previous.average_rating, :precision => 1)
+              - if @voted
+                = number_with_precision(@previous.average_rating, :precision => 1)
         - else
           .previousProfile.float-left
         %a.right

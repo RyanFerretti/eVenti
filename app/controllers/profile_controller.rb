@@ -10,12 +10,14 @@ class ProfileController < ApplicationController
   end
 
   def show_user
+    @member = Member.where(:profile_name => params[:profile_name]).includes(:pictures,:member_summary).first
     unless params[:prev].blank?
       @previous = Member.find(params[:prev],:include => [:ratings,:pictures])
+      @voted = true
+    else
+      @previous = @member.previous
     end
-    @member = Member.where(:profile_name => params[:profile_name]).includes(:pictures,:member_summary).first
-    @next = Member.where("id > ?",@member.id).order("id").page(1).per(1).first
-    @next = Member.first if @next.nil?
+    @next = @member.next
     render "members/profiles/show_user"
   end
 
