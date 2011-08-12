@@ -51,62 +51,62 @@
         = render :partial => "members/profiles/facebook"
         = render :partial => "members/profiles/twitter", :locals => {:member => @member}
         = render :partial => "members/profiles/plus_one"
-    .clear
-      %a{:name => "member-bio"}
-      .profileBio
-        %h1 #{@member.first_name.titleize}'s Bio
-        %table
-          %tr
-            %td Height
-            %td
-              = "#{@member.member_summary.height_feet}' #{@member.member_summary.height_inches}\""
-          %tr
-            %td Weight
-            %td #{@member.member_summary.weight}
-          %tr
-            %td Eye Color
-            %td #{@member.member_summary.eyes}
-          %tr
-            %td Hair Color
-            %td #{@member.member_summary.hair_color}
-          %tr
-            %td Measurements
-            %td
-              = join_measurements(@member.member_summary.bust,@member.member_summary.waist,@member.member_summary.hips)
-          %tr
-            %td Piercings
-            %td
-              = "#{@member.member_summary.piercings}"
-              - if @member.member_summary.piercings == "yes" && !@member.member_summary.piercing_description.blank?
-                = "- #{@member.member_summary.piercing_description}"
-          %tr
-            %td Tattoos
-            %td
-              = "#{@member.member_summary.tattoos}"
-              - if @member.member_summary.tattoos == "yes" && !@member.member_summary.tattoo_description.blank?
-                = "- #{@member.member_summary.tattoo_description}"
-          %tr
-            %td Experience
-            %td #{@member.member_summary.experience}
-          %tr
-            %td First Concert
-            %td #{@member.member_summary.first_concert}
-          %tr
-            %td Last Concert
-            %td #{@member.member_summary.last_concert}
-          %tr
-            %td Top Bands
-            %td
-              = join_bands(@member.member_summary.top_bands_1,@member.member_summary.top_bands_2,@member.member_summary.top_bands_3)
-          %tr
-            %td Favorite Song
-            %td #{@member.member_summary.favorite_song}
-          %tr
-            %td Favorite Sport
-            %td #{@member.member_summary.favorite_sport}
-          %tr
-            %td Unique Talent
-            %td #{@member.member_summary.talent}
+        .clear
+    %a{:name => "member-bio"}
+    .profileBio
+      %h1 #{@member.first_name.titleize}'s Bio
+      %table
+        %tr
+          %td Height
+          %td
+            = "#{@member.member_summary.height_feet}' #{@member.member_summary.height_inches}\""
+        %tr
+          %td Weight
+          %td #{@member.member_summary.weight}
+        %tr
+          %td Eye Color
+          %td #{@member.member_summary.eyes}
+        %tr
+          %td Hair Color
+          %td #{@member.member_summary.hair_color}
+        %tr
+          %td Measurements
+          %td
+            = join_measurements(@member.member_summary.bust,@member.member_summary.waist,@member.member_summary.hips)
+        %tr
+          %td Piercings
+          %td
+            = "#{@member.member_summary.piercings}"
+            - if @member.member_summary.piercings == "yes" && !@member.member_summary.piercing_description.blank?
+              = "- #{@member.member_summary.piercing_description}"
+        %tr
+          %td Tattoos
+          %td
+            = "#{@member.member_summary.tattoos}"
+            - if @member.member_summary.tattoos == "yes" && !@member.member_summary.tattoo_description.blank?
+              = "- #{@member.member_summary.tattoo_description}"
+        %tr
+          %td Experience
+          %td #{@member.member_summary.experience}
+        %tr
+          %td First Concert
+          %td #{@member.member_summary.first_concert}
+        %tr
+          %td Last Concert
+          %td #{@member.member_summary.last_concert}
+        %tr
+          %td Top Bands
+          %td
+            = join_bands(@member.member_summary.top_bands_1,@member.member_summary.top_bands_2,@member.member_summary.top_bands_3)
+        %tr
+          %td Favorite Song
+          %td #{@member.member_summary.favorite_song}
+        %tr
+          %td Favorite Sport
+          %td #{@member.member_summary.favorite_sport}
+        %tr
+          %td Unique Talent
+          %td #{@member.member_summary.talent}
   - else
     %p
       %b No User Found
