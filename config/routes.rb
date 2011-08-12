@@ -38,6 +38,8 @@ EVenti::Application.routes.draw do
   #match "/76074217-37c5dcb0-4f514cf6-33bcd2d9" => "home#index", :via => :get
   #match "/" => "home#index", :as => :filter_home, :via => :post
 
+  match "/welcome", :to => "home#welcome", :as => :welcome
+
   namespace :admins do
     root :to => "admins#index"
     get "locations" => "admins#locations", :as => :locations_report
