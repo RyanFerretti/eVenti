@@ -3,7 +3,7 @@ class MembersController < ApplicationController
 
   def index
     #cache_5
-    find_members()
+    @members = find_members().where(:state => :active)
   end
 
   def by_status
