@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812020314) do
+ActiveRecord::Schema.define(:version => 20110812023621) do
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20110812020314) do
   add_index "pictures", ["member_id"], :name => "index_pictures_on_member_id"
 
   create_table "ratings", :force => true do |t|
-    t.integer  "member_id",  :limit => 255
+    t.integer  "member_id"
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
