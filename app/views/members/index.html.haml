@@ -1,6 +1,6 @@
 #content2{:class => (admin_signed_in? ? "admin-member-list" : "")}
   .sliderMain
-
+    = render :partial => "layouts/slider"
   = render :partial => "main", :locals => { :members => @members }
 .clear
  

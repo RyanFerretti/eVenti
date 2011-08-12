@@ -10,7 +10,46 @@ $(document).ready(function(){
   });
   setupSwapProfileImage();
   setupSelectAll();
-    setupCitySelectLink();
+  setupCitySelectLink();
+
+  var imageWidth = $(".slider-window").width();
+  var imageSum = $(".slider-reel div").size();
+  var imageReelWidth = imageWidth * imageSum + 10;
+  var currentSlide = 0;
+  var sliderStarted = false;
+  var sliderInterval;
+
+  function slideReel(slideNum){
+    $(".slider-reel").animate({
+            left: slideNum * $(".slider-window").width() * -1
+    }, 500 );
+  }
+
+  function startSlider(){
+    if(!sliderStarted){
+        sliderStarted = true;
+        var total = $(".slider-reel > div").length;
+        sliderInterval = setInterval(function(){
+            slideReel(currentSlide++);
+            if(currentSlide == total){
+                currentSlide = 0;
+            }
+        }, 5000);
+    }
+  }
+
+  function stopSlider() {
+    clearInterval(sliderInterval);
+    sliderStarted = false;
+  }
+
+  //Adjust the image reel to its new size
+  $(".slider-reel").css({'width' : imageReelWidth});
+
+  if($(".slider-window").length){
+    startSlider();
+    $(".slider-reel div").hover(function(){stopSlider();},function(){startSlider();});
+  }
 });
 
 function update_voting_links(old_profile) {
