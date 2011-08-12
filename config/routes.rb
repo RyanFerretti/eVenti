@@ -55,8 +55,8 @@ EVenti::Application.routes.draw do
   end
 
   resources :locations, :path => "/", :only => [] do
-    resources :members, :path => "/", :only => [:index] do
-      get 'page/:page', :action => :index, :on => :collection
+    resources :members, :path => "/", :only => [] do
+      #get 'page/:page', :action => :index, :on => :collection
       get 'by_status/:status', :action => :by_status, :on => :collection, :as => :by_status
     end
   end
