@@ -107,6 +107,11 @@
         %tr
           %td Unique Talent
           %td #{@member.member_summary.talent}
+        - if admin_signed_in?
+          - MemberSummary.accessible_attributes.sort{|a,b|a<=>b}.each do |attr|
+            %tr
+              %td #{attr}
+              %td #{@member.member_summary[attr]}
   - else
     %p
       %b No User Found
