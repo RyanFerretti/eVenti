@@ -108,6 +108,9 @@
           %td Unique Talent
           %td #{@member.member_summary.talent}
         - if admin_signed_in?
+          %tr
+            %td email
+            %td #{@member.email}
           - MemberSummary.accessible_attributes.sort{|a,b|a<=>b}.each do |attr|
             %tr
               %td #{attr}
