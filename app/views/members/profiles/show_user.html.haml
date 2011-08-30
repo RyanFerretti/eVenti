@@ -112,7 +112,12 @@
             %td email
             %td #{@member.email}
           %tr
-            %td last name
+            %td
+              First Name
+            %td #{@member.first_name}
+          %tr
+            %td
+              Last Name
             %td #{@member.last_name}
           - MemberSummary.accessible_attributes.sort{|a,b|a<=>b}.each do |attr|
             %tr
