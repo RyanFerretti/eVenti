@@ -1,0 +1,317 @@
+
+<!doctype html>
+
+<!--[if IEMobile 7 ]> <html dir="ltr" lang="en-US"class="no-js iem7"  itemscope itemtype="http://schema.org/Event"> <![endif]-->
+<!--[if lt IE 7 ]> <html dir="ltr" lang="en-US" class="no-js ie6"  itemscope itemtype="http://schema.org/Event"> <![endif]-->
+<!--[if IE 7 ]>    <html dir="ltr" lang="en-US" class="no-js ie7"  itemscope itemtype="http://schema.org/Event"> <![endif]-->
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="no-js ie8"  itemscope itemtype="http://schema.org/Event"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html dir="ltr" lang="en-US" class="no-js"  itemscope itemtype="http://schema.org/Event"><!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title><%= content_for?(:title) ? yield(:title) : "Miss UPROAR 2012"%></title>
+
+		<!-- Facebook Tags -->
+		<meta property="og:title" content="Rockstar Energy Drink UPROAR FESTIVAL- featuring Shinedown, Godsmack, Staind, Papa Roach, Adelitas Way, P.O.D., Fozzy, Deuce, Redlight King, Mindset Evolution, In This Moment, Candlelight Red, and Thousand Foot Krutch!" />
+		<meta property="og:type" content="musician" />
+		<meta property="og:url" content="http://rockstaruproar.com" />
+		<meta property="og:image" content="http://cache.rockstaruproar.com/images/2012/RockstarUproar_thumb.jpg" />
+		<meta property="og:site_name" content="Rockstar Energy Drink UPROAR FESTIVAL" />
+		<meta property="og:description" content="Rockstar Energy Drink UPROAR FESTIVAL- featuring Shinedown, Godsmack, Staind, Papa Roach, Adelitas Way, P.O.D., Fozzy, Deuce, Redlight King, Mindset Evolution, In This Moment, Candlelight Red, and Thousand Foot Krutch!  Coming this August and September!"/>
+		<meta property="fb:admins" content="100001209511124" />
+
+		<!-- Google + tags -->
+		<meta itemprop="name" content="Rockstar Energy Drink UPROAR FESTIVAL 2012">
+		<meta itemprop="description" content="Rockstar Energy Drink UPROAR FESTIVAL- featuring Shinedown, Godsmack, Staind, Papa Roach, Adelitas Way, P.O.D., Fozzy, Deuce, Redlight King, Mindset Evolution, In This Moment, Candlelight Red, and Thousand Foot Krutch!  Coming this August and September!">
+		<meta itemprop="image" content="http://cache.rockstaruproar.com/images/2012/RockstarUproar_thumb.jpg">
+
+		<!-- icons & favicons -->
+		<!-- For iPhone 4 -->
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/images/icons/h/apple-touch-icon.png">
+		<!-- For iPad 1-->
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/images/icons/m/apple-touch-icon.png">
+		<!-- For iPhone 3G, iPod Touch and Android -->
+		<link rel="apple-touch-icon-precomposed" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/images/icons/l/apple-touch-icon-precomposed.png">
+		<!-- For Nokia -->
+		<link rel="shortcut icon" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/images/icons/l/apple-touch-icon.png">
+		<!-- For everything else -->
+		<link rel="shortcut icon" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/favicon.ico">
+
+		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write(unescape('%3Cscript src="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/js/libs/jquery-1.7.1.min.js"%3E%3C/script%3E'))</script>
+
+		<script src="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/js/modernizr.full.min.js"></script>
+
+		<!-- media-queries.js (fallback) -->
+		<!--[if lt IE 9]>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+
+		<!-- html5.js -->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+  		<link rel="pingback" href="http://rockstaruproar.com/xmlrpc.php">
+
+		<!-- wordpress head functions -->
+
+		<link rel="stylesheet" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/fontface/stylesheet.css">
+		<%= stylesheet_link_tag "new-application", "redmond-theme/jquery-ui-1.8.11.custom", "application", "main" %>
+
+    <%= javascript_include_tag "jquery-1.5.2.min", "jquery-ui-1.8.11.custom.min", "rails", "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16187600-1']);
+  _gaq.push(['_setDomainName', 'rockstaruproar.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+	</head>
+
+	<body>
+		<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+	<div class="bgFull"></div>
+		<img class="the-king" src="http://cache.rockstaruproar.com/images/2012/the-king.png" />
+
+		<img class="fighter-plane-2" src="http://cache.rockstaruproar.com/images/2012/fighter-plane-2.png" />
+
+		<header role="banner">
+
+			<div id="inner-header" class="clearfix">
+				<div class="headerContainer">
+					<a class="headerLogo" href="http://rockstaruproar.com"><img src="http://cache.rockstaruproar.com/images/2012/headerLogo.png" alt="Rockstar Energy Drink Uproar Festival"/></a>
+				</div>
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="container nav-container">
+							<div class="fighter-plane-1"></div>
+							<nav role="navigation">
+
+								<div class="socialIcons pull-right">
+									<ul>
+										<li>
+											<a href="http://www.facebook.com/RockstarUPROAR" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/icons/24-facebook.png" /></a>
+										</li>
+										<li>
+											<a href="http://www.twitter.com/RockstarUPROAR" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/icons/24-twitter.png" /></a>
+										</li>
+										<li>
+											<a href="http://www.youtube.com/RockstarUPROAR" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/icons/24-youtube.png" /></a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="nav-collapse">
+									<ul id="menu-main-nav" class="nav">
+										<li id="menu-item-183" class="menu-item menu-item-type-taxonomy menu-item-object-category"><a href="http://rockstaruproar.com/category/news/">News</a><div class="carrot"></div></li>
+										<li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://rockstaruproar.com/tourdates/">Tour Dates</a><div class="carrot"></div></li>
+										<li id="menu-item-893" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://rockstaruproar.com/bands/">Bands</a><div class="carrot"></div></li>
+										<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://rockstaruproar.com/uproartv/">UPROAR TV</a><div class="carrot"></div></li>
+										<li id="menu-item-1059" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">Battle of the Bands</a><div class="carrot"></div></li>
+										<li id="menu-item-1058" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://rockstaruproar.com/uproar-stand-on-stage/">Contests</a><div class="carrot"></div></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item"><a href="#">Miss Uproar</a><div class="carrot"></div></li>
+									</ul>
+								</div>
+
+							</nav>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div> <!-- end #inner-header -->
+
+		</header> <!-- end header -->
+
+		<div class="container sge-container">
+			<div class="top-left-glow"></div>
+			<div class="share-tab">
+				<ul>
+					<li class="fb-item"><div class="fb-like" data-href="http://rockstaruproar.com" data-send="false" data-layout="box_count" data-width="55" data-show-faces="false" data-font=""></div></li>
+					<li class="twitter-item"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://rockstaruproar.com" data-text="Rockstar Energy Drink UPROAR FESTIVAL" data-via="RockstarUPROAR" data-related="RockstarUPROAR" data-hashtags="RockstarUPROAR" data-count="vertical">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+					<li class="google-plus-item"><div class="g-plusone" data-size="tall" data-href="http://rockstaruproar.com"></div></li>
+					<li class="pinterest-item"><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Frockstaruproar.com&media=http%3A%2F%2Fcache.rockstaruproar.com/images/2012/RockstarUproar_thumb.jpg&description=Rockstar%20Energy%20Drink%20UPROAR%20FESTIVAL" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a></li>
+				</ul>
+			</div>
+			<div id="content" class="clearfix row-fluid">
+                <% if content_for?(:form)%>
+                    <%= render "layouts/user_status" %>
+                    <% flash.each do |name, msg| %>
+                        <div class="block">
+                            <div class="column span-24">
+                                <%= content_tag :div, msg, :class => name %>
+                            </div>
+                        </div>
+                    <% end %>
+                    <% if content_for?(:error) %>
+                        <div class="block">
+                            <div class="column span-24">
+                                <%= yield(:error) %>
+                            </div>
+                        </div>
+                    <% end %>
+                    <div class="form-wrapper">
+                        <%= yield(:form) %>
+                    </div>
+                <% else %>
+                    <%= yield %>
+                <% end %>
+			</div> <!-- end #content -->
+
+			<footer role="contentinfo">
+
+				<div id="inner-footer" class="clearfix">
+		          <div id="widget-footer" class="clearfix row">
+		            		            		            		            		            		            		          </div>
+					<div class="site-footer clearfix">
+						<nav class="clearfix">
+							<div class="footer-links clearfix">
+								<ul id="menu-footer-nav" class="menu">
+									<li id="menu-item-965" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-965"><a href="http://rockstaruproar.com/">Home</a></li>
+									<li id="menu-item-34" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-34"><a href="http://www.rockstaruproar.com/category/news/">News</a></li>
+									<li id="menu-item-1353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1353"><a href="http://rockstaruproar.com/tour-dates/">Tour Dates</a></li>
+									<li id="menu-item-911" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-911"><a href="http://rockstaruproar.com/bands/">Bands</a></li>
+									<li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="http://www.rockstaruproar.com/uproartv/">UPROAR TV</a></li>
+									<li id="menu-item-1304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1304"><a href="http://www.rockstaruproar.com/battleofthebands/">Battle of the Bands</a></li>
+									<li id="menu-item-1548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1548"><a href="http://www.rockstaruproar.com/uproar-stand-on-stage/">Contests</a></li>
+									<li id="" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://missuproar.rockstaruproar.com">Miss Uproar</a></li>
+									<li id="menu-item-295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-295"><a href="http://www.rockstaruproar.com/causes/">Causes</a></li>
+									<li id="menu-item-762" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-762"><a href="http://rockstaruproar.com/tour/">History</a></li>
+									<li id="menu-item-385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-385"><a href="http://www.rockstaruproar.com/faq/">FAQ</a></li>
+									<li id="menu-item-1310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1310"><a href="http://www.rockstaruproar.com/privacy-policy/">Privacy Policy</a></li>
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<div class="follow-share-footer">
+					<div class="socialIcons">
+						<ul>
+							<li><h3>Follow: </h3></li>
+							<li>
+								<a href="http://www.facebook.com/RockstarUPROAR" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/icons/24-facebook.png" /></a>
+							</li>
+							<li>
+								<a href="http://www.twitter.com/RockstarUPROAR" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/icons/24-twitter.png" /></a>
+							</li>
+							<li>
+								<a href="http://www.youtube.com/RockstarUPROAR" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/icons/24-youtube.png" /></a>
+							</li>
+							<li class="spacer-item"></li>
+							<li><h3>Share: </h3></li>
+							<li class="fb-item">
+								<div class="fb-like" data-href="http://www.rockstaruproar.com" data-send="false" data-layout="button_count" data-width="" data-show-faces="false" data-font=""></div>
+							</li>
+							<li class="twitter-item">
+								<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://rockstaruproar.com" data-text="Rockstar Energy Drink UPROAR FESTIVAL" data-via="RockstarUPROAR" data-related="RockstarUPROAR" data-hashtags="RockstarUPROAR" data-count="horizontal">Tweet</a>
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+							</li>
+							<li class="google-plus-item">
+								<div class="g-plusone" data-size="medium" data-href="http://rockstaruproar.com"></div>
+							</li>
+							<li class="pinterest-item">
+								<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Frockstaruproar.com&media=http%3A%2F%2Fimage.jpg&description=Rockstar%20Energy%20Drink%20UPROAR%20FESTIVAL" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-sponsors">
+					<div class="row sponsor-row">
+						<a class="span3" href="http://www.rockstar69.com"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/rockstar.png" alt="Rockstar Energy Drink" /></a>
+						<div class="span9">
+								<a href="http://www.ernieball.com/" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/ernieball.png" alt="Ernie Ball" /></a>
+								<a href="http://www.jagermeister.com/" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/jagermeister.png" alt="Jagermeister" /></a>
+								<a href="http://www.imagenrecords.com/" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/imagen_02.png" alt="sImagen Records" /></a>
+								<a href="http://www.zippoencore.com" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/zippo.png" alt="Zippo Encore" /></a>
+								<a href="http://www.schecterguitars.com/" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/schecter.png" alt="schecter" /></a>
+								<a href="http://www.thetruth.com/" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/truth.png" alt="Truth" /></a>
+								<a href="http://www.goarmy.com/reserve" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/army.png" alt="Army" /></a>
+								<a href="http://www.slurpee.com/" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/slurpee.png" alt="Slurpee" /></a>
+								<a href="http://afreserve.com/?sf=upr12" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/airforcereserve.png" alt="Air Force Reserve" /></a>
+								<a href="http://www.matadorsnacks.com" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/matador.png" alt="Matador" /></a>
+								<a href="http://www.ang.af.mil/" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/airnationalguard.png" alt="Air national Guard" /></a>
+								<a href="http://ss7bodywear.com" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/ss7.png" alt="SS7 Bodywear" /></a>
+								<a href="http://www.lunarpages.com" target="_blank"><img src="http://cache.rockstaruproar.com/images/2012/sponsors/lunarpages.png" alt="Lunar Pages" /></a>
+						</div>
+					</div>
+				</div>
+				<img class="footer-army" src="http://cache.rockstaruproar.com/images/2012/footer-army.png" />
+				<div class="bottom-line">
+					<a href="" >Privacy Policy</a> &nbsp; | &nbsp; <a href="mailto:press@rockstaruproar.com">press@rockstaruproar.com</a> &nbsp;&nbsp;&nbsp; &copy; 2012 Rockstar Energy Drink Uproar Festival &nbsp;&nbsp;&nbsp; <img src="http://cache.rockstaruproar.com/images/footerSGE.gif" style="vertical-align: -6px;"> &nbsp;&nbsp; <a href="http://www.lunarpages.com" target="_blank"><img src="http://cache.rockstaruproar.com/images/poweredbylunarpages_90x23.png" style="vertical-align: -7px;"></a>
+				</div>
+
+			<!-- </div> end #inner-footer TODO! this was not matched!-->
+
+		</footer> <!-- end footer -->
+
+	</div> <!-- end #container -->
+
+							<!-- Place this render call where appropriate -->
+							<script type="text/javascript">
+					  			(function() {
+					    				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					    				po.src = 'https://apis.google.com/js/plusone.js';
+					    				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					  			})();
+							</script>
+
+		<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+
+		<!-- scripts are now optimized via Modernizr.load -->
+		<script src="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/js/scripts.js"></script>
+
+		<!--[if lt IE 7 ]>
+  			<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+  			<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+		<![endif]-->
+
+
+		<script type="text/javascript">
+adroll_adv_id = "KNH4WG5STNDNPKHWY7JGDC";
+adroll_pix_id = "2YVONF3WVZGB7MGPXCJQM7";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+
+	</body>
+
+</html>

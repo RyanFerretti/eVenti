@@ -95,6 +95,7 @@ h1 {
 	position:absolute;
 }
 
+/* Removed for new layout
 #content {
 	width: 890px;
 	min-height: 508px;
@@ -102,6 +103,7 @@ h1 {
 	padding: 60px 0 0 48px;
 	z-index: 990;
 }
+*/
 
 #confirmation {
     width: 890px;
@@ -226,7 +228,7 @@ a:hover, a:active {
 	font-family: "MinionProRegular", "Times New Roman", Times, serif;
 	font-size: 16px;
 }
-
+/*
 #content2 {
 	width:890px;
 	min-height: 508px;
@@ -236,7 +238,7 @@ a:hover, a:active {
 	color: #ffffff;
 	line-height: 1.5;
 }
-
+*/
 .sliderMain {
 	height: 360px;
 	background: #000;
