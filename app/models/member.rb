@@ -30,6 +30,12 @@ class Member < User
     event :reject do
       transition [:pending, :active] => :rejected
     end
+    event :subscribe do
+      transition :unsubscribed => :pending
+    end
+    event :unsubscribe do
+      transition [:pending, :active] => :unsubscribed
+    end
     event :refresh do
       transition :rejected => :pending
     end

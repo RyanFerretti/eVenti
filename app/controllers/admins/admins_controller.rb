@@ -10,6 +10,10 @@ class Admins::AdminsController < ApplicationController
     render "admins/locations"
   end
 
+  def unsubscribed_members
+    @members = Member.where(:state => :unsubscribed).map{|m|m.email}
+  end
+
 private
 
   def group_locations(locations)

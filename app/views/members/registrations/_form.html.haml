@@ -178,7 +178,7 @@
             = "Credit - #{resource.pictures[i].credit}"
           - i += 1
           = ff.label :image, "Photo #{i}"
-          - if resource.new_record? || ff.object.image_file_name.nil?
+          - if (resource.new_record? || ff.object.image_file_name.nil?) || ff.object.stale?
             = ff.file_field :image, :class => "required select-other"
             = ff.label :credit
             = ff.text_field :credit, :maxlength => i_size

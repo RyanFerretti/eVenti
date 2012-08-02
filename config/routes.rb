@@ -28,13 +28,17 @@ EVenti::Application.routes.draw do
   namespace :admins do
     root :to => "admins#index"
     get "locations" => "admins#locations", :as => :locations_report
+    get "unsubscribed" => "admins#unsubscribed_members"
   end
 
   resources :members, :only => [] do
     post "activate", :action => :activate
     post "reject", :action => :reject
     post "refresh", :action => :refresh
+    #post "subscribe", :action => :subscribe
   end
+
+  post "members/subscribe" => "members#subscribe"
 
   resources :locations, :path => "/", :only => [] do
     resources :members, :path => "/", :only => [] do

@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:index]
+  before_filter :authenticate_admin!, :except => [:index,:subscribe]
+  before_filter :authenticate_member!, :only => [:subscribe]
 
   def index
     cache_5
@@ -29,6 +30,12 @@ class MembersController < ApplicationController
     member = Member.find(params[:member_id])
     member.refresh!
     redirect_to :controller => :profile, :action => :show_user, :profile_name => member.profile_name
+  end
+
+  # this is used by members who want to re-enroll in the new year's contest
+  def subscribe
+    current_member.subscribe
+    redirect_to :controller => :registrations, :action => :edit
   end
 
   private
