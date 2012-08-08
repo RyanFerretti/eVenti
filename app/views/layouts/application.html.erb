@@ -39,10 +39,6 @@
 		<!-- For everything else -->
 		<link rel="shortcut icon" href="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/favicon.ico">
 
-		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write(unescape('%3Cscript src="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/js/libs/jquery-1.7.1.min.js"%3E%3C/script%3E'))</script>
-
 		<script src="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/js/modernizr.full.min.js"></script>
 
 		<!-- media-queries.js (fallback) -->
@@ -164,6 +160,11 @@
 			<div id="content" class="clearfix row-fluid">
                 <% if content_for?(:form)%>
                     <%= render "layouts/user_status" %>
+                    <% if resource.unsubscribed? %>
+                        <div style="margin-left:150px;text-align:center;width:620px;">
+                            <%= link_to "Activate Your Account for this Year's Contest!",members_subscribe_path(ssl_options) %>
+                        </div>
+                    <% end %>
                     <% flash.each do |name, msg| %>
                         <div class="block">
                             <div class="column span-24">
@@ -285,9 +286,6 @@
 
 		<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 
-		<!-- scripts are now optimized via Modernizr.load -->
-		<script src="http://rockstaruproar.com/wp-content/themes/wordpress-bootstrap-v2.1/library/js/scripts.js"></script>
-
 		<!--[if lt IE 7 ]>
   			<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
   			<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
@@ -311,7 +309,7 @@ window.onload = function(){
    if(oldonload){oldonload()}};
 }());
 </script>
-
+    <%= yield(:footer) %>
 	</body>
 
 </html>

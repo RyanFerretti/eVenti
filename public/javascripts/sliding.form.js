@@ -22,7 +22,7 @@ $(function() {
 		var $this = $(this),
 			prev = current,
 			isValid = true;
-		current = $this.parent().index('li');
+		current = $this.parent().index();
 		
 		// validate all if at the end
 	    if(current == (fieldsetCount-1)) {

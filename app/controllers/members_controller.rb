@@ -35,7 +35,7 @@ class MembersController < ApplicationController
   # this is used by members who want to re-enroll in the new year's contest
   def subscribe
     current_member.subscribe
-    redirect_to :controller => :registrations, :action => :edit
+    redirect_to :controller => "members/registrations", :action => :edit
   end
 
   private

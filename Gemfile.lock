@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/patshaughnessy/paperclip.git
-  revision: 942a2b43383fd04c0434ca4b27379a114cb28a50
-  specs:
-    paperclip (2.3.6)
-      activerecord
-      activesupport
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -46,6 +38,7 @@ GEM
     builder (2.1.2)
     cancan (1.6.5)
     carmen (0.2.8)
+    cocaine (0.1.0)
     dalli (1.0.5)
     devise (1.3.4)
       bcrypt-ruby (~> 2.1.2)
@@ -82,6 +75,11 @@ GEM
     nifty-generators (0.4.6)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
+    paperclip (2.3.14)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.1)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -155,7 +153,7 @@ DEPENDENCIES
   kaminari
   nifty-generators
   nokogiri
-  paperclip!
+  paperclip
   rails (= 3.0.5)
   rake (= 0.8.7)
   recaptcha

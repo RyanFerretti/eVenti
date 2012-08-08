@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812023621) do
+ActiveRecord::Schema.define(:version => 20120731033532) do
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20110812023621) do
     t.string   "description"
     t.datetime "start"
     t.datetime "end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "historical_ratings", :force => true do |t|
+    t.integer  "member_id"
+    t.integer  "year"
+    t.float    "total"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

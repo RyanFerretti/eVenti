@@ -35,10 +35,9 @@ EVenti::Application.routes.draw do
     post "activate", :action => :activate
     post "reject", :action => :reject
     post "refresh", :action => :refresh
-    #post "subscribe", :action => :subscribe
   end
 
-  post "members/subscribe" => "members#subscribe"
+  get "members/subscribe" => "members#subscribe"
 
   resources :locations, :path => "/", :only => [] do
     resources :members, :path => "/", :only => [] do
