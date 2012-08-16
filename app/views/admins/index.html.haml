@@ -1,5 +1,10 @@
 #content2.admin-member-list
   %br
-  - @members.each do |m|
-    %p
-      =m
+  %h2
+    = link_to "All Members", members_path
+  %h2
+    = link_to "Members by City", admins_locations_report_path
+  %h2
+    = link_to "Unsubscribed Member Emails", admins_unsubscribed_path
+  %h2
+    = link_to "Sign Out", destroy_member_session_path

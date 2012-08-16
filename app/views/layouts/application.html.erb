@@ -160,7 +160,7 @@
 			<div id="content" class="clearfix row-fluid">
                 <% if content_for?(:form)%>
                     <%= render "layouts/user_status" %>
-                    <% if resource.unsubscribed? %>
+                    <% if resource.respond_to?(:unsubscribed?) && resource.unsubscribed? %>
                         <div style="margin-left:150px;text-align:center;width:620px;">
                             <%= link_to "Activate Your Account for this Year's Contest!",members_subscribe_path(ssl_options) %>
                         </div>

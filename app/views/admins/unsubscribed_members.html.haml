@@ -1,8 +1,6 @@
+= link_to "back to admin home", admins_root_path 
+
 #content2.admin-member-list
   %br
-  %h2
-    = link_to "All Members", members_path
-  %h2
-    = link_to "Members by City", admins_locations_report_path
-  %h2
-    = link_to "Sign Out", destroy_member_session_path
+  %p.info1
+    =@members

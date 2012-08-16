@@ -11,7 +11,8 @@ class Admins::AdminsController < ApplicationController
   end
 
   def unsubscribed_members
-    @members = Member.where(:state => :unsubscribed).map{|m|m.email}
+    @members = Member.where(:state => :unsubscribed).map{|m|m.email}.join(", ")
+    render "admins/unsubscribed_members"
   end
 
 private
@@ -19,7 +20,7 @@ private
   def group_locations(locations)
     grouping = {}
     locations.each do |l|
-      grouping[l] = {:active => 0, :pending => 0, :rejected => 0}
+      grouping[l] = {:active => 0, :pending => 0, :rejected => 0, :unsubscribed => 0}
       l.members.each do |m|
         grouping[l][m.state.to_sym] += 1
       end

@@ -1,3 +1,5 @@
+= link_to "back to admin home", admins_root_path 
+
 #content2.admin-member-list
   %h1 #{Member.count} Total Members
   - @locations.keys.sort{|a,b|a.id <=> b.id}.each do |l|
@@ -8,3 +10,4 @@
         = link_to "Active: #{@locations[l][:active]}", by_status_location_members_path(l,:status => :active), :class => :active
         = link_to "Rejected: #{@locations[l][:rejected]}", by_status_location_members_path(l,:status => :rejected), :class => :rejected
         = link_to "Pending: #{@locations[l][:pending]}", by_status_location_members_path(l,:status => :pending), :class => :pending
+        = link_to "Unsubscribed: #{@locations[l][:unsubscribed]}", by_status_location_members_path(l,:status => :unsubscribed), :class => :unsubscribed

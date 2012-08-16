@@ -414,6 +414,10 @@ a.thumbName:hover, a.thumbName:active {
     color: red;
 }
 
+.admin-member-list a.unsubscribed {
+    color: #4297d7;
+}
+
 /* Slider */
 #home-slider {
 	width: 888px;
