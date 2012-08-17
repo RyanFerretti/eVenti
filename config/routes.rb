@@ -50,6 +50,8 @@ EVenti::Application.routes.draw do
 
   resources :members, :path => "/", :only => [:index] do
     get 'page/:page', :action => :index, :on => :collection
+    get "(:year(/page/:page))" , :action => :index_by_year, :on => :collection, :constraints => { :year => /\d{4}/ }
+    #get "(:year)" , :action => :index, :on => :collection, :constraints => { :year => /\d{4}/ }
   end
   
   root :to => "home#index"

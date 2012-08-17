@@ -111,4 +111,8 @@ module ApplicationHelper
   def profile_link(display,member,klass = nil)
     link_to display, show_user_profile_path(member.profile_name), :class => klass
   end
+
+  def previous_year?
+    @year != nil
+  end
 end

@@ -13,11 +13,13 @@ class Member < User
 
   has_many :ratings, :dependent => :destroy
   has_many :pictures, :dependent => :destroy
+  has_many :historical_ratings, :dependent => :destroy
 
   accepts_nested_attributes_for :member_summary, :allow_destroy => true
   accepts_nested_attributes_for :pictures, :allow_destroy => true, :reject_if => lambda { |a| a[:image].blank? }
 
   scope :active, where(:state => :active)
+
 
   attr_accessible :member_summary_attributes, :pictures_attributes, :profile_name, :state
 
@@ -65,20 +67,33 @@ class Member < User
   end
 
   def previous(filter_state)
-    scoping = Member.includes(:pictures)
-    scoping = scoping.where(:state => filter_state) unless filter_state.blank?
-    member = scoping.where("id < ?",id).order("id desc").page(1).per(1).first
+    scoping = find_member(filter_state)
+    member = scoping.where("users.id < ?",id).order("id desc").page(1).per(1).first
     member || scoping.last
   end
 
   def next(filter_state)
-    scoping = Member.includes(:pictures)
-    scoping = scoping.where(:state => filter_state) unless filter_state.blank?
-    member = scoping.where("id > ?",id).order("id asc").page(1).per(1).first
+    scoping = find_member(filter_state)
+    member = scoping.where("users.id > ?",id).order("id asc").page(1).per(1).first
     member || scoping.first
+  end
+
+  def find_member(filter_state)
+    scoping = Member.includes(:pictures)
+    if Member.total_required_active
+      scoping = scoping.where(:state => filter_state) unless filter_state.blank?
+    else
+      year = HistoricalRating.maximum(:year)
+      scoping = scoping.joins(:historical_ratings).where(:state => [:active,:pending,:unsubscribed]).where(:historical_ratings => {:year => year})
+    end
+    scoping
   end
 
   def self.statuses
     [REGISTERED,CONTESTANT,FULL]
+  end
+
+  def self.total_required_active
+    Member.active.count >= 10
   end
 end

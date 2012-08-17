@@ -1,10 +1,20 @@
 class MembersController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:index,:subscribe]
+  before_filter :authenticate_admin!, :except => [:index, :index_by_year,:subscribe]
   before_filter :authenticate_member!, :only => [:subscribe]
 
   def index
     cache_5
-    @members = find_members().where(:state => :active)
+    @members = find_members()
+    puts @year
+    unless @year
+      @members = @members.where(:state => :active)
+    end
+  end
+
+  def index_by_year
+    cache_5
+    @members = find_members().where('state not in (?)',[:rejected])
+    render :index
   end
 
   def by_status
@@ -43,11 +53,15 @@ class MembersController < ApplicationController
   def find_members
     page = 32
     @location = params[:location_id]
+    @year = params[:year]
     query = Member.includes(:pictures,:member_summary)
     if @location
-      #page = 12
       location_name = @location.humanize.titleize
       query = Member.joins(:location).where("locations.city = ?",location_name)
+    end
+    if !Member.total_required_active || @year
+      @year ||= HistoricalRating.maximum(:year)
+      query = query.joins(:historical_ratings).where(:historical_ratings => {:year => @year})
     end
     @members = query.page(params[:page]).per(page)
   end

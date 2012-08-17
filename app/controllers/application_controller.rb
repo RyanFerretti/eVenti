@@ -27,6 +27,8 @@ class ApplicationController < ActionController::Base
   end
 
   def state_to_display
-    admin_signed_in? ? nil : :active
+    _state = admin_signed_in? ? nil : [:active]
+    _state.concat([:pending,:unsubscribed]) if _state && params[:year]
+    _state
   end
 end
