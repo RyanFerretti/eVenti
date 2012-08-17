@@ -15,7 +15,7 @@
           = link_to("Activate", member_activate_path(@member), :method => :post, :class => :button) if @member.pending?
           = link_to("Reject", member_reject_path(@member), :method => :post, :class => :button) unless @member.rejected?
           = link_to("Refresh", member_refresh_path(@member), :method => :post, :class => :button) if @member.rejected?
-      - if previous_year?
+      - if current_year?
         .voting-container
           %ul
             - 1.upto(10) do |i|

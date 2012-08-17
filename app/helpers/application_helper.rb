@@ -112,7 +112,7 @@ module ApplicationHelper
     link_to display, show_user_profile_path(member.profile_name), :class => klass
   end
 
-  def previous_year?
-    @year != nil
+  def current_year?
+    @year == nil
   end
 end
