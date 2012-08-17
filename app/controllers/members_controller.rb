@@ -5,7 +5,6 @@ class MembersController < ApplicationController
   def index
     cache_5
     @members = find_members()
-    puts @year
     unless @year
       @members = @members.where(:state => :active)
     end
@@ -58,8 +57,7 @@ class MembersController < ApplicationController
     if @location
       location_name = @location.humanize.titleize
       query = Member.joins(:location).where("locations.city = ?",location_name)
-    end
-    if !Member.total_required_active || @year
+    elsif !Member.total_required_active || @year
       @year ||= HistoricalRating.maximum(:year)
       query = query.joins(:historical_ratings).where(:historical_ratings => {:year => @year})
     end
