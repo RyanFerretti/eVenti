@@ -162,7 +162,7 @@
                     <%= render "layouts/user_status" %>
                     <% if resource.respond_to?(:unsubscribed?) && resource.unsubscribed? %>
                         <div style="margin-left:150px;text-align:center;width:620px;">
-                            <%= link_to "Activate Your Account for this Year's Contest!",members_subscribe_path(ssl_options) %>
+                            <%= link_to("Activate Your Account for this Year's Contest!", members_subscribe_path(ssl_options), :class => :button) %>
                         </div>
                     <% end %>
                     <% flash.each do |name, msg| %>
