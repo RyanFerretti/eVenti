@@ -12,26 +12,27 @@ namespace :app do
     rejected = Member.where(:state => :rejected)
     pending = Member.where(:state => :pending)
     unsubscribed = Member.where(:state => :unsubscribed)
-    members = Member.where(:state => :active).includes(:ratings)
+    members = Member.active
     year = Date.today.year - 1
 
     puts "Found #{rejected.count} rejected members."
     puts "Found #{pending.count} pending members."
     puts "Found #{unsubscribed.count} unsubscribed members."
     puts "Found #{members.count} active members. Resetting for #{year}."
-    
-    Rating.transaction do
-      members.each do |m|
-        HistoricalRating.create(:member_id => m.id, :year => year, :total => m.average_rating)
-        m.unsubscribe
-        print "."
-      end
-      puts "Deleting all old votes"
-      Rating.delete_all
-    end
+
+    ratings = Rating.average(:value,:group => :member_id)
+    member_ids = Member.active.select(:id).map{|m|m.id}
+
+    inserts = []
+    member_ids.each{|id| inserts.push("(#{id}, #{ratings[id].to_f}, #{year})")}
+    sql = "INSERT INTO historical_ratings (member_id, total, year) VALUES #{inserts.join(", ")}"
+
+    Member.active.update_all(:state => :unsubscribed)
+    HistoricalRating.connection.execute sql
+    Rating.delete_all
 
     unsubscribed = Member.where(:state => :unsubscribed)
-    members = Member.where(:state => :active)
+    members = Member.active
     puts "Now, there are #{unsubscribed.count} unsubscribed members."
     puts "Now, there are #{members.count} active members."
   end

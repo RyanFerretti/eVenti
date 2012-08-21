@@ -11,7 +11,7 @@ class Admins::AdminsController < ApplicationController
   end
 
   def unsubscribed_members
-    @members = Member.where(:state => :unsubscribed).map{|m|m.email}.join(", ")
+    @members = Member.where(:state => :unsubscribed).map{|m|m.email.strip}.join(", ")
     render "admins/unsubscribed_members"
   end
 
