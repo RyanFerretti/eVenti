@@ -449,3 +449,28 @@ a.thumbName:hover, a.thumbName:active {
 .slider-reel img{
 	width: 888px;
 }
+
+#content2 {
+	width: 890px;
+	margin: 0 auto 48px;
+}
+
+#content2 .pagination a {
+	float: none;
+	padding: 0 4px;
+	line-height: 18px;
+	border: 0 none;
+	border-left-width: 0;
+}
+
+#content2 .pagination a:hover, #content2 .pagination .active a {
+	background-color:transparent;
+	text-decoration:none;
+	color:#ccc;
+}
+
+#content2 .page.current {
+	color:#fff;
+	font-size: 18px;
+	font-weight: bold;
+}
