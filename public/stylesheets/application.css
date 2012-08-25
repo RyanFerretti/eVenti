@@ -31,6 +31,8 @@ body{
     margin-left:150px;
 	margin-top: 10px;
 	margin-bottom: 40px;
+	color: #999;
+	text-shadow: none;
 }
 
 .form-wrapper, .alert, .notice{
