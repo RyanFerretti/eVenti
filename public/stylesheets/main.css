@@ -276,6 +276,10 @@ a.thumbName, a.thumbName:visited {
 	text-decoration: none;
 	font-size: 16px;
 	font-weight: bold;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 a.thumbName:hover, a.thumbName:active {
@@ -286,7 +290,10 @@ a.thumbName:hover, a.thumbName:active {
 	color: #aaa;
 	font-size: 12px;
 	vertical-align: 4px;
-    white-space:nowrap;
+    	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .pagenation {
