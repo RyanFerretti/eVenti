@@ -156,6 +156,7 @@
 			</div>
 			<div id="content" class="clearfix row-fluid">
                 <% if content_for?(:form)%>
+                    <a href="http://missuproar.rockstaruproar.com" class="missU-header"><img src="http://cache.rockstaruproar.com/images/2012/missuproar/missUproarHeader_03.png"></a>
                     <%= render "layouts/user_status" %>
                     <% if resource.respond_to?(:unsubscribed?) && resource.unsubscribed? %>
                         <div style="margin-left:150px;text-align:center;width:620px;">
