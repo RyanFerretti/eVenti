@@ -95,6 +95,10 @@ h1 {
 	position:absolute;
 }
 
+.missU-header {
+    position: absolute;
+}
+
 /* Removed for new layout
 #content {
 	width: 890px;
@@ -197,7 +201,7 @@ a:hover, a:active {
 
 .user_nav {
     color:#fff;
-	margin-top: 200px;
+	margin-top: 240px;
     margin-bottom: 20px;
 }
 
