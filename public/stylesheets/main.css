@@ -110,12 +110,10 @@ h1 {
 */
 
 #confirmation {
-    width: 890px;
-    height: 698px;
+    height: 550px;
     margin: 0;
-    padding: 0 0 0 48px;
-    background: url(http://missimages.rockstaruproar.com/images/sullenModel2_02.jpg) black bottom no-repeat;
-}
+    padding: 0;
+
 
 .info1 {
 	width: 840px;
@@ -137,8 +135,8 @@ h1 {
 }
 
 .info3 {
-    margin-top: 200px;
-    width: 320px;
+    margin: 220px auto;
+    width: 720px;
     text-align: justify;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
